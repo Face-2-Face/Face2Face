@@ -1,9 +1,14 @@
 {
-  "name": "face2faceapp",
-  "scripts": {},
-  "env": {},
-  "formation": {},
-  "addons": [],
+  "name": "Face2Face",
+  "scripts": {
+  },
+  "env": {
+  },
+  "formation": {
+  },
+  "addons": [
+
+  ],
   "buildpacks": [
     {
       "url": "heroku/nodejs"
