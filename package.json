@@ -1,9 +1,12 @@
 {
-  "name": "course.thesis",
+  "name": "face2face",
   "version": "1.0.0",
+  "engines": {
+    "node": "6.9.4",
+    "yarn": "0.24.6"
+  },
   "scripts": {
-    "postinstall": "curl -s https://raw.githubusercontent.com/reactorcore/pomander/master/bin/install | bash",
-    "start": "nodemon server",
+    "start": "node",
     "test": "NODE_ENV=test grunt test",
     "build": "webpack --watch"
   },
