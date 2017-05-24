@@ -1,17 +1,17 @@
-# Project Name
+# Face2Face
 
-The project description
+An interactive, Tinder-inspired app that allows users to be matched face to face through video roulette feature.
 
 ## Team
 
-- teamMember
-- teamMember
-- teamMember
-- teamMember
+- Matthew Aguirre
+- Eric Davis
+- Jennifer Hwa
+- Yurika Jacobsson
 
 ## Roadmap
 
-View the project roadmap [here](LINK_TO_DOC)
+View the project roadmap [https://docs.google.com/document/d/1A2zy15K-Wb3RkjVLB4BQqMGM_UhyEDCi4N0UNWyx148/edit?usp=sharing]
 
 ## Contributing
 
@@ -31,10 +31,14 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
 
 ## Requirements
 
-- Node 6.9.x
-- Redis 3.2.x
-- Postgresql 9.6.x
-- etc
+- React 
+- React Router
+- Facebook API
+- Twilio 
+- Socket.io
+- NodeJS/Express
+- PostgreSQL
+- Redis
 
 ## Development
 
