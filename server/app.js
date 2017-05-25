@@ -4,10 +4,10 @@ const express = require('express');
 const path = require('path');
 const middleware = require('./middleware');
 const routes = require('./routes');
-//hello no more fun
-//
-//cool
 
+//hello no more fun
+
+//this is fun
 const app = express();
 
 app.use(middleware.morgan('dev'));
