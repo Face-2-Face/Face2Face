@@ -1,14 +1,19 @@
 {
-  "name": "Face2Face",
-  "scripts": {
-  },
+  "name": "face2faceapp",
+  "scripts": {},
   "env": {
+    "clientID": {
+      "required": true
+    },
+    "clientSecret": {
+      "required": true
+    },
+    "callbackURL": {
+      "required": true
+    }
   },
-  "formation": {
-  },
-  "addons": [
-
-  ],
+  "formation": {},
+  "addons": [],
   "buildpacks": [
     {
       "url": "heroku/nodejs"

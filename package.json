@@ -2,11 +2,12 @@
   "name": "face2face",
   "version": "1.0.0",
   "engines": {
-    "node": "6.9.4",
-    "yarn": "0.24.6"
+    "node": "7.8.0",
+    "yarn": "0.24.6",
+    "npm": "4.2.0"
   },
   "scripts": {
-    "start": "node",
+    "start": "node server",
     "test": "NODE_ENV=test grunt test",
     "build": "webpack --watch"
   },
@@ -29,6 +30,7 @@
     "grunt-pg": "https://github.com/watsoncj/grunt-pg.git",
     "knex": "^0.12.9",
     "morgan": "^1.8.1",
+    "nodemon": "^1.11.0",
     "passport": "^0.3.2",
     "passport-facebook": "^2.1.1",
     "passport-google-oauth": "^1.0.0",
@@ -55,6 +57,11 @@
     "supertest": "^3.0.0",
     "webpack": "^2.3.2",
     "webpack-dev-server": "^2.4.2"
+  },
+  "env":{
+    "face2faceapp-staging": {
+      "required": true
+    }
   },
   "babel": {
     "plugins": [
