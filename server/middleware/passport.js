@@ -120,9 +120,9 @@ passport.use('google', new GoogleStrategy({
 );
 
 passport.use('facebook', new FacebookStrategy({
-  clientID: config.Facebook.clientID,
-  clientSecret: config.Facebook.clientSecret,
-  callbackURL: config.Facebook.callbackURL,
+  clientID: process.env.clientID,
+  clientSecret: process.env.clientSecret,
+  callbackURL: process.env.callbackURL,
   profileFields: ['id', 'emails', 'name']
 },
   (accessToken, refreshToken, profile, done) => getOrCreateOAuthProfile('facebook', profile, done))
