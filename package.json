@@ -7,7 +7,7 @@
     "npm": "4.2.0"
   },
   "scripts": {
-    "start": "node server",
+    "start": "node server.js",
     "test": "NODE_ENV=test grunt test",
     "build": "webpack --watch"
   },
@@ -59,9 +59,7 @@
     "webpack-dev-server": "^2.4.2"
   },
   "env":{
-    "face2faceapp-staging": {
-      "required": true
-    }
+
   },
   "babel": {
     "plugins": [
