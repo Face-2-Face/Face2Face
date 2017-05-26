@@ -41,14 +41,14 @@ router.route('/logout')
     res.redirect('/');
   });
 
-// router.get('/auth/google', middleware.passport.authenticate('google', {
-//   scope: ['email', 'profile']
-// }));
+router.get('/auth/google', middleware.passport.authenticate('google', {
+  scope: ['email', 'profile']
+}));
 
-// router.get('/auth/google/callback', middleware.passport.authenticate('google', {
-//   successRedirect: '/profile',
-//   failureRedirect: '/login'
-// }));
+router.get('/auth/google/callback', middleware.passport.authenticate('google', {
+  successRedirect: '/profile',
+  failureRedirect: '/login'
+}));
 
 router.get('/auth/facebook', middleware.passport.authenticate('facebook', {
   scope: ['public_profile', 'email']
@@ -60,11 +60,11 @@ router.get('/auth/facebook/callback', middleware.passport.authenticate('facebook
   failureFlash: true
 }));
 
-// router.get('/auth/twitter', middleware.passport.authenticate('twitter'));
+router.get('/auth/twitter', middleware.passport.authenticate('twitter'));
 
-// router.get('/auth/twitter/callback', middleware.passport.authenticate('twitter', {
-//   successRedirect: '/profile',
-//   failureRedirect: '/login'
-// }));
+router.get('/auth/twitter/callback', middleware.passport.authenticate('twitter', {
+  successRedirect: '/profile',
+  failureRedirect: '/login'
+}));
 
 module.exports = router;
