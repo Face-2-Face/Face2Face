@@ -14,6 +14,10 @@
   "author": "Hack Reactor",
   "license": "MIT",
   "dependencies": {
+    "babel-loader": "^7.0.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.24.0",
+    "babel-preset-latest": "^6.24.0",
+    "babel-preset-react": "^6.23.0",
     "babel-core": "^6.24.1",
     "bcrypt-nodejs": "^0.0.3",
     "bluebird": "^3.5.0",
@@ -41,6 +45,8 @@
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "redis": "^2.7.1",
+    "webpack": "^2.3.2",
+    "webpack-dev-server": "^2.4.2",
     "yarn": "^0.24.5"
   },
   "devDependencies": {
