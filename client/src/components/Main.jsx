@@ -13,7 +13,8 @@ class Main extends React.Component {
             <div>
                 <Router>
                     <div>
-                    <Route path="/" render={(props) => (<Login />)} />
+                        <div>Hola Mundo</div>
+                        <Route path="/" component={Login}></Route>
                     </div>
                 </Router>
             </div>

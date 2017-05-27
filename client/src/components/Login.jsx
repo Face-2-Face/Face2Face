@@ -26,6 +26,16 @@ class Login extends React.Component {
                     <button type="submit" className="btn btn-warning btn-lg">Login</button>
                 </form>
 
+                <div>
+                    Or login with any of the following services:<br />
+                    <a href="/auth/facebook"><img src="/assets/fb-logo.png" /></a>
+                    <a href="/auth/google"><img src="/assets/google-logo.png" /></a>
+                    <a href="/auth/twitter"><img src="/assets/twitter-logo.png" /></a>
+                </div>
+
+                <p>Need to sign up for an account? <a href="/signup">Signup</a></p>
+                <p><a href="/">home</a></p>
+
             </div>
             </div>
             </div>
@@ -33,4 +43,4 @@ class Login extends React.Component {
     }
 }
 
-export default Login;
+export default Login
