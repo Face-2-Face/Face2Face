@@ -7,7 +7,7 @@
     "npm": "4.2.0"
   },
   "scripts": {
-    "start": "node server",
+    "start": "node server.js",
     "test": "NODE_ENV=test grunt test",
     "postinstall": "webpack"
   },
