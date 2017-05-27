@@ -9,11 +9,13 @@
   "scripts": {
     "start": "node server",
     "test": "NODE_ENV=test grunt test",
-    "build": "webpack --watch"
+    "build": "webpack --watch",
+    "heroku-postbuild": "webpack -p --config ./webpack.prod.config.js --progress"
   },
   "author": "Hack Reactor",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.16.1",
     "babel-core": "^6.24.1",
     "bcrypt-nodejs": "^0.0.3",
     "bluebird": "^3.5.0",
@@ -40,11 +42,14 @@
     "postgresql": "0.0.1",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
+    "react-router-dom": "^4.1.1",
     "redis": "^2.7.1",
     "yarn": "^0.24.5"
   },
   "devDependencies": {
+    "babel-cli": "^6.24.1",
     "babel-loader": "^7.0.0",
+    "babel-core": "^6.24.1",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.24.0",
     "babel-preset-latest": "^6.24.0",
     "babel-preset-react": "^6.23.0",
@@ -58,8 +63,10 @@
     "webpack": "^2.3.2",
     "webpack-dev-server": "^2.4.2"
   },
-  "env":{
-
+  "env": {
+    "face2faceapp-staging": {
+      "required": true
+    }
   },
   "babel": {
     "plugins": [
