@@ -4,8 +4,15 @@ const express = require('express');
 const path = require('path');
 const middleware = require('./middleware');
 const routes = require('./routes');
+const bodyParser = require('body-parser');
 
 const app = express();
+
+app.use(bodyParser.json());
+
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 
 app.use(middleware.morgan('dev'));
 app.use(middleware.cookieParser());
@@ -24,5 +31,14 @@ app.use(express.static(path.join(__dirname, '../public')));
 app.use('/', routes.auth);
 app.use('/api', routes.api);
 app.use('/api/profiles', routes.profiles);
+//app.use('/', './client.index.html');
+
+// app.get('/', function(req, res) {
+//   console.log(__dirname);
+//     res.sendFile('/Users/matthewaguirre/Face2Face/client/index.html');
+// });
+//
+// app.use('/client', express.static(__dirname + '../client'));
+// app.use('/', express.static(__dirname + '../client'));
 
 module.exports = app;
