@@ -38,3 +38,4 @@ dist/
 # bower_components/
 
 redis-stable/
+client/public/dist/bundle.js
