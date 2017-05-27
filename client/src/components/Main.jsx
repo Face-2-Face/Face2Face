@@ -7,7 +7,7 @@ class Main extends React.Component {
 
     render () {
         return (
-            <div>zak the angel</div>
+            <div>Hola mundo</div>
         );
     }
 }

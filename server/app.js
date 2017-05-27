@@ -19,10 +19,11 @@ app.use(middleware.passport.initialize());
 app.use(middleware.passport.session());
 app.use(middleware.flash());
 
-// app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(path.join(__dirname, '../client')));
 
 // app.use('/', routes.auth);
-app.use('/', express.static(__dirname + '../public'));
+// app.use('/', express.static(path.join(__dirname, '../client/app')));
 // app.use('/api', routes.api);
 // app.use('/api/profiles', routes.profiles);
 
