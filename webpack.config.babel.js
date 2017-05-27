@@ -1,16 +1,19 @@
 import webpack from 'webpack';
 import path from 'path';
 
+var SRC_DIR = path.join(__dirname, '/client/src');
+var DIST_DIR = path.join(__dirname, '/client/dist');
+
 const config = {
-  entry: './client/src/app',
+  entry: `${SRC_DIR}/app.js`,
   output: {
-    path: path.join(__dirname, 'client/public/dist'),
+    path: DIST_DIR,
     filename: 'bundle.js'
   },
   module: {
     rules: [
       { test: /\.(js|jsx)$/,
-        include: path.join(__dirname, 'client/src'),
+        include: SRC_DIR,
         exclude: ['node_modules'],
         use: [
           { loader: 'babel-loader',
