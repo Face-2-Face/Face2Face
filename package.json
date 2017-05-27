@@ -9,7 +9,8 @@
   "scripts": {
     "start": "node server",
     "test": "NODE_ENV=test grunt test",
-    "build": "webpack --watch"
+    "build": "webpack --watch",
+    "heroku-postbuild": "webpack -p --config ./webpack.prod.config.js --progress"
   },
   "author": "Hack Reactor",
   "license": "MIT",
@@ -64,9 +65,6 @@
   },
   "env": {
     "face2faceapp-staging": {
-      "required": true
-    },
-    "face2faceapp": {
       "required": true
     }
   },
