@@ -4,7 +4,7 @@ const middleware = require('../middleware');
 const router = express.Router();
 
 router.route('/')
-  .get((req, res) => {
+  .get(middleware.auth.verify, (req, res) => {
     res.render('index.ejs');
   });
 
@@ -31,9 +31,8 @@ router.route('/signup')
 
 router.route('/profile')
   .get(middleware.auth.verify, (req, res) => {
-    // change this to response.sendFile(path.join((index.html)))
     res.render('profile.ejs', {
-      user: req.user // get the user out of session and pass to template. Here we should pass to app.js and maybe prop to component?
+      user: req.user // get the user out of session and pass to template
     });
   });
 
@@ -57,8 +56,8 @@ router.get('/auth/facebook', middleware.passport.authenticate('facebook', {
 }));
 
 router.get('/auth/facebook/callback', middleware.passport.authenticate('facebook', {
-  successRedirect: '/signup',
-  failureRedirect: '/',
+  successRedirect: '/profile',
+  failureRedirect: '/login',
   failureFlash: true
 }));
 
