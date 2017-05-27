@@ -41,6 +41,8 @@
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "redis": "^2.7.1",
+    "webpack": "^2.4.1",
+    "webpack-dev-server": "^2.4.2",
     "yarn": "^0.24.5"
   },
   "devDependencies": {
@@ -55,7 +57,7 @@
     "mocha": "^3.2.0",
     "node-mocks-http": "^1.6.1",
     "supertest": "^3.0.0",
-    "webpack": "^2.3.2",
+    "webpack": "^2.4.1",
     "webpack-dev-server": "^2.4.2"
   },
   "env":{
