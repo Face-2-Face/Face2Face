@@ -4,7 +4,7 @@ import path from 'path';
 const config = {
   entry: './client/src/app',
   output: {
-    path: path.join(__dirname, 'public/dist'),
+    path: path.join(__dirname, 'client/public/dist'),
     filename: 'bundle.js'
   },
   module: {
