@@ -4,7 +4,7 @@ const middleware = require('../middleware');
 const router = express.Router();
 
 router.route('/')
-  .get(middleware.auth.verify, (req, res) => {
+  .get((req, res) => {
     res.render('index.ejs');
   });
 
@@ -56,7 +56,7 @@ router.get('/auth/facebook', middleware.passport.authenticate('facebook', {
 
 router.get('/auth/facebook/callback', middleware.passport.authenticate('facebook', {
   successRedirect: '/profile',
-  failureRedirect: '/login',
+  failureRedirect: '/',
   failureFlash: true
 }));
 
