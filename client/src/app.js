@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Main from './components/Main.jsx';
 
-ReactDOM.render(<Main />, document.getElementById('app'));
+import Form from './components/Form.jsx';
+
+ReactDOM.render(<Form />, document.getElementById('root'));
+
