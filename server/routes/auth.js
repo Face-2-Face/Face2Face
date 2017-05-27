@@ -11,6 +11,7 @@ router.route('/')
 router.route('/login')
   .get((req, res) => {
     res.render('login.ejs', { message: req.flash('loginMessage') });
+    // res.render('../../client/index.html', { message: req.flash('loginMessage') }); 
   })
   .post(middleware.passport.authenticate('local-login', {
     successRedirect: '/profile',
@@ -68,3 +69,5 @@ router.get('/auth/twitter/callback', middleware.passport.authenticate('twitter',
 }));
 
 module.exports = router;
+
+//this is a comment
