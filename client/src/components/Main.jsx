@@ -1,4 +1,7 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+
+import Login from './Login.jsx';
 
 class Main extends React.Component {
     constructor(props) {
@@ -7,9 +10,15 @@ class Main extends React.Component {
 
     render () {
         return (
-            <div>Hola mundo</div>
+            <div>
+                <Router>
+                    <div>
+                    <Route path="/" render={(props) => (<Login />)} />
+                    </div>
+                </Router>
+            </div>
         );
     }
 }
 
-export default Main;
+export default Main
