@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from './Head.jsx';
 
 class Login extends React.Component {
     constructor(props) {
@@ -8,6 +9,7 @@ class Login extends React.Component {
     render () {
         return (
             <div>
+                <Head />
                 <div className="col-sm-6 col-sm-offset-3">
 
                 <h1><span className="fa fa-sign-in"></span>Login</h1>
@@ -28,9 +30,9 @@ class Login extends React.Component {
 
                 <div>
                     Or login with any of the following services:<br />
-                    <a href="/auth/facebook"><img src="/assets/fb-logo.png" /></a>
-                    <a href="/auth/google"><img src="/assets/google-logo.png" /></a>
-                    <a href="/auth/twitter"><img src="/assets/twitter-logo.png" /></a>
+                    <a href="/auth/facebook"><img src="/public/assets/fb-logo.png" /></a>
+                    <a href="/auth/google"><img src="/public/assets/google-logo.png" /></a>
+                    <a href="/auth/twitter"><img src="/public/assets/twitter-logo.png" /></a>
                 </div>
 
                 <p>Need to sign up for an account? <a href="/signup">Signup</a></p>
