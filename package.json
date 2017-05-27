@@ -9,6 +9,7 @@
   "scripts": {
     "start": "node server",
     "test": "NODE_ENV=test grunt test",
+    "build": "webpack --watch",
     "postinstall": "webpack"
   },
   "author": "Hack Reactor",
