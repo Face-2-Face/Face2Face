@@ -6,7 +6,7 @@ An interactive, Tinder-inspired app that allows users to be matched face to face
 
 - Matthew Aguirre
 - Eric Davis
-- Jennifer Hwa --
+- Jennifer Hwa
 - Yurika Jacobsson
 
 ## Roadmap
