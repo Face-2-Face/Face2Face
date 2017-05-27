@@ -10,7 +10,7 @@
     "start": "node server",
     "test": "NODE_ENV=test grunt test",
     "build": "webpack --watch",
-    "heroku-postbuild": "webpack -p --config ./webpack.config.babel.js --progress"
+    "postinstall": "webpack"
   },
   "author": "Hack Reactor",
   "license": "MIT",
@@ -46,6 +46,7 @@
     "yarn": "^0.24.5"
   },
   "devDependencies": {
+    "babel-cli": "^6.24.1",
     "babel-loader": "^7.0.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.24.0",
     "babel-preset-latest": "^6.24.0",
@@ -60,7 +61,11 @@
     "webpack": "^2.3.2",
     "webpack-dev-server": "^2.4.2"
   },
-  "env": {},
+  "env": {
+    "face2faceapp-staging": {
+      "required": true
+    }
+  },
   "babel": {
     "plugins": [
       "transform-es2015-modules-commonjs"
