@@ -14,6 +14,7 @@
   "author": "Hack Reactor",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.16.1",
     "babel-core": "^6.24.1",
     "bcrypt-nodejs": "^0.0.3",
     "bluebird": "^3.5.0",
@@ -40,6 +41,7 @@
     "postgresql": "0.0.1",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
+    "react-router-dom": "^4.1.1",
     "redis": "^2.7.1",
     "yarn": "^0.24.5"
   },
@@ -58,9 +60,7 @@
     "webpack": "^2.3.2",
     "webpack-dev-server": "^2.4.2"
   },
-  "env":{
-
-  },
+  "env": {},
   "babel": {
     "plugins": [
       "transform-es2015-modules-commonjs"
