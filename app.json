@@ -13,6 +13,9 @@
     },
     "REDIS_URL": {
       "required": true
+    },
+    "NPM_CONFIG_PRODUCTION": {
+      "required": true
     }
   },
   "formation": {},
