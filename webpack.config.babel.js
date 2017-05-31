@@ -21,9 +21,6 @@ const config = {
         ]
       }
     ]
-  },
-  resolve: {
-    extensions: ['.js', '.json', '.jsx']
   }
 };
 
