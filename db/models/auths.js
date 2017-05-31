@@ -34,3 +34,5 @@ const Auth = db.Model.extend({
 });
 
 module.exports = db.model('Auth', Auth);
+
+//hey hey this is another comment
