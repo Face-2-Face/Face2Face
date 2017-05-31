@@ -22,10 +22,9 @@ app.use(middleware.flash());
 app.use('/public', express.static(path.join(__dirname, '../public')));
 
 app.use('/', routes.auth);
-//allows us to use React Router
-app.use('*', routes.auth);
-
 app.use('/api', routes.api);
 app.use('/api/profiles', routes.profiles);
+//allows us to use React Router
+app.use('*', routes.auth);
 
 module.exports = app;
