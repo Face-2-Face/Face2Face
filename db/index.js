@@ -1,4 +1,4 @@
-const knex = require('knex')(require('../knexfile')[process.env.DATABASE_URL]);
+const knex = require('knex')(require('../knexfile'));
 const db = require('bookshelf')(knex);
 
 db.plugin('registry');
