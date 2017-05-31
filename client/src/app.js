@@ -15,7 +15,7 @@ ReactDOM.render(
     <div>
       <Route exact path="/" component={Home} />
       <Route path="/welcome" component={StartingScreen} />
-      <Route path="/profeel" component={Profile} />
+      <Route path="/profile" component={Profile} />
       <Route path="/settings" component={Settings} />
     </div>
   </Router>, document.getElementById('root'));
