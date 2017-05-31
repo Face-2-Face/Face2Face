@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './Header.jsx';
 
-class Home extends React.Component {
+class Settings extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -15,4 +15,4 @@ class Home extends React.Component {
   }
 }
 
-export default Home
+export default Settings
