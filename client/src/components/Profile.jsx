@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './Header.jsx';
 
-class Home extends React.Component {
+class Profile extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -10,9 +10,10 @@ class Home extends React.Component {
     return (
       <div>
         <Header />
+        <h3>Hello</h3>
       </div>
     )
   }
 }
 
-export default Home
+export default Profile
