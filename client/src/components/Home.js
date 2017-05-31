@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from './Header.jsx';
 
 class Home extends React.Component {
   constructor(props) {
@@ -9,10 +8,10 @@ class Home extends React.Component {
   render() {
     return (
       <div>
-        <Header />
+        <h1>This is the Home component</h1>
       </div>
     )
   }
 }
 
-export default Home
+export default Home;
