@@ -123,7 +123,7 @@ passport.use('facebook', new FacebookStrategy({
   clientID: process.env.clientID,
   clientSecret: process.env.clientSecret,
   callbackURL: process.env.callbackURL,
-  profileFields: ['id', 'emails', 'name']
+  profileFields: ['id', 'emails', 'name', 'photos']
 },
   (accessToken, refreshToken, profile, done) => getOrCreateOAuthProfile('facebook', profile, done))
 );
