@@ -123,7 +123,7 @@ passport.use('facebook', new FacebookStrategy({
   clientID: process.env.clientID,
   clientSecret: process.env.clientSecret,
   callbackURL: process.env.callbackURL,
-  profileFields: ['id', 'emails', 'name', 'photos']
+  profileFields: ['id', 'emails', 'name', 'photos', 'age_range', 'gender']
 },
   (accessToken, refreshToken, profile, done) => getOrCreateOAuthProfile('facebook', profile, done))
 );
@@ -160,7 +160,12 @@ const getOrCreateOAuthProfile = (type, oauthProfile, done) => {
         first: oauthProfile.name.givenName,
         last: oauthProfile.name.familyName,
         display: oauthProfile.displayName || `${oauthProfile.name.givenName} ${oauthProfile.name.familyName}`,
-        email: oauthProfile.emails[0].value
+        email: oauthProfile.emails[0].value,
+        photo: oauthProfile.photos[0].value,
+        age_min: oauthProfile._json.age_range.min,
+        age_max: oauthProfile._json.age_range.max,
+        gender: oauthProfile.gender,
+        fb_id: oauthProfile.id
       };
 
       if (profile) {
