@@ -7,6 +7,10 @@ const routes = require('./routes');
 
 const app = express();
 
+const server = require('http').Server(app);
+const io = require('socket.io')(server);
+
+
 app.use(middleware.morgan('dev'));
 app.use(middleware.cookieParser());
 app.use(middleware.bodyParser.urlencoded({extended: false}));
@@ -26,5 +30,13 @@ app.use('/api', routes.api);
 app.use('/api/profiles', routes.profiles);
 //allows us to use React Router
 app.use('*', routes.auth);
+
+//socket.io connection
+io.on('connection', function(socket) {
+    socket.emit('server event', {foo: 'bar'});
+    socket.on('client event', function(data) {
+        console.log(data);
+    })
+})
 
 module.exports = app;
