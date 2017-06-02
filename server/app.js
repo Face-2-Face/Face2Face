@@ -25,6 +25,8 @@ app.use('/', routes.auth);
 app.use('/api', routes.api);
 app.use('/api/profiles', routes.profiles);
 //allows us to use React Router
-app.use('*', routes.auth);
+app.get('/*', (req,res) => {
+    res.render('index.ejs');
+});
 
 module.exports = app;
