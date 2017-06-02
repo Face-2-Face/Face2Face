@@ -22,7 +22,10 @@ class Profile extends React.Component {
           <Header />
         </div>
         <div className="row">
-          <h1 className="text-center">Hello {profile.first}</h1>
+          <p></p>
+        </div>
+        <div className="row">
+          <p className="text-center profile-name"><strong>Hello {profile.first}</strong></p>
         </div>
         <div className="row">
           <img className="img-circle center-block profile-img"src={profile.photo}/>
