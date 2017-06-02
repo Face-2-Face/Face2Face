@@ -25,11 +25,15 @@ class Profile extends React.Component {
           <p></p>
         </div>
         <div className="row">
-          <p className="text-center profile-name"><strong>Hello {profile.first}</strong></p>
+          <p className="text-center profile-name"><strong>Hello {profile.first}!</strong></p>
         </div>
         <div className="row">
           <img className="img-circle center-block profile-img"src={profile.photo}/>
-        </div>        
+        </div>
+        <div className="row">
+          <img className="img-circle center-block profile-img"src={profile.photo}/>
+        </div>
+                
       </div>
     )
   }
