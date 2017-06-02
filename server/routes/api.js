@@ -2,9 +2,9 @@
 const express = require('express');
 const router = express.Router();
 
-router.route('/')
+router.route('/user')
   .get((req, res) => {
-    res.status(200).send('Hello World!');
+    res.status(200).send(req.user);
   })
   .post((req, res) => {
     console.log('in the correct route');
