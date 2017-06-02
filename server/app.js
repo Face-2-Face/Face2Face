@@ -7,8 +7,8 @@ const routes = require('./routes');
 
 const app = express();
 
-const server = require('http').Server(app);
-const io = require('socket.io')(server);
+const http = require('http').Server(app);
+const io = require('socket.io')(http);
 
 
 app.use(middleware.morgan('dev'));
@@ -33,10 +33,19 @@ app.use('*', routes.auth);
 
 //socket.io connection
 io.on('connection', function(socket) {
-    socket.emit('server event', {foo: 'bar'});
-    socket.on('client event', function(data) {
-        console.log(data);
-    })
-})
+  // socket.emit('server event', {hola: 'mundo'});
+  socket.on('client message', function(message) {
+    console.log('this is the message', message);
+    socket.broadcast.emit('message', message);
+  });
+  console.log('user connection established');
+  socket.on('disconnect', function() {
+    console.log('user connection disconnected');
+  });
+});
+
+http.listen(8080, function() {
+  console.log('listening on port 8080');
+});
 
 module.exports = app;

@@ -10,8 +10,7 @@ class Profile extends React.Component {
     return (
       <div>
         <Header />
-        <h3>This is the Profile Page</h3>
-        <h3>Hello</h3>
+        <h4>This is the Profile Page</h4>
       </div>
     )
   }
