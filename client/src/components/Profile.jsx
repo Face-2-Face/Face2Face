@@ -18,9 +18,15 @@ class Profile extends React.Component {
 
     return (
       <div>
-        <Header />
-        <h2 className="test">Hello {profile.first}</h2>
-        <img className="img-circle profile-img"src={profile.photo}/>
+        <div className="row">
+          <Header />
+        </div>
+        <div className="row">
+          <h1 className="text-center">Hello {profile.first}</h1>
+        </div>
+        <div className="row">
+          <img className="img-circle center-block profile-img"src={profile.photo}/>
+        </div>        
       </div>
     )
   }
