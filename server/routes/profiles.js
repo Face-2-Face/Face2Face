@@ -13,5 +13,15 @@ router.route('/:id')
   .put(ProfileController.update)
   // .delete(ProfileController.deleteOne)
   ;
+// router.route('/user')
+//   .get(ProfileController.getUser)
+//   ;
+//
+// router.route('/api/profiles/user')
+//   .get(ProfileController.getUser)
+//   ;
 
 module.exports = router;
+
+// for specific routes, put something like this in here:
+//router.route('/specific')

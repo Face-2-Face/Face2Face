@@ -5,10 +5,11 @@ import {
   Route
 } from 'react-router-dom';
 
-import Home from './components/Home';
-import StartingScreen from './components/StartingScreen';
-import Profile from './components/Profile';
-import Settings from './components/Settings';
+import Home from './components/Home.jsx';
+import StartingScreen from './components/StartingScreen.jsx';
+import Profile from './components/Profile.jsx';
+import Settings from './components/Settings.jsx';
+import VideoChat from './components/VideoChat.jsx'
 
 ReactDOM.render(
   <Router>

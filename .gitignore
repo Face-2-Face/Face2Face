@@ -5,6 +5,7 @@ config/staging.json
 config/test.json
 .env
 knexfile.js
+package.json
 
 # OS X
 .DS_Store
