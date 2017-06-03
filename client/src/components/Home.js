@@ -27,9 +27,8 @@ class Home extends React.Component {
     console.log('HOME', this.state.profile)
     return (
       <div>
-        <Header />
-        <Link to={{pathname:'/profile', state: {profile: this.state.profile}}}>Profile</Link>
-        <div><h2>READY TO VIDEO CHAT</h2></div>
+        <Header profile={this.state.profile}/>       
+        <div><h2 className="text-center">READY TO VIDEO CHAT</h2></div>
       </div>
     )
   }
