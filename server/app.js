@@ -12,10 +12,6 @@ const io = require('socket.io')(http);
 
 const port = process.env.PORT || 3000;
 
-http.listen(port, function() {
-  console.log('listening on port ' + port);
-});
-
 app.use(middleware.morgan('dev'));
 app.use(middleware.cookieParser());
 app.use(middleware.bodyParser.urlencoded({extended: false}));
@@ -38,6 +34,7 @@ app.get('/*', (req,res) => {
     res.render('index.ejs');
 });
 
+
 //socket.io connection
 io.on('connection', function(socket) {
   // socket.emit('server event', {hola: 'mundo'});
@@ -49,6 +46,10 @@ io.on('connection', function(socket) {
   socket.on('disconnect', function() {
     console.log('user connection disconnected');
   });
+});
+
+http.listen(port, function() {
+  console.log('listening on port ' + port);
 });
 
 module.exports = app;
