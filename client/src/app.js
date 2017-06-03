@@ -10,6 +10,7 @@ import StartingScreen from './components/StartingScreen';
 import Profile from './components/Profile';
 import Settings from './components/Settings';
 import Lobby from './components/Lobby';
+import ChatRoom from './components/ChatRoom';
 
 
 ReactDOM.render(
@@ -20,5 +21,6 @@ ReactDOM.render(
       <Route path="/profile" component={Profile} />
       <Route path="/settings" component={Settings} />
       <Route path="/lobby" component={Lobby} />
+      <Route path="/chat" component={ChatRoom} />
     </div>
   </Router>, document.getElementById('root'));
