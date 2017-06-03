@@ -1,5 +1,7 @@
 import React from 'react';
 import Header from './Header.jsx';
+import { Link } from 'react-router-dom';
+
 
 
 class Profile extends React.Component {
@@ -9,9 +11,6 @@ class Profile extends React.Component {
       profile: this.props.location.state.profile
     }
   }
-
-
-
 
   render() {
     let profile = this.state.profile;
@@ -31,7 +30,7 @@ class Profile extends React.Component {
           <img className="img-circle center-block profile-img"src={profile.photo}/>
         </div>
         <div className="row">
-          <img className="img-circle center-block profile-img"src={profile.photo}/>
+          <span>Preferences</span><Link to='/settings'><img className="settingsIcon" src="public/assets/settings.png"/></Link>
         </div>
                 
       </div>
