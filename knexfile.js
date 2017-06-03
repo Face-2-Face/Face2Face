@@ -4,13 +4,13 @@
 
 module.exports = {
   client: "postgresql",
-  connection: process.env.DATABASE_URL || {
+  connection: {
       "database": "face2face_devel",
       "user": "postgres",
       "password": "postgres",
       "host": "localhost",
       "port": 5432
-    },
+    } || process.env.DATABASE_URL,
   pool: {
       "min": 2,
       "max": 10
