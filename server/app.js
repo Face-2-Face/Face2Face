@@ -7,11 +7,6 @@ const routes = require('./routes');
 
 const app = express();
 
-const http = require('http').Server(app);
-const io = require('socket.io')(http);
-
-const port = process.env.PORT || 3000;
-
 app.use(middleware.morgan('dev'));
 app.use(middleware.cookieParser());
 app.use(middleware.bodyParser.urlencoded({extended: false}));
@@ -33,8 +28,6 @@ app.use('/api/profiles', routes.profiles);
 app.get('/*', (req,res) => {
     res.render('index.ejs');
 });
-
-
 //socket.io connection!!
 io.on('connection', function(socket) {
   // socket.emit('server event', {hola: 'mundo'});
@@ -53,4 +46,3 @@ http.listen(port, function() {
 });
 
 module.exports = app;
-

@@ -1,6 +1,5 @@
 import React from 'react';
 import Header from './Header.jsx';
-import ChatRoom from './ChatRoom.jsx';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
