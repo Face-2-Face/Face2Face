@@ -10,6 +10,9 @@ const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 
+http.listen(3000, function() {
+  console.log('listening on port 3000');
+});
 
 app.use(middleware.morgan('dev'));
 app.use(middleware.cookieParser());
@@ -34,18 +37,15 @@ app.use('*', routes.auth);
 //socket.io connection
 io.on('connection', function(socket) {
   // socket.emit('server event', {hola: 'mundo'});
-  socket.on('client message', function(message) {
-    console.log('this is the message', message);
-    socket.broadcast.emit('message', message);
-  });
   console.log('user connection established');
+  socket.on('message', function(message) {
+    console.log('this is the message', message);
+    socket.emit('message', message);
+  });
   socket.on('disconnect', function() {
     console.log('user connection disconnected');
   });
 });
 
-http.listen(8080, function() {
-  console.log('listening on port 8080');
-});
-
 module.exports = app;
+
