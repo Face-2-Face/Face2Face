@@ -23,10 +23,9 @@ class ChatRoom extends React.Component {
 
   handleIncomingMessages(msg) {
     this.state.socket.on('message', (msg) => {
-      console.log('this is the msg from handleIncomingMessages', msg);
       this.state.messages.push(msg);
       console.log('this is the messages arr from handleIncomingMessages', this.state.messages);
-     this.setState();
+     this.setState({messages: this.state.messages});
     })
   }
 
@@ -51,11 +50,11 @@ class ChatRoom extends React.Component {
       <div>
         <Header />
         <h4>This is the Chat Interface</h4>
+        <div>{allMessages}</div>
         <form onSubmit={this.handleOnSubmit}>
           <input className="text" type="text" value={this.state.input} onChange={(e) => this.setState({input: e.target.value})} />
           <input type="submit" value="Submit" />
         </form>
-        <div>{allMessages}</div>
 
       </div>
     )
