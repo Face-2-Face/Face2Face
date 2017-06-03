@@ -24,11 +24,14 @@ class Home extends React.Component {
   }
 
   render() {
-    console.log('HOME', this.state.profile)
     return (
       <div>
-        <Header profile={this.state.profile}/>       
-        <div><h2 className="text-center">READY TO VIDEO CHAT</h2></div>
+        <div className="row">
+          <Header profile={this.state.profile}/>
+        </div>
+        <div className="row">
+          <button type="button" className="btn btn-primary btn-lg btn-block">READY TO VIDEO CHAT</button>       
+        </div>
       </div>
     )
   }
