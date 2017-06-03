@@ -20,9 +20,7 @@ class Home extends React.Component {
   handleUserChange(objValue) {
     this.setState({profile: objValue});
     // axios post request to update database
-    console.log('USER prefs', this.state.profile);
     let userPutRoute = '/api/profiles/' + this.state.profile.id;
-    console.log('userPutRoute', userPutRoute);
     axios.put(userPutRoute, this.state.profile)
     .then(function (response) {
       console.log(response);
@@ -51,7 +49,7 @@ class Home extends React.Component {
             <Header profile={this.state.profile}/>
           </div>
           <div className="row">
-            <button type="button" className="btn btn-primary btn-lg btn-block">READY TO VIDEO CHAT</button>
+            <Link to={{pathname: '/lobby', state: {profile: this.state.profile}}}><button type="button" className="btn btn-primary btn-lg btn-block">READY TO VIDEO CHAT</button></Link>
           </div>
         </div>
       )
