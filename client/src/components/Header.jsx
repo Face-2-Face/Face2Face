@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 
 class Header extends React.Component {
   constructor(props) {
@@ -6,12 +8,11 @@ class Header extends React.Component {
   }
 
   render() {
+    console.log('HEADER', this.props);
     return (
       <div>
-        <a>
-          <img className="profileIcon" src="public/assets/avatar.png" />
+          <Link to={{pathname: '/profile', state: {profile: this.props.profile}}}><img className="profileIcon" src="public/assets/avatar.png" /></Link>
           <img className="matchesIcon" src="public/assets/chat.png" />
-        </a>
         <h4 className="appName">Face2Face</h4>
       </div>
     )
@@ -19,3 +20,4 @@ class Header extends React.Component {
 }
 
 export default Header
+
