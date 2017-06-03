@@ -35,7 +35,7 @@ app.get('/*', (req,res) => {
 });
 
 
-//socket.io connection
+//socket.io connection!!
 io.on('connection', function(socket) {
   // socket.emit('server event', {hola: 'mundo'});
   console.log('user connection established');
