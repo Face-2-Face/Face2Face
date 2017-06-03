@@ -6,12 +6,10 @@ const middleware = require('./middleware');
 const routes = require('./routes');
 
 const app = express();
-
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 
 const port = process.env.PORT || 3000;
-
 app.use(middleware.morgan('dev'));
 app.use(middleware.cookieParser());
 app.use(middleware.bodyParser.urlencoded({extended: false}));
@@ -53,4 +51,3 @@ http.listen(port, function() {
 });
 
 module.exports = app;
-
