@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 import PreferencesForm from './PreferencesForm.jsx';
+import MatchList from './MatchList.jsx';
 
 class Home extends React.Component {
   constructor(props) {
@@ -12,10 +13,12 @@ class Home extends React.Component {
 
     this.state = {
       profile: {},
-      showPreferencesField: false
+      showPreferencesField: false,
+      showMatchList: false
     }
 
     this.handleUserChange = this.handleUserChange.bind(this);
+    this.handleMatchListClick = this.handleMatchListClick.bind(this);
   }
 
   handleUserChange(objValue) {
@@ -33,6 +36,10 @@ class Home extends React.Component {
     });
   }
 
+  handleMatchListClick() {
+    this.setState({showMatchList:true});
+  }
+
   componentDidMount() {
   let that = this;
   axios.get('/api/user')
@@ -48,12 +55,20 @@ class Home extends React.Component {
     if(this.state.profile.prefAge_min ) {
       return (
         <div>
-          <div className="row">
-            <Header profile={this.state.profile}/>
-          </div>
-          <div className="row">
-            <button type="button" className="btn btn-primary btn-lg btn-block">READY TO VIDEO CHAT</button>
-          </div>
+          {this.state.showMatchList ?
+            <div>
+              <MatchList profile={this.state.profile} show={this.state.showMatchList}/>
+            </div>
+            :
+            <div>
+              <div className="row">
+                <Header profile={this.state.profile} show={this.handleMatchListClick}/>
+              </div>
+              <div className="row">
+                <button type="button" className="btn btn-primary btn-lg btn-block">READY TO VIDEO CHAT</button>
+              </div>
+            </div>
+          }
         </div>
       )
     } else {
