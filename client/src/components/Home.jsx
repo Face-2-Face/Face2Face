@@ -13,9 +13,18 @@ class Home extends React.Component {
     }
 
     this.getUserData = this.getUserData.bind(this);
+    this.handleUserChange = this.handleUserChange.bind(this);
   }
+  handleUserChange(objValue) {
+    this.setState({user: objValue})
+  }
+
   componentDidMount() {
-    this.getUserData();
+    console.log('mount!',this.props.user)
+    if(!this.state.user.prefAge_min || !this.props.user.prefAge_min) {
+
+      this.getUserData();
+    }
   }
 
   getUserData(){
@@ -31,7 +40,7 @@ class Home extends React.Component {
   }
   render() {
 
-    if(this.state.user.prefAge_min) {
+    if(this.state.user.prefAge_min ) {
       return (
         <div>
           <Header />
@@ -43,7 +52,7 @@ class Home extends React.Component {
         <div>
           <Header />
           <h1>This is the Prefs page</h1>
-          <PreferencesForm user={this.state.user} />
+          <PreferencesForm user={this.state.user} onUserChange={this.handleUserChange} />
         </div>
       )
     }
