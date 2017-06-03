@@ -28,21 +28,5 @@ app.use('/api/profiles', routes.profiles);
 app.get('/*', (req,res) => {
     res.render('index.ejs');
 });
-//socket.io connection!!
-io.on('connection', function(socket) {
-  // socket.emit('server event', {hola: 'mundo'});
-  console.log('user connection established');
-  socket.on('message', function(message) {
-    console.log('this is the message', message);
-    socket.emit('message', message);
-  });
-  socket.on('disconnect', function() {
-    console.log('user connection disconnected');
-  });
-});
-
-http.listen(port, function() {
-  console.log('listening on port ' + port);
-});
 
 module.exports = app;
