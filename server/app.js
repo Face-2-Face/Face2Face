@@ -43,8 +43,8 @@ io.on('connection', function(socket) {
   // socket.emit('server event', {hola: 'mundo'});
   console.log('user connection established');
   socket.on('message', function(message) {
-    console.log('this is the message', message);
-    socket.emit('message', message);
+    console.log('this is the message in the server', message);
+    io.emit('message', message);
   });
   socket.on('disconnect', function() {
     console.log('user connection disconnected');
