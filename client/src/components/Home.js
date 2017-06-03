@@ -18,7 +18,18 @@ class Home extends React.Component {
   }
 
   handleUserChange(objValue) {
-    this.setState({profile: objValue})
+    this.setState({profile: objValue});
+    // axios post request to update database
+    console.log('USER prefs', this.state.profile);
+    let userPutRoute = '/api/profiles/' + this.state.profile.id;
+    console.log('userPutRoute', userPutRoute);
+    axios.put(userPutRoute, this.state.profile)
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
   }
 
   componentDidMount() {

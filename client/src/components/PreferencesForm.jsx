@@ -9,7 +9,7 @@ class PreferencesForm extends React.Component {
     super(props)
 
     this.state = {
-      age: '',
+      age:'',
       gender: '',
       prefGender: '',
       prefAge_min: '',
@@ -26,7 +26,8 @@ class PreferencesForm extends React.Component {
   }
   handleSubmit(e) {
     e.preventDefault();
-    this.props.user.age = this.state.age;
+    this.props.user.age_min = this.state.age;
+    this.props.user.age_max = this.state.age;    
     this.props.user.gender = this.state.gender;
     this.props.user.prefGender = this.state.prefGender;
     this.props.user.prefAge_min = this.state.prefAge_min;
