@@ -48,6 +48,8 @@
     "react-dom": "^15.4.2",
     "react-router-dom": "^4.1.1",
     "redis": "^2.7.1",
+    "socket.io": "^2.0.2",
+    "socket.io-client": "^2.0.2",
     "webpack": "^2.3.2",
     "webpack-dev-server": "^2.4.2",
     "yarn": "^0.24.5"
