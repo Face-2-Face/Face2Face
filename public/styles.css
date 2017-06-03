@@ -8,3 +8,8 @@
 .profile-name {
   font-size: 60px;
 }
+
+.settingsIcon {
+  max-width: 40px;
+  height: auto;
+}
