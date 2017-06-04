@@ -33,6 +33,8 @@ app.use('/public', express.static(path.join(__dirname, '../public')));
 app.use('/', routes.auth);
 app.use('/api', routes.api);
 app.use('/api/profiles', routes.profiles);
+app.use('/api/lobby', routes.lobby);
+
 //allows us to use React Router..
 app.get('/*', (req,res) => {
     res.render('index.ejs');
@@ -43,7 +45,9 @@ io.on('connection', function(socket) {
   // socket.emit('server event', {hola: 'mundo'});
   console.log('user connection established');
   socket.on('message', function(message) {
-    console.log('this is the message', message);
+
+    console.log('this is the message in the server', message);
+
     io.emit('message', message);
   });
   socket.on('disconnect', function() {
