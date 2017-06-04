@@ -3,10 +3,9 @@ const express = require('express');
 const router = express.Router();
 const LobbyController = require('../controllers').Lobby;
 
-// router.route('/')
-//   .get()
-//   // .post(ProfileController.create)
-//   ;
+router.route('/')
+  .get(LobbyController.getPersonToChat)
+  ;
 
 router.route('/:id')
   .put(LobbyController.addToLobby)

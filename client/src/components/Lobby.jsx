@@ -24,6 +24,15 @@ class Lobby extends React.Component {
       .catch(function(error) {
         console.log(error);
       });
+    
+    axios.get('/api/lobby')
+    .then(function(response) {
+      console.log(response);
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
+
   }
   // get a toChatWith GET from lobby
   // send the two users to chat page
