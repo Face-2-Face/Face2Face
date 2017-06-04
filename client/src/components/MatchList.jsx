@@ -16,7 +16,9 @@ class MatchList extends React.Component {
   }
 
   enterChat(){
+    console.log('enter chat click', this.props.profile);
     this.setState({showChat: true})
+
   }
 
   render() {
@@ -27,14 +29,15 @@ class MatchList extends React.Component {
           {this.state.showChat ?
             <div>
               <h1>Chat</h1>
+
               <ChatRoom profile={this.props.profile} />
             </div>
             :
         <div>
         <h1>Matches</h1>
-        <Link to={`/chat`}>
-        <button onClick={this.enterChat} >Chat</button>
-        </Link>
+
+        <button onClick={this.enterChat}>Chat</button>
+      
 
         </div>
       }

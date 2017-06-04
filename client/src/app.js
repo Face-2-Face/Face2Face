@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import {
-  BrowserRouter as Router,
-  Route
+  Route,
+  Link,
+  Redirect,
+  BrowserRouter as Router
 } from 'react-router-dom';
 
 import Home from './components/Home';
@@ -10,7 +13,7 @@ import StartingScreen from './components/StartingScreen';
 import Profile from './components/Profile';
 import Settings from './components/Settings';
 import ChatRoom from './components/ChatRoom';
-
+import MatchList from './components/MatchList';
 ReactDOM.render(
   <Router>
     <div>
@@ -19,5 +22,6 @@ ReactDOM.render(
       <Route path="/profile" component={Profile} />
       <Route path="/settings" component={Settings} />
       <Route path="/chat" component={ChatRoom} />
+      <Route path="/matches" component={MatchList} />
     </div>
   </Router>, document.getElementById('root'));
