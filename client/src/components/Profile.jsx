@@ -20,12 +20,6 @@ class Profile extends React.Component {
         <Header />
         <h4>This is the Profile Page</h4>
         <div className="row">
-          <Header />
-        </div>
-        <div className="row">
-          <p></p>
-        </div>
-        <div className="row">
           <p className="text-center profile-name"><strong>Hello {profile.first}!</strong></p>
         </div>
         <div className="row">
