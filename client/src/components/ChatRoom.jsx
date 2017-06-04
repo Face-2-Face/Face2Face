@@ -35,6 +35,7 @@ class ChatRoom extends React.Component {
 
   handleOnSubmit(e) {
      e.preventDefault();
+     console.log('props passed ==>', this.props.profile)
     console.log('this is the input from handleOnSubmit', this.state.input);
     this.state.socket.emit('message', {messages: this.state.input});
      this.setState({ input: '' })
@@ -43,12 +44,12 @@ class ChatRoom extends React.Component {
 
 
   render() {
-    var allMessages = this.state.messages.map(function(message) {
-      return (<li className="message">{message.messages}</li>)
+
+    var allMessages = this.state.messages.map((message) => {
+      return (<li className="message">{this.props.profile.first}: {message.messages}</li>)
     });
     return (
       <div>
-        <Header />
         <h4>This is the Chat Interface</h4>
         <div>{allMessages}</div>
         <form onSubmit={this.handleOnSubmit}>

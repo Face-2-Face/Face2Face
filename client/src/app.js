@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import {
-  BrowserRouter as Router,
-  Route
+  Route,
+  Link,
+  Redirect,
+  BrowserRouter as Router
 } from 'react-router-dom';
 
 import Home from './components/Home';
@@ -11,6 +14,7 @@ import Profile from './components/Profile';
 import Settings from './components/Settings';
 import Lobby from './components/Lobby';
 import ChatRoom from './components/ChatRoom';
+import MatchList from './components/MatchList';
 
 
 ReactDOM.render(
@@ -22,5 +26,6 @@ ReactDOM.render(
       <Route path="/settings" component={Settings} />
       <Route path="/lobby" component={Lobby} />
       <Route path="/chat" component={ChatRoom} />
+      <Route path="/matches" component={MatchList} />
     </div>
   </Router>, document.getElementById('root'));
