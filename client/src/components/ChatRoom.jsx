@@ -46,7 +46,7 @@ class ChatRoom extends React.Component {
   render() {
 
     var allMessages = this.state.messages.map((message) => {
-      return (<li className="message">{this.props.profile.first}: {message.messages}</li>)
+      return (<li className="message"> {message.messages}</li>)
     });
     return (
       <div>

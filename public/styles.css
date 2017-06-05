@@ -13,3 +13,12 @@
   max-width: 40px;
   height: auto;
 }
+
+.match{
+  width: 30vw;
+  height: 18vh;
+  margin: auto;
+  border-style: double;
+  border-color: blue;
+  border-radius: 5px;
+}

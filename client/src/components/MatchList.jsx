@@ -35,9 +35,12 @@ class MatchList extends React.Component {
             :
         <div>
         <h1>Matches</h1>
+        <div onClick={this.enterChat}>
+          <Match name={'sally'} />
 
+        </div>
         <button onClick={this.enterChat}>Chat</button>
-      
+
 
         </div>
       }
@@ -45,6 +48,10 @@ class MatchList extends React.Component {
     </div>
     )
   }
+}
+
+const Match = (props) => {
+  return <div className="match"><h1>{props.name}</h1></div>
 }
 
 export default MatchList;
