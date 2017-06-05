@@ -1,16 +1,18 @@
 module.exports = {
-  client: "postgresql",
+  client: 'postgresql',
   connection: process.env.DATABASE_URL + '?ssl=true',
   pool: {
-      "min": 2,
-      "max": 10
+    'min': 2,
+    'max': 10
+  },
+  migrations: {
+      'tableName': 'knex_migrations',
+      'directory': './db/migrations'
     },
-    migrations: {
-      "tableName": "knex_migrations",
-      "directory": "./db/migrations"
+  seeds: {
+      'directory': './db/seeds'
     },
-    seeds: {
-      "directory": "./db/seeds"
-    },
-    debug: false
+  debug: false
 };
+
+//this is a comment
