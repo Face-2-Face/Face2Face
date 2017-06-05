@@ -24,7 +24,7 @@ module.exports.getAll = (req, res) => {
 //       res.status(500).send(err);
 //     });
 // };
-
+//comment
 module.exports.getOne = (req, res) => {
   models.Profile.where({ id: req.params.id }).fetch()
     .then(profile => {
