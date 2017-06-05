@@ -34,6 +34,7 @@ app.use('/', routes.auth);
 app.use('/api', routes.api);
 app.use('/api/profiles', routes.profiles);
 app.use('/api/lobby', routes.lobby);
+app.use('/api/matches', routes.matches);
 
 //allows us to use React Router..
 app.get('/*', (req,res) => {

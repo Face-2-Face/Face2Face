@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 import Home from './Home.js';
 import Header from './Header.jsx';
@@ -19,6 +20,18 @@ class MatchList extends React.Component {
     console.log('enter chat click', this.props.profile);
     this.setState({showChat: true})
 
+  }
+
+  componentDidMount() {
+    console.log('MatchList User Id: ', this.props.profile.id);
+    let that = this;
+    axios.get('/api/matches')
+      .then(function(response) {
+        console.log('server communication', response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
   }
 
   render() {
