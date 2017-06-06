@@ -1,30 +1,4 @@
-.profile-img {
-  max-width: 80%;
-  height: auto;
-  margin-top: 10%;
-  margin-bottom: 10%;
-}
-
-.profile-name {
-  font-size: 60px;
-}
-
-.settingsIcon {
-  max-width: 40px;
-  height: auto;
-}
-
-.match{
-  width: 30vw;
-  height: 18vh;
-  margin: auto;
-  border-style: double;
-  border-color: blue;
-  border-radius: 5px;
-}
-
-
-/*Video Styles*/
+@import url(https://fonts.googleapis.com/css?family=Share+Tech+Mono);
 
 body,
 p {
