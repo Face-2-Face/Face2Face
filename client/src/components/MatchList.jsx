@@ -13,15 +13,17 @@ class MatchList extends React.Component {
     super(props)
 
     this.state = {
+      matchList: [],
       showChat: false,
-      matchList: []
+      matchProfile: {}
+
     }
     this.enterChat = this.enterChat.bind(this);
   }
 
-  enterChat(){
-    console.log('enter chat click', this.props.profile);
-    this.setState({showChat: true})
+  enterChat(targetUser){
+    console.log('enter chat between', this.props.profile, ' and ', targetUser);
+    this.setState({showChat: true, matchProfile: targetUser})
 
   }
 
@@ -48,7 +50,7 @@ class MatchList extends React.Component {
             <div>
               <h1>Chat</h1>
 
-              <ChatRoom profile={this.props.profile} />
+              <ChatRoom profile={this.props.profile} matchProfile={this.state.matchProfile}/>
             </div>
             :
         <div>

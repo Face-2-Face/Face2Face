@@ -50,7 +50,7 @@ class ChatRoom extends React.Component {
     });
     return (
       <div>
-        <h4>This is the Chat Interface</h4>
+        <h4>{this.props.matchProfile.first}</h4>
         <div>{allMessages}</div>
         <form onSubmit={this.handleOnSubmit}>
           <input className="text" type="text" value={this.state.input} onChange={(e) => this.setState({input: e.target.value})} />
