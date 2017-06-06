@@ -1,5 +1,5 @@
 .profile-img {
-  max-width: 80%;
+  max-width: 50%;
   height: auto;
   margin-top: 10%;
   margin-bottom: 10%;
@@ -21,6 +21,14 @@
   border-style: double;
   border-color: blue;
   border-radius: 5px;
+  margin-top: 2%;
+}
+
+.match-img {
+  width: 10%;
+  height:auto;
+  float: left;
+  margin-left: 2%;
 }
 
 
