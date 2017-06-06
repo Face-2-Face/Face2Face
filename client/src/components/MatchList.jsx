@@ -4,14 +4,17 @@ import axios from 'axios';
 
 import Home from './Home.js';
 import Header from './Header.jsx';
+import Match from './Match.jsx';
 import ChatRoom from './ChatRoom.jsx';
+
 
 class MatchList extends React.Component {
   constructor(props){
     super(props)
 
     this.state = {
-      showChat: false
+      showChat: false,
+      matchList: []
     }
     this.enterChat = this.enterChat.bind(this);
   }
@@ -24,10 +27,12 @@ class MatchList extends React.Component {
 
   componentDidMount() {
     console.log('MatchList User Id: ', this.props.profile.id);
+    const id = this.props.profile.id;
     let that = this;
-    axios.get('/api/matches')
+    axios.get('/api/matches/' + id)
       .then(function(response) {
-        console.log('server communication', response);
+        console.log('server communication', response.data);
+        that.setState({matchList: response.data});
       })
       .catch(function(error) {
         console.log(error);
@@ -49,8 +54,7 @@ class MatchList extends React.Component {
         <div>
         <h1>Matches</h1>
         <div onClick={this.enterChat}>
-          <Match name={'sally'} />
-
+          {this.state.matchList.map(item => <Match data={item} />)}
         </div>
         <button onClick={this.enterChat}>Chat</button>
 
@@ -63,8 +67,6 @@ class MatchList extends React.Component {
   }
 }
 
-const Match = (props) => {
-  return <div className="match"><h1>{props.name}</h1></div>
-}
+
 
 export default MatchList;

@@ -1,4 +1,5 @@
 const models = require('../../db/models');
+const knex = require('knex')(require('../../knexfile'));
 
 module.exports.getAll = (req, res) => {
   models.Matches.fetchAll()
@@ -13,7 +14,10 @@ module.exports.getAll = (req, res) => {
 };
 
 module.exports.getUserMatches = (req, res) => {
-  models.Matches.where({ user_id: req.params.id }).fetchAll()
+  models.Matches.where({ user_id: req.params.id })
+//    .fetch({withRelated: ['profile']})
+    .fetchAll()
+//    knex.raw(`select * from profiles where id=${req.params.id}`)
     .then(matches => {
       console.log('hello from match fetch', matches)
       res.status(200).send(matches);
