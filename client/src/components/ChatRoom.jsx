@@ -35,9 +35,9 @@ class ChatRoom extends React.Component {
 
   handleOnSubmit(e) {
     e.preventDefault();
-    console.log('props passed ==>', this.props.profile)
-    console.log('this is the input from handleOnSubmit', this.state.input);
-    this.state.socket.emit('message', {messages: this.state.input});
+    console.log('props passed ==>', this.props.profile, 'and match: ', this.props.matchProfile.first)
+    var messageWithNameTag = this.props.profile.first + ': ' + this.state.input;
+    this.state.socket.emit('message', {messages: messageWithNameTag});
     this.setState({ input: '' });
   }
 
