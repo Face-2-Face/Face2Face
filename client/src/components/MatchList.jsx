@@ -53,8 +53,9 @@ class MatchList extends React.Component {
             :
         <div>
         <h1>Matches</h1>
-        <div onClick={this.enterChat}>
-          {this.state.matchList.map(item => <Match data={item} />)}
+        <div >
+          {this.state.matchList.map(item =>
+            <Match matchID={item} enterChat={this.enterChat} userProfile={this.props.profile}/>)}
         </div>
         <button onClick={this.enterChat}>Chat</button>
 

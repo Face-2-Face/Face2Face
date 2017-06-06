@@ -11,11 +11,14 @@ class Match extends React.Component {
         photo: ''
       }
     }
+    this.chat = this.chat.bind(this);
   }
-
+  chat() {
+    console.log('render chat')
+  }
   componentDidMount() {
     let that = this;
-    const id = this.props.data.match;
+    const id = this.props.matchID.match;
     axios.get('/api/profiles/' + id )
     .then(function(response) {
       console.log('server communication from match', response.data);
@@ -28,10 +31,10 @@ class Match extends React.Component {
 
   render() {
     return (
-      <div className="match">
+      <div className="match" onClick={this.props.enterChat}>
         <img className="img-circle center-block match-img"src={this.state.profile.photo}/>
-        {console.log('matchy', this.props.data)}
-        <p>{this.state.profile.first}</p>
+        {console.log('matchy', this.props.matchID)}
+        <p onClick={this.chat}>{this.state.profile.first}</p>
       </div>
     )
   }
