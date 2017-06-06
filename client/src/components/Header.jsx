@@ -10,7 +10,7 @@ class Header extends React.Component {
   }
 
   handleMatchListClick(){
-    this.props.show()  
+    this.props.show()
   }
 
 
@@ -19,8 +19,8 @@ class Header extends React.Component {
     return (
       <div>
           <Link to={{pathname: '/profile', state: {profile: this.props.profile}}}><img className="profileIcon" src="public/assets/avatar.png" /></Link>
-          <Link to={{pathname: '/matches'}}><img className="matchesIcon" src="public/assets/chat.png" onClick={this.handleMatchListClick}/></Link>
-        <h4 className="appName">Face2Face</h4>
+          <img className="matchesIcon" src="public/assets/chat.png" onClick={this.handleMatchListClick}/>
+        <Link to={{pathname: '/', state: {profile: this.props.profile}}}><h4 className="appName">Face2Face</h4></Link>
       </div>
     )
   }

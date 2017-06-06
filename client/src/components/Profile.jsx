@@ -17,6 +17,7 @@ class Profile extends React.Component {
 
     return (
       <div>
+          {console.log('props', profile)}
         <Header />
         <h4>This is the Profile Page</h4>
         <div className="row">
@@ -26,9 +27,9 @@ class Profile extends React.Component {
           <img className="img-circle center-block profile-img"src={profile.photo}/>
         </div>
         <div className="row">
-          <span>Preferences</span><Link to='/settings'><img className="settingsIcon" src="public/assets/settings.png"/></Link>
+          <span>Preferences</span><Link to='/settings' user={profile}><img className="settingsIcon" src="public/assets/settings.png"/></Link>
         </div>
-                
+
       </div>
     )
   }
