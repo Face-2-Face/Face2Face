@@ -11,3 +11,14 @@ module.exports.getAll = (req, res) => {
       res.status(503).send(err);
     });
 };
+
+module.exports.getUserMatches = (req, res) => {
+  models.Matches.where({ user_id: req.params.id }).fetchAll()
+    .then(matches => {
+      console.log('hello from match fetch', matches)
+      res.status(200).send(matches);
+    })
+    .catch(err => {
+      res.status(503).send(err);
+    });
+}

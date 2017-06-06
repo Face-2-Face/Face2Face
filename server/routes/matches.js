@@ -10,6 +10,9 @@ router.route('/')
   .get(MatchController.getAll)
   ;
 
+router.route('/:id')
+  .get(MatchController.getUserMatches)
+  ;
 
 
 module.exports = router;
