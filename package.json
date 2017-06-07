@@ -42,7 +42,6 @@
     "passport-google-oauth": "^1.0.0",
     "passport-local": "^1.0.0",
     "passport-twitter": "^1.0.4",
-    "pegjs": "^0.10.0",
     "pg": "^6.1.5",
     "postgresql": "0.0.1",
     "react": "^15.4.2",
