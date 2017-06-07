@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 import ChatRoom from './ChatRoom.jsx'
@@ -20,7 +19,6 @@ class Match extends React.Component {
   componentDidMount() {
     let that = this;
     const id = this.props.matchID.match;
-    console.log('');
     axios.get('/api/profiles/' + id )
     .then(function(response) {
       that.setState({matchProfile: response.data});
@@ -32,12 +30,9 @@ class Match extends React.Component {
 
   render() {
     return (
-      <div className="match" >
+      <div className="match" onClick={()=>this.props.enterChat(this.state.matchProfile)}>
         <img className="img-circle center-block match-img"src={this.state.matchProfile.photo}/>
-        <Link to={{pathname: '/chat', state: {userProfile: this.props.userProfile, matchProfile: this.state.matchProfile}}}>
-          <p>{this.state.matchProfile.first}</p>
-          <p>click to enter chat...</p>
-        </Link>
+        <p>{this.state.matchProfile.first}</p>
       </div>
     )
   }
