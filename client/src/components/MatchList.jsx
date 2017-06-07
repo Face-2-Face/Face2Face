@@ -15,7 +15,8 @@ class MatchList extends React.Component {
     this.state = {
       matchList: [],
       showChat: false,
-      matchProfile: {}
+      matchProfile: {},
+      profile: this.props.location.state.profile
 
     }
     this.enterChat = this.enterChat.bind(this);
@@ -28,8 +29,8 @@ class MatchList extends React.Component {
   }
 
   componentDidMount() {
-    console.log('MatchList User Id: ', this.props.profile.id);
-    const id = this.props.profile.id;
+    console.log('MatchList User Id: ', this.state.profile.id);
+    const id = this.state.profile.id;
     let that = this;
     axios.get('/api/matches/' + id)
       .then(function(response) {
@@ -44,20 +45,21 @@ class MatchList extends React.Component {
   render() {
     return (
       <div>
+          {console.log('props in matchlist', this.state.profile)}
         <Header />
         <div>
           {this.state.showChat ?
             <div>
               <h1>Chat</h1>
 
-              <ChatRoom profile={this.props.profile} matchProfile={this.state.matchProfile}/>
+              <ChatRoom profile={this.state.profile} matchProfile={this.state.matchProfile}/>
             </div>
             :
         <div>
         <h1>Matches</h1>
         <div >
           {this.state.matchList.map(item =>
-            <Match matchID={item} enterChat={this.enterChat} userProfile={this.props.profile}/>)}
+            <Match matchID={item} enterChat={this.enterChat} userProfile={this.state.profile}/>)}
         </div>
         <button onClick={this.enterChat}>Chat</button>
 
