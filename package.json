@@ -51,7 +51,7 @@
     "socket.io": "^2.0.2",
     "socket.io-client": "^2.0.2",
     "twilio": "^3.3.0",
-    "twilio-video": "^1.0.0",
+    "twilio-video": "twilio/twilio-video.js#1.0.0-rc11",
     "webpack": "^2.3.2",
     "webpack-dev-server": "^2.4.2",
     "yarn": "^0.24.5"
