@@ -39,10 +39,7 @@ app.use('/', routes.auth);
 app.use('/api', routes.api);
 app.use('/api/profiles', routes.profiles);
 app.use('/api/lobby', routes.lobby);
-<<<<<<< HEAD
 app.use('/api/matches', routes.matches);
-||||||| merged common ancestors
-=======
 app.get('/token', function(request, response) {
   var identity = randomName();
 
@@ -67,7 +64,6 @@ app.get('/token', function(request, response) {
     token: token.toJwt()
   });
 });
->>>>>>> Twilio video working on
 
 //allows us to use React Router..
 app.get('/*', (req,res) => {
