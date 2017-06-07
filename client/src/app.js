@@ -24,9 +24,9 @@ ReactDOM.render(
       <Route path="/profile" component={Profile} />
       <Route path="/settings" component={Settings} />
       <Route path="/lobby" component={Lobby} />
-      <Route path="/chat/:id" component={ChatRoom} />
+      <Route path="/chat" component={ChatRoom} />
       <Route path="/matches" component={MatchList} />
       <Route path="/video" component={VideoChatRoom} />
-
+      
     </div>
   </Router>, document.getElementById('root'));
