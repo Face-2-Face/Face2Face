@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from './Header.jsx';
 import io from 'socket.io-client';
-import { Link } from 'react-router-dom';
 
 // let socket = io('http://localhost:8080')
 

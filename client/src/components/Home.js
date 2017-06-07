@@ -18,6 +18,7 @@ class Home extends React.Component {
     }
 
     this.handleUserChange = this.handleUserChange.bind(this);
+    this.handleMatchListClick = this.handleMatchListClick.bind(this);
   }
 
   handleUserChange(objValue) {
@@ -31,6 +32,10 @@ class Home extends React.Component {
     .catch(function (error) {
       console.log(error);
     });
+  }
+
+  handleMatchListClick() {
+    this.setState({showMatchList:true});
   }
 
   componentDidMount() {
@@ -48,14 +53,22 @@ class Home extends React.Component {
     if(this.state.profile.prefAge_min ) {
       return (
         <div>
-          <div>
-            <div className="row">
-              <Header profile={this.state.profile} />
+
+          {this.state.showMatchList ?
+            <div>
+              <MatchList profile={this.state.profile} show={this.state.showMatchList}/>
             </div>
-            <div className="row">
-              <Link to={{pathname: '/lobby', state: {profile: this.state.profile}}}><button type="button" className="btn btn-primary btn-lg btn-block">READY TO VIDEO CHAT</button></Link>              </div>
+            :
+            <div>
+              <div className="row">
+                <Header profile={this.state.profile} show={this.handleMatchListClick}/>
+              </div>
+              <div className="row">
+
+                <Link to={{pathname: '/lobby', state: {profile: this.state.profile}}}><button type="button" className="btn btn-primary btn-lg btn-block">READY TO VIDEO CHAT</button></Link>
+              </div>
             </div>
-        }
+          }  
         </div>
       )
     } else {
