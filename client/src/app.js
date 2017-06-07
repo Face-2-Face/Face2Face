@@ -14,6 +14,7 @@ import Settings from './components/Settings';
 import Lobby from './components/Lobby';
 import ChatRoom from './components/ChatRoom';
 import MatchList from './components/MatchList';
+import VideoChatRoom from './components/VideoChatRoom';
 
 
 ReactDOM.render(
@@ -25,5 +26,7 @@ ReactDOM.render(
       <Route path="/lobby" component={Lobby} />
       <Route path="/chat" component={ChatRoom} />
       <Route path="/matches" component={MatchList} />
+      <Route path="/video" component={VideoChatRoom} />
+      
     </div>
   </Router>, document.getElementById('root'));
