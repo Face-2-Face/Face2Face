@@ -3800,6 +3800,10 @@ peek-stream@^1.1.0:
     duplexify "^3.5.0"
     through2 "^2.0.3"
 
+pegjs@^0.10.0:
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/pegjs/-/pegjs-0.10.0.tgz#cf8bafae6eddff4b5a7efb185269eaaf4610ddbd"
+
 pegjs@^0.8.0:
   version "0.8.0"
   resolved "https://registry.yarnpkg.com/pegjs/-/pegjs-0.8.0.tgz#976f067da13e5c5b1501c017925668a253811561"
