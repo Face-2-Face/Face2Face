@@ -8,22 +8,33 @@ class VideoChatRoom extends React.Component {
     super(props);
     this.state = {
       room: {}
-    }
+    };
     this.roomJoined = this.roomJoined.bind(this);
     this.participantConnected = this.participantConnected.bind(this);
+    this.toDisconnect = this.toDisconnect.bind(this);
   }
 
   roomJoined(room) {
+    this.setState({room: room});
     var localContainer = document.getElementById('local-media');
     console.log('Room', room);
     room.participants.forEach(this.participantConnected);
     room.on('participantConnected', this.participantConnected);
+    room.on('participantDisconnected', function(participant) {
+      participant.tracks.forEach(track => {
+        track.detach().forEach(function(detachedElement) {
+          detachedElement.remove();
+        });
+      });
+    });
+
     // attach local participant's tracks
     if (!localContainer.querySelector('video')) {
       room.localParticipant.tracks.forEach(track => {
         localContainer.appendChild(track.attach());
       });
     }
+
   }
 
   participantConnected(participant) {
@@ -41,7 +52,6 @@ class VideoChatRoom extends React.Component {
       previewContainer.appendChild(track.attach());
     });
   // participant.on('trackRemoved', trackRemoved);
-  // document.body.appendChild(div);
   }
 
   componentDidMount() {
@@ -51,13 +61,18 @@ class VideoChatRoom extends React.Component {
       .then(function(response) {
         console.log('Response', response);
         identity = response.data.identity;
-        Video.connect(response.data.token, {name: 'tester'}).then(that.roomJoined, function(error) {
+        Video.connect(response.data.token, {name: 'testom'}).then(that.roomJoined, function(error) {
           console.log('Could not connect: ', error.message);
         });
       })
       .catch(function(error) {
         console.log(error);
       });
+  }
+
+  toDisconnect() {
+    this.state.room.disconnect();
+    // set state: complete to exit the room
   }
 
 
@@ -68,7 +83,7 @@ class VideoChatRoom extends React.Component {
       <div>
         <div id="local-media"></div>
         <div id="remote-media"></div>
-      
+        <button onClick={this.toDisconnect}>Leave Room</button>
       </div>
 
     )
