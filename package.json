@@ -14,11 +14,13 @@
   "author": "Hack Reactor",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.16.1",
+    "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.24.0",
     "babel-preset-es2015": "^6.24.0",
+    "babel-preset-latest": "^6.24.0",
     "babel-preset-react": "^6.23.0",
-    "babel-core": "^6.24.1",
     "bcrypt-nodejs": "^0.0.3",
     "bluebird": "^3.5.0",
     "body-parser": "^1.17.1",
@@ -44,7 +46,12 @@
     "postgresql": "0.0.1",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
+    "react-router-dom": "^4.1.1",
     "redis": "^2.7.1",
+    "socket.io": "^2.0.2",
+    "socket.io-client": "^2.0.2",
+    "twilio": "^3.3.0",
+    "twilio-video": "^1.0.0",
     "webpack": "^2.3.2",
     "webpack-dev-server": "^2.4.2",
     "yarn": "^0.24.5"
@@ -52,7 +59,7 @@
   "devDependencies": {
     "babel-loader": "^7.0.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.24.0",
-    "babel-preset-latest": "^6.24.0",
+    "babel-preset-es2015": "^6.24.0",
     "babel-preset-react": "^6.23.0",
     "chai": "^3.5.0",
     "grunt": "~0.4.5",
@@ -64,9 +71,7 @@
     "webpack": "^2.3.2",
     "webpack-dev-server": "^2.4.2"
   },
-  "env":{
-
-  },
+  "env": {},
   "babel": {
     "plugins": [
       "transform-es2015-modules-commonjs"
