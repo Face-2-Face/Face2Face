@@ -14,12 +14,16 @@ class VideoChatRoom extends React.Component {
   }
 
   roomJoined(room) {
-    var participants;
-    var tracks;
+    var localContainer = document.getElementById('local-media');
     console.log('Room', room);
-    this.setState({room: room}); // is this needed?
     room.participants.forEach(this.participantConnected);
     room.on('participantConnected', this.participantConnected);
+    // attach local participant's tracks
+    if (!localContainer.querySelector('video')) {
+      room.localParticipant.tracks.forEach(track => {
+        localContainer.appendChild(track.attach());
+      });
+    }
   }
 
   participantConnected(participant) {
@@ -62,16 +66,9 @@ class VideoChatRoom extends React.Component {
     return (
 
       <div>
+        <div id="local-media"></div>
         <div id="remote-media"></div>
-
-        <div id="room-controls">
-          <p className="instructions">Room Name:</p>
-          <input id="room-name" type="text" placeholder="Enter a room name" />
-          <button id="button-join">Join Room</button>
-          <button id="button-leave">Leave Room</button>
-        </div>
-        <div id="log"></div>
-
+      
       </div>
 
     )
