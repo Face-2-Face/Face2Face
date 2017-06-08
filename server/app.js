@@ -12,6 +12,9 @@ const io = require('socket.io')(http);
 
 const port = process.env.PORT || 3000;
 
+//private room var
+const match = io.of('/matchexample');
+
 http.listen(port, function() {
   console.log('listening on port ' + port);
 });
@@ -55,5 +58,18 @@ io.on('connection', function(socket) {
     console.log('user connection disconnected');
   });
 });
+
+  // match.on('connection', function(socket) {
+  // console.log('matches found');
+  // socket.on('message', function(message) {
+
+  //   console.log('this is the matches message in the server', message);
+
+  //   match.emit('message', message);
+  // });
+  // socket.on('disconnect', function() {
+  //   console.log('match lost');
+  // });
+// });
 
 module.exports = app;
