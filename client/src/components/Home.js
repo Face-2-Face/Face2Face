@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Header from './Header.jsx';
 import ChatRoom from './ChatRoom.jsx';
@@ -68,7 +69,7 @@ class Home extends React.Component {
                 <Link to={{pathname: '/lobby', state: {profile: this.state.profile}}}><button type="button" className="btn btn-primary btn-lg btn-block">READY TO VIDEO CHAT</button></Link>
               </div>
             </div>
-          }  
+          }
         </div>
       )
     } else {
