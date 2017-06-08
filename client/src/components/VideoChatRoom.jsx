@@ -83,7 +83,7 @@ class VideoChatRoom extends React.Component {
       <div>
         <div id="local-media"></div>
         <div id="remote-media"></div>
-        <button onClick={this.toDisconnect}>Video Chat Complete</button>
+        <button onClick={this.toDisconnect}>End Video Chat</button>
       </div>
 
     )
