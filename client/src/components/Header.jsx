@@ -7,9 +7,9 @@ class Header extends React.Component {
     super(props);
 
   }
-  
+
   render() {
-    console.log('HEADER', this.props);
+    console.log('HEADER: ', this.props);
     return (
       <div>
           <Link to={{pathname: '/profile', state: {profile: this.props.profile}}}><img className="profileIcon" src="public/assets/avatar.png" /></Link>
