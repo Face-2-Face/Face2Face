@@ -51,7 +51,7 @@ class VideoChatRoom extends React.Component {
     participant.tracks.forEach(track => {
       previewContainer.appendChild(track.attach());
     });
-  // participant.on('trackRemoved', trackRemoved);
+  // participant.on('trackRemoved', trackRemoved); //
   }
 
   componentDidMount() {
