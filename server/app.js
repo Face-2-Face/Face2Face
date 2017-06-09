@@ -40,6 +40,8 @@ app.use('/api', routes.api);
 app.use('/api/profiles', routes.profiles);
 app.use('/api/lobby', routes.lobby);
 app.use('/api/matches', routes.matches);
+
+
 app.get('/token', function(request, response) {
   var identity = randomName();
 
@@ -69,8 +71,6 @@ app.get('/token', function(request, response) {
 app.get('/*', (req,res) => {
     res.render('index.ejs');
 });
-
-
 
 //socket.io connection
 io.on('connection', function(socket) {
