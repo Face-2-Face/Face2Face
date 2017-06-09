@@ -40,7 +40,7 @@ exports.down = function(knex, Promise) {
       table.dropColumn('location');
       table.dropColumn('prefAge_min');
       table.dropColumn('prefAge_max');
-      table.dropColumn('gender');
+      table.dropColumn('prefGender');
     })
   ]);
 };
