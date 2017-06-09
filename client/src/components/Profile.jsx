@@ -9,7 +9,7 @@ class Profile extends React.Component {
     super(props);
     this.state = {
       profile: this.props.location.state.profile
-    }
+    };
   }
 
   render() {
@@ -31,8 +31,8 @@ class Profile extends React.Component {
         </div>
 
       </div>
-    )
+    );
   }
 }
 
-export default Profile
+export default Profile;
