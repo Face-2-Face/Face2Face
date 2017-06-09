@@ -22,15 +22,15 @@ class Logout extends React.Component {
         this.setState({complete: false})
       })
       .catch((error) => {
-        console.log(error);
+        console.log('this is the error from the logout page', error);
       });
   }
 
   render() {
     if (this.state.complete) {
-      return <Redirect to='/login' />;
+      return null;
     } else {
-      return <Redirect to='/login' />;
+      return <Redirect to='/' />;
     }
   }
 }
