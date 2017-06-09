@@ -10,7 +10,9 @@ class ChatRoom extends React.Component {
     this.state = {
       socket: io(),
       input: '',
-      messages: []
+      messages: [],
+      userProfile: this.props.location.state.userProfile,
+      matchProfile: this.props.location.state.matchProfile
     }
     this.handleOnChange = this.handleOnChange.bind(this);
     this.handleOnSubmit = this.handleOnSubmit.bind(this);
@@ -35,8 +37,8 @@ class ChatRoom extends React.Component {
 
   handleOnSubmit(e) {
     e.preventDefault();
-    console.log('props passed ==>', this.props.profile, 'and match: ', this.props.matchProfile.first)
-    var messageWithNameTag = this.props.profile.first + ': ' + this.state.input;
+    console.log('props passed ==>', this.state.userProfile, 'and match: ', this.state.matchProfile)
+    var messageWithNameTag = this.state.userProfile.first + ': ' + this.state.input;
     this.state.socket.emit('message', {messages: messageWithNameTag});
     this.setState({ input: '' });
   }
@@ -50,7 +52,8 @@ class ChatRoom extends React.Component {
     });
     return (
       <div>
-        <h4>{this.props.matchProfile.first}</h4>
+        <Header />
+        <h4>{this.state.matchProfile.first}</h4>
         <div>{allMessages}</div>
         <form onSubmit={this.handleOnSubmit}>
           <input className="text" type="text" value={this.state.input} onChange={(e) => this.setState({input: e.target.value})} />

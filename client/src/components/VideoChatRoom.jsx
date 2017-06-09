@@ -13,14 +13,14 @@ class VideoChatRoom extends React.Component {
     this.toDisconnect = this.toDisconnect.bind(this);
   }
   roomJoined(room) {
-    this.setState({room: room});
+    this.setState({ room: room });
     var localContainer = document.getElementById('local-media');
     console.log('Room', room);
     room.participants.forEach(this.participantConnected);
     room.on('participantConnected', this.participantConnected);
-    room.on('participantDisconnected', function(participant) {
+    room.on('participantDisconnected', function (participant) {
       participant.tracks.forEach(track => {
-        track.detach().forEach(function(detachedElement) {
+        track.detach().forEach(function (detachedElement) {
           detachedElement.remove();
         });
       });
@@ -44,20 +44,20 @@ class VideoChatRoom extends React.Component {
     participant.tracks.forEach(track => {
       previewContainer.appendChild(track.attach());
     });
-  // participant.on('trackRemoved', trackRemoved);
+    // participant.on('trackRemoved', trackRemoved); //
   }
   componentDidMount() {
     var identity;
     let that = this;
     axios.get('/token')
-      .then(function(response) {
+      .then(function (response) {
         console.log('Response', response);
         identity = response.data.identity;
-        Video.connect(response.data.token, {name: 'tester'}).then(that.roomJoined, function(error) {
+        Video.connect(response.data.token, { name: 'testom' }).then(that.roomJoined, function (error) {
           console.log('Could not connect: ', error.message);
         });
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log(error);
       });
   }
@@ -70,7 +70,7 @@ class VideoChatRoom extends React.Component {
       <div>
         <div id="local-media"></div>
         <div id="remote-media"></div>
-        <button onClick={this.toDisconnect}>Leave Room</button>
+        <button onClick={this.toDisconnect}>End Video Chat</button>
       </div>
     );
   }

@@ -29,6 +29,8 @@ ReactDOM.render(
       <Route path="/matches" component={MatchList} />
       <Route path="/video" component={VideoChatRoom} />
       <Route path="/postchat" component={PostChat} />
-      
+      <Route path="/chat/:id" component={ChatRoom} />
+
+
     </div>
   </Router>, document.getElementById('root'));
