@@ -6,6 +6,7 @@ import axios from 'axios';
 
 import PreferencesForm from './PreferencesForm.jsx';
 import MatchList from './MatchList.jsx';
+import PostChat from './PostChat.jsx';
 
 class Home extends React.Component {
   constructor(props) {
@@ -15,32 +16,32 @@ class Home extends React.Component {
       profile: {},
       showPreferencesField: false,
       showMatchList: false
-    }
+    };
 
     this.handleUserChange = this.handleUserChange.bind(this);
     this.handleMatchListClick = this.handleMatchListClick.bind(this);
   }
 
   handleUserChange(objValue) {
-    this.setState({profile: objValue});
+    this.setState({ profile: objValue });
     // axios post request to update database
     let userPutRoute = '/api/profiles/' + this.state.profile.id;
     axios.put(userPutRoute, this.state.profile)
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 
   handleMatchListClick() {
-    this.setState({showMatchList:true});
+    this.setState({showMatchList: true});
   }
 
   componentDidMount() {
-  let that = this;
-  axios.get('/api/user')
+    let that = this;
+    axios.get('/api/user')
     .then(function(response) {
       that.setState({profile: response.data});
     })
@@ -50,7 +51,7 @@ class Home extends React.Component {
   }
 
   render() {
-    if(this.state.profile.prefAge_min ) {
+    if (this.state.profile.prefAge_min ) {
       return (
         <div>
 
@@ -65,12 +66,12 @@ class Home extends React.Component {
               </div>
               <div className="row">
 
-                <Link to={{pathname: '/lobby', state: {profile: this.state.profile}}}><button type="button" className="btn btn-primary btn-lg btn-block">READY TO VIDEO CHAT</button></Link>
+                <Link to={{pathname: '/postchat', state: {profile: this.state.profile}}}><button type="button" className="btn btn-primary btn-lg btn-block">READY TO VIDEO CHAT</button></Link>
               </div>
             </div>
           }  
         </div>
-      )
+      );
     } else {
       return (
         <div>
@@ -78,9 +79,9 @@ class Home extends React.Component {
           <h1>This is the Prefs page</h1>
           <PreferencesForm user={this.state.profile} onUserChange={this.handleUserChange} />
         </div>
-      )
+      );
     }
   }
 }
 
-export default Home
+export default Home;
