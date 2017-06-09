@@ -17,6 +17,9 @@ const io = require('socket.io')(http);
 
 const port = process.env.PORT || 3000;
 
+//private room var
+const match = io.of('/matchexample');
+
 http.listen(port, function() {
   console.log('listening on port ' + port);
 });
@@ -40,6 +43,8 @@ app.use('/api', routes.api);
 app.use('/api/profiles', routes.profiles);
 app.use('/api/lobby', routes.lobby);
 app.use('/api/matches', routes.matches);
+
+
 app.get('/token', function(request, response) {
   var identity = randomName();
 
@@ -70,8 +75,6 @@ app.get('/*', (req,res) => {
     res.render('index.ejs');
 });
 
-
-
 //socket.io connection
 io.on('connection', function(socket) {
   // socket.emit('server event', {hola: 'mundo'});
@@ -86,5 +89,18 @@ io.on('connection', function(socket) {
     console.log('user connection disconnected');
   });
 });
+
+  // match.on('connection', function(socket) {
+  // console.log('matches found');
+  // socket.on('message', function(message) {
+
+  //   console.log('this is the matches message in the server', message);
+
+  //   match.emit('message', message);
+  // });
+  // socket.on('disconnect', function() {
+  //   console.log('match lost');
+  // });
+// });
 
 module.exports = app;
