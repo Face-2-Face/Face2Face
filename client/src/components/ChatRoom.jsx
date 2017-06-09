@@ -13,6 +13,7 @@ class ChatRoom extends React.Component {
       messages: [],
       userProfile: this.props.location.state.userProfile,
       matchProfile: this.props.location.state.matchProfile
+      // matchRoom: io.of('/matchexample')
     }
     this.handleOnChange = this.handleOnChange.bind(this);
     this.handleOnSubmit = this.handleOnSubmit.bind(this);
