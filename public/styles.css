@@ -52,19 +52,49 @@ h4.appName  {
 }
 
 .profile-img {
-  max-width: 50%;
+  max-width: 20%;
   height: auto;
-  margin-top: 10%;
-  margin-bottom: 10%;
+  margin-top: 2%;
+  margin-bottom: 5%;
 }
 
 .profile-name {
-  font-size: 60px;
+  font-size: 50px;
+}
+
+.sub-header {
+  font-size: 28px;
+}
+
+.inline-row {
+  display: inline-box;
+}
+
+.report {
+  font-size: 15px;
+  float: right;
+  color: red;
+  margin-top: 5%;
+  margin-right: 20%;
 }
 
 .settingsIcon {
   max-width: 40px;
   height: auto;
+}
+
+.heartIcon {
+  max-width: 80px;
+  height: auto;
+  float: right;
+  margin-right: 30%;
+}
+
+.xIcon {
+  max-width: 80px;
+  height: auto;
+  float: left;
+  margin-left: 30%;
 }
 
 .match{

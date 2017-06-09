@@ -16,8 +16,7 @@ import ChatRoom from './components/ChatRoom';
 import MatchList from './components/MatchList';
 import VideoChatRoom from './components/VideoChatRoom';
 import Logout from './components/Logout';
-
-
+import PostChat from './components/PostChat';
 
 ReactDOM.render(
   <Router>
@@ -29,7 +28,9 @@ ReactDOM.render(
       <Route path="/chat" component={ChatRoom} />
       <Route path="/matches" component={MatchList} />
       <Route path="/video" component={VideoChatRoom} />
+      <Route path="/postchat" component={PostChat} />
       <Route path="/chat/:id" component={ChatRoom} />
       <Route path="/logout" component={Logout} />
+
     </div>
   </Router>, document.getElementById('root'));
