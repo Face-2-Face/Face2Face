@@ -50,7 +50,6 @@ class Lobby extends React.Component {
         </div>
         {this.state.foundUserToChatWith ?
           <div>
-          {console.log('debugggg', this.state.userToChatWith)}
           <CountDownRoom profile={this.state.profile} match={this.state.userToChatWith}/>
           </div>
           :

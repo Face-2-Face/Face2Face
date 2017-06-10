@@ -22,6 +22,8 @@ class ChatRoom extends React.Component {
 
   componentDidMount(){
     this.handleIncomingMessages();
+    this.state.socket.emit('join', {path: this.props.location.pathname});
+
   }
 
   handleIncomingMessages(msg) {
@@ -40,7 +42,8 @@ class ChatRoom extends React.Component {
     e.preventDefault();
     console.log('props passed ==>', this.state.userProfile, 'and match: ', this.state.matchProfile)
     var messageWithNameTag = this.state.userProfile.first + ': ' + this.state.input;
-    this.state.socket.emit('message', {messages: messageWithNameTag});
+    this.state.socket.emit('message', {messages: messageWithNameTag, path: this.props.location.pathname});
+
     this.setState({ input: '' });
   }
 
