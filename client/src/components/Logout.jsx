@@ -30,7 +30,7 @@ class Logout extends React.Component {
     if (this.state.complete) {
       return null;
     } else {
-      return <Redirect to='/' />;
+      {window.location.reload()}
     }
   }
 }
