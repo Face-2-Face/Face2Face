@@ -2,6 +2,7 @@ const models = require('../../db/models');
 
 
 module.exports.addToLobby = (req, res) => {
+    console.log('here in addToLoby', req.user)
     models.Profile.where({ id: req.params.id }).fetch()
     .then(profile => {
       if (!profile) {
@@ -22,20 +23,24 @@ module.exports.addToLobby = (req, res) => {
 
 
 module.exports.getPersonToChat = (req, res) => {
-
   models.Profile.query(function(qb) {
-  qb.where('gender', '=', req.user.prefGender)
-  .andWhere('id', '<>', req.user.id)
-  .andWhere('age_min', '>', req.user.prefAge_min)
-  .andWhere('age_max', '<', req.user.preAge_max)
-  }).fetch()
+//  qb.where('gender', '=', req.user.prefGender)
+  qb.where('room', '=', 'lobby')
+   .andWhere('id', '<>', req.user.id)
+  // .andWhere('age_min', '>', req.user.prefAge_min)
+//  .andWhere('age_max', '<', req.user.preAge_max)
+  }).fetchAll()
   .then(function(model) {
-    // pick one matching model 
-    console.log('MATCHING MODEL', model);
-    res.status(200).send(model);
+    // pick one matching model
+    var index = randomlySelectProfile(model.models.length);
+    console.log('MATCHING MODEL', model.models[index]);
+    res.status(200).send(model.models[index]);
   })
   .catch(() => {
     res.sendStatus(404);
   });
-
 };
+
+randomlySelectProfile = (max) => {
+  return Math.floor(Math.random() * (max));
+}
