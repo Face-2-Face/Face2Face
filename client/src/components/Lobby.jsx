@@ -40,7 +40,6 @@ class Lobby extends React.Component {
 
   }
   // get a toChatWith GET from lobby
-  // send the two users to chat page
   // remove them from lobby PUT
 
   render() {
