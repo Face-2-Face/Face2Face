@@ -41,6 +41,24 @@ module.exports.getPersonToChat = (req, res) => {
   });
 };
 
+
+  models.Profile.query(function(qb) {
+  qb.where('gender', '=', req.user.prefGender)
+  .andWhere('id', '<>', req.user.id)
+  .andWhere('age_min', '>', req.user.prefAge_min)
+  .andWhere('age_max', '<', req.user.preAge_max)
+  }).fetch()
+  .then(function(model) {
+    // pick one matching model 
+    console.log('MATCHING MODEL', model);
+    res.status(200).send(model);
+  })
+  .catch(() => {
+    res.sendStatus(404);
+  });
+
 randomlySelectProfile = (max) => {
   return Math.floor(Math.random() * (max));
 }
+
+};
