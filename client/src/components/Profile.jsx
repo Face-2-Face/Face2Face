@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './Header.jsx';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 
 
@@ -10,11 +11,12 @@ class Profile extends React.Component {
     this.state = {
       profile: this.props.location.state.profile,
       value: '',
-      charsLeft: 255
+      charsLeft: 255,
+      sendProfileToDB: false
     }
 
     this.handleChange = this.handleChange.bind(this);
-    this.handleOnSubmit = this.handleSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
@@ -24,6 +26,24 @@ class Profile extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    let profile = Object.assign({}, this.state.profile);
+    profile.bio = this.state.value;
+    this.setState({profile, sendProfileToDB: true})
+
+  }
+
+  componentDidUpdate(){
+    if(this.state.sendProfileToDB) {
+      console.log('updating profile in database...')
+      let userPutRoute = '/api/profiles/' + this.state.profile.id;
+      axios.put(userPutRoute, this.state.profile)
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    }
   }
 
   render() {
