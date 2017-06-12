@@ -6,7 +6,7 @@ class VideoChatRoom extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      room: {}
+      room: this.props.location.state.room
     };
     this.roomJoined = this.roomJoined.bind(this);
     this.participantConnected = this.participantConnected.bind(this);
@@ -53,7 +53,7 @@ class VideoChatRoom extends React.Component {
       .then(function (response) {
         console.log('Response', response);
         identity = response.data.identity;
-        Video.connect(response.data.token, { name: 'testom' }).then(that.roomJoined, function (error) {
+        Video.connect(response.data.token, { name: that.state.room }).then(that.roomJoined, function (error) {
           console.log('Could not connect: ', error.message);
         });
       })
