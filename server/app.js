@@ -44,8 +44,8 @@ app.use('/api/profiles', routes.profiles);
 app.use('/api/lobby', routes.lobby);
 app.use('/api/matches', routes.matches);
 
-//added chats route
-app.use('/api/chats', routes.chats);
+//added messages route
+app.use('/api/messages', routes.messages);
 
 
 app.get('/token', function(request, response) {

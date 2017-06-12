@@ -1,14 +1,14 @@
 'use strict';
 const express = require('express');
 const router = express.Router();
-const LobbyController = require('../controllers').Lobby;
+const MessagesController = require('../controllers').Messages;
 
 router.route('/')
-  .get(LobbyController.getPersonToChat)
+  .get(MessagesController.getAll)
   ;
 
 router.route('/:id')
-  .put(LobbyController.addToLobby)
+  // .put(MessagesController.addToLobby)
   // .delete(ProfileController.deleteOne)
   ;
 
