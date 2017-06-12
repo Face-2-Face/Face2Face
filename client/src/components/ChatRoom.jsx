@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './Header.jsx';
 import io from 'socket.io-client';
+import axios from 'axios';
 
 // let socket = io('http://localhost:8080')
 
@@ -31,6 +32,14 @@ class ChatRoom extends React.Component {
       this.state.messages.push(msg);
       console.log('this is the messages arr from handleIncomingMessages', this.state.messages);
       this.setState({messages: this.state.messages});
+      let userPutRoute = '/api/chats/' + this.state.profile.id;
+      axios.put(userPutRoute, this.state.profile)
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
     });
   }
 

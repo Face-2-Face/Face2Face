@@ -44,6 +44,9 @@ app.use('/api/profiles', routes.profiles);
 app.use('/api/lobby', routes.lobby);
 app.use('/api/matches', routes.matches);
 
+//added chats route
+app.use('/api/chats', routes.chats);
+
 
 app.get('/token', function(request, response) {
   var identity = randomName();
