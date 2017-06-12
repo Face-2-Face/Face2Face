@@ -42,9 +42,10 @@ class Match extends React.Component {
       path = this.makePath();
     }
     return (
-      <div className="match" >
+      <div className="match">
         <Link to={{pathname: '/public-profile', state: {profile: this.state.matchProfile}}}>
-          <img className="img-circle center-block match-img"src={this.state.matchProfile.photo}/>
+          <img className="img-circle center-block match-img"src={this.state.matchProfile.photo}
+            onClick={()=>console.log('HEY', this.state.matchProfile)}/>
         </Link>
         <Link to={{pathname: path, state: {userProfile: this.props.userProfile, matchProfile: this.state.matchProfile}}}>
           <p>{this.state.matchProfile.first}</p>

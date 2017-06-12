@@ -8,24 +8,31 @@ class Profile extends React.Component {
     super(props);
     this.state = {
       profile: this.props.location.state.profile,
-      value: '',
+      bioValue: this.props.location.state.profile.bio,
+      locationValue: this.props.location.state.profile.location,
       charsLeft: 255,
       sendProfileToDB: false
     }
 
-    this.handleChange = this.handleChange.bind(this);
+    this.handleBioChange = this.handleBioChange.bind(this);
+    this.handleLocationChange = this.handleLocationChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(event) {
+  handleBioChange(event) {
     var newCharsLeft = 255 - event.target.value.length;
-    this.setState({value: event.target.value, charsLeft: newCharsLeft});
+    this.setState({bioValue: event.target.value, charsLeft: newCharsLeft});
+  }
+
+  handleLocationChange(event) {
+    this.setState({locationValue: event.target.value})
   }
 
   handleSubmit(event) {
     event.preventDefault();
     let profile = Object.assign({}, this.state.profile);
-    profile.bio = this.state.value;
+    profile.bio = this.state.bioValue;
+    profile.location = this.state.locationValue;
     this.setState({profile, sendProfileToDB: true})
 
   }
@@ -58,12 +65,15 @@ class Profile extends React.Component {
         </div>
         <div className="row">
           <img className="img-circle center-block profile-img"src={profile.photo}/>
+          <h2>Age: {profile.age_min}</h2>
+          <h2>Location: {profile.location}</h2>
         </div>
         <div>
           <form onSubmit={this.handleSubmit}>
         <label>
           About Me:
-          <textarea value={this.state.value} onChange={this.handleChange} />
+          <textarea value={this.state.bioValue} onChange={this.handleBioChange} />
+          <input value={this.state.locationValue} onChange={this.handleLocationChange} />
         </label>
         <input type="submit" value="Submit" />
       </form>
