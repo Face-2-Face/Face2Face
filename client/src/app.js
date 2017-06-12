@@ -10,7 +10,7 @@ import {
 
 import Home from './components/Home';
 import Profile from './components/Profile';
-import Settings from './components/Settings';
+import Settings from './components/PreferencesForm';
 import Lobby from './components/Lobby';
 import ChatRoom from './components/ChatRoom';
 import MatchList from './components/MatchList';
@@ -28,5 +28,6 @@ ReactDOM.render(
       <Route path="/chat" component={ChatRoom} />
       <Route path="/chat/:id" component={ChatRoom} />
       <Route path="/matches" component={MatchList} />
+      <Route path="/logout" component={Logout} />
     </div>
   </Router>, document.getElementById('root'));

@@ -13,7 +13,7 @@ var randomName = require('./randomname');
 const app = express();
 
 const http = require('http').Server(app);
-//const io = require('socket.io')(http);
+const io = require('socket.io')(http);
 
 const port = process.env.PORT || 3000;
 
@@ -43,6 +43,9 @@ app.use('/api', routes.api);
 app.use('/api/profiles', routes.profiles);
 app.use('/api/lobby', routes.lobby);
 app.use('/api/matches', routes.matches);
+
+//added messages route
+app.use('/api/messages', routes.messages);
 
 
 app.get('/token', function(request, response) {
@@ -76,7 +79,7 @@ app.get('/*', (req,res) => {
 });
 
 
-var io = require('socket.io')(http);
+// var io = require('socket.io')(http);
 
 io.sockets.on('connection', function (socket) {
   console.log('socket connection to private room')

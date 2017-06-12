@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { Redirect } from 'react-router-dom';
+
 
 import Header from './Header.jsx';
 import CountDownRoom from './CountDownRoom.jsx';
@@ -10,37 +12,64 @@ class Lobby extends React.Component {
     super(props);
     this.state = {
       profile: this.props.location.state.profile,
-      foundUserToChatWith: false,
-      userToChatWith: ''
+      enteredLobby: false,
+      room:'',
+      otherID: null,
+      foundUserToChatWith: false
     }
-
+    this.getVideoChatAssignment = this.getVideoChatAssignment.bind(this);
   }
 
   componentDidMount() {
     let userPutRoute = '/api/lobby/' + this.state.profile.id;
     let that = this;
-    console.log('LOBBY', userPutRoute);
-    console.log('LOBBY profile', this.state.profile);
     axios.put(userPutRoute, {room: 'lobby'})
       .then(function(response) {
-        console.log('sent to db', response);
+        that.setState({enteredLobby: true});
       })
       .catch(function(error) {
         console.log(error);
       });
-
-    axios.get('/api/lobby/')
-    .then(function(response) {
-      console.log('match: ', response.data);
-      that.setState({foundUserToChatWith: true, userToChatWith: response.data});
-    })
-    .catch(function(error) {
-      console.log('error in get',error);
-    });
-
+    this.getVideoChatAssignment();
   }
-  // get a toChatWith GET from lobby
-  // remove them from lobby PUT
+
+  getVideoChatAssignment() {
+    let that = this;
+    axios.get('/api/lobby/')
+      .then(function(response) {
+        console.log('Lobby.jsx VideoChat Assignment -----> ', response.data);
+        if (response.data.room === 'lobby' || that.state.enteredLobby === false) {
+          setTimeout(that.getVideoChatAssignment, 10000);
+        } else {
+          // send to the chat room with the profile (which contains room assignment)
+          that.setState({room: response.data.room, otherID: response.data.otherID, foundUserToChatWith: true});
+          console.log('Lobby.jsx Got room Assignment -----> ', response.data);
+        }
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+  }
+
+  componentDidUpdate() {
+    if (this.state.foundUserToChatWith && this.state.otherID) {
+      axios.put('/api/profiles/' + this.state.profile.id, {room: this.state.room})
+        .then(function(response) {
+          console.log(response);
+        })
+        .catch(function(error) {
+        console.log(error);
+        });
+
+        axios.put('/api/profiles/' + this.state.otherID, {room: this.state.room})
+        .then(function(response) {
+          console.log(response);
+        })
+        .catch(function(error) {
+        console.log(error);
+        });
+      }
+  }
 
   render() {
     return (
@@ -50,17 +79,16 @@ class Lobby extends React.Component {
         </div>
         {this.state.foundUserToChatWith ?
           <div>
-          <CountDownRoom profile={this.state.profile} match={this.state.userToChatWith}/>
+            <Redirect to={{pathname: '/video', state: {room: this.state.room}}} />;
           </div>
           :
           <h3>Connecting ... </h3>
         }
       </div>
-
     )
   }
-
-
 }
 
 export default Lobby
+
+// <CountDownRoom profile={this.state.profile} match={this.state.userToChatWith}/>
