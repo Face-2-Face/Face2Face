@@ -52,8 +52,8 @@ class Lobby extends React.Component {
   }
 
   componentDidUpdate() {
-    if (this.state.foundUserToChatWith) {
-      axios.put('/api/profiles/' + this.state.profile.id, {room: 'false'})
+    if (this.state.foundUserToChatWith && this.state.otherID) {
+      axios.put('/api/profiles/' + this.state.profile.id, {room: this.state.room})
         .then(function(response) {
           console.log(response);
         })
@@ -61,7 +61,6 @@ class Lobby extends React.Component {
         console.log(error);
         });
 
-      if (this.state.otherID) {
         axios.put('/api/profiles/' + this.state.otherID, {room: this.state.room})
         .then(function(response) {
           console.log(response);
@@ -70,7 +69,6 @@ class Lobby extends React.Component {
         console.log(error);
         });
       }
-    }
   }
 
   render() {
