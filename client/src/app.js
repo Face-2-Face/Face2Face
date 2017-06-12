@@ -10,12 +10,13 @@ import {
 
 import Home from './components/Home';
 import Profile from './components/Profile';
-import Settings from './components/Settings';
+import Settings from './components/PreferencesForm';
 import Lobby from './components/Lobby';
 import ChatRoom from './components/ChatRoom';
 import MatchList from './components/MatchList';
 import VideoChatRoom from './components/VideoChatRoom';
 import PostChat from './components/PostChat';
+
 
 
 ReactDOM.render(
@@ -30,6 +31,7 @@ ReactDOM.render(
       <Route path="/video" component={VideoChatRoom} />
       <Route path="/postchat" component={PostChat} />
       <Route path="/chat/:id" component={ChatRoom} />
+    
 
 
     </div>

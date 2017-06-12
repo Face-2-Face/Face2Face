@@ -9,6 +9,17 @@
   font-size: 50px;
 }
 
+.profile-form {
+  display: inline-block;
+}
+
+.bio {
+  padding-right: 20%;
+  padding-left: 20%;
+  font-size: 75%;
+
+}
+
 .sub-header {
   font-size: 28px;
 }

@@ -5,17 +5,17 @@ import Header from './Header.jsx';
 import Home from './Home.js';
 
 class PreferencesForm extends React.Component {
-  constructor(props){
-    super(props)
+  constructor(props) {
+    super(props);
 
     this.state = {
-      age:'',
+      age: '',
       gender: '',
       prefGender: '',
       prefAge_min: '',
       prefAge_max: '',
       goHome: false
-    }
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -24,6 +24,7 @@ class PreferencesForm extends React.Component {
   handleChange(e) {
     this.setState({value: e.target.value});
   }
+  
   handleSubmit(e) {
     e.preventDefault();
     this.props.user.age_min = this.state.age;
@@ -33,11 +34,28 @@ class PreferencesForm extends React.Component {
     this.props.user.prefAge_min = this.state.prefAge_min;
     this.props.user.prefAge_max = this.state.prefAge_max;
 
-    this.props.onUserChange(this.props.user)
+    this.props.onUserChange(this.props.user);
     this.setState({goHome: true});
   }
 
+  componentDidMount() {
+    console.log('these props', this.props);
+
+    if (this.props.location) {
+      this.setState({
+        age: this.props.location.profile.age,
+        gender: this.props.location.profile.gender,
+        prefGender: this.props.location.profile.prefGender,
+        prefAge_min: this.props.location.profile.prefAge_min,
+        prefAge_max: this.props.location.profile.prefAge_max,
+      }); 
+    }
+  }
+
+
   render() {
+
+
 
     return (
       <div>
@@ -83,12 +101,12 @@ class PreferencesForm extends React.Component {
         </div>
       }
       </div>
-    )
+    );
   }
 }
 
 const Warning = () => {
-  return <h1>Warning</h1>
-}
+  return <h1>Warning</h1>;
+};
 
 export default PreferencesForm;
