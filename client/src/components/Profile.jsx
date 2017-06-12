@@ -3,8 +3,6 @@ import Header from './Header.jsx';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-
-
 class Profile extends React.Component {
   constructor(props) {
     super(props);
@@ -34,7 +32,8 @@ class Profile extends React.Component {
 
   componentDidUpdate(){
     if(this.state.sendProfileToDB) {
-      console.log('updating profile in database...')
+      this.setState({sendProfileToDB: false});
+      console.log('updating profile in database...');
       let userPutRoute = '/api/profiles/' + this.state.profile.id;
       axios.put(userPutRoute, this.state.profile)
       .then(function (response) {
