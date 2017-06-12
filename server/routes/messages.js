@@ -8,7 +8,7 @@ router.route('/')
   ;
 
 router.route('/:id')
-  // .put(MessagesController.addToLobby)
+  .put(MessagesController.addToMessages)
   // .delete(ProfileController.deleteOne)
   ;
 
