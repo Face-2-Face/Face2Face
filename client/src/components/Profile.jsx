@@ -8,8 +8,22 @@ class Profile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      profile: this.props.location.state.profile
-    };
+      profile: this.props.location.state.profile,
+      value: '',
+      charsLeft: 255
+    }
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleOnSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    var newCharsLeft = 255 - event.target.value.length;
+    this.setState({value: event.target.value, charsLeft: newCharsLeft});
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
   }
 
   render() {
@@ -17,7 +31,7 @@ class Profile extends React.Component {
 
     return (
       <div>
-          {console.log('props', profile)}
+          {console.log('props', this.state.profile)}
         <Header />
         <h4>This is the Profile Page</h4>
         <div className="row">
@@ -26,13 +40,22 @@ class Profile extends React.Component {
         <div className="row">
           <img className="img-circle center-block profile-img"src={profile.photo}/>
         </div>
-        <div className="row">
-          <span>Preferences</span><Link to='/settings' user={profile}><img className="settingsIcon" src="public/assets/settings.png"/></Link>
+        <div>
+          <form onSubmit={this.handleSubmit}>
+        <label>
+          About Me:
+          <textarea value={this.state.value} onChange={this.handleChange} />
+        </label>
+        <input type="submit" value="Submit" />
+      </form>
+        <div><p>Chars left: {this.state.charsLeft}</p></div>
         </div>
-
+        <div className="row">
+          <Link to='/settings' user={profile}><img className="settingsIcon" src="public/assets/settings.png"/></Link>
+        </div>
       </div>
-    );
+    )
   }
 }
 
-export default Profile;
+export default Profile
