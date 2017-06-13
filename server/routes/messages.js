@@ -5,10 +5,11 @@ const MessagesController = require('../controllers').Messages;
 
 router.route('/')
   .get(MessagesController.getAll)
+  .put(MessagesController.addToMessages)
   ;
 
 router.route('/:id')
-  .put(MessagesController.addToMessages)
+  // .put(MessagesController.addToMessages)
   // .delete(ProfileController.deleteOne)
   ;
 

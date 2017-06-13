@@ -19,6 +19,7 @@ class ChatRoom extends React.Component {
     this.handleOnChange = this.handleOnChange.bind(this);
     this.handleOnSubmit = this.handleOnSubmit.bind(this);
     this.handleIncomingMessages = this.handleIncomingMessages.bind(this);
+    this.messageBuilder = this.messageBuilder.bind(this);
   }
 
   componentDidMount(){
@@ -39,14 +40,21 @@ class ChatRoom extends React.Component {
     this.setState({ input: e.target.value });
   }
 
+  messageBuilder(text) {
+    var message = {conversation_id: 1, from: 3, to: 4, time: 2, message: text}
+    return message;
+  }
+
   handleOnSubmit(e) {
     e.preventDefault();
     console.log('props passed ==>', this.state.userProfile, 'and match: ', this.state.matchProfile)
     var messageWithNameTag = this.state.userProfile.first + ': ' + this.state.input;
     this.state.socket.emit('message', {messages: messageWithNameTag, path: this.props.location.pathname});
   
-    let userPutRoute = '/api/conversations/' + this.state.userProfile.id + this.state.matchProfile.id;
-    axios.put(userPutRoute, messageWithNameTag)
+    let userPutRoute = '/api/messages/';
+    var msg = this.messageBuilder(this.state.input);
+    console.log('this is the message on handleSubmit', msg)
+    axios.put(userPutRoute, msg)
       .then(function (response) {
         console.log(response);
       })
@@ -56,8 +64,6 @@ class ChatRoom extends React.Component {
 
     this.setState({ input: '' });
   }
-
-
 
   render() {
 

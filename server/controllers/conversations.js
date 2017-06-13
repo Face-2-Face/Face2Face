@@ -1,10 +1,11 @@
 const models = require('../../db/models');
 
 module.exports.getAll = (req, res) => {
+  console.log('this is the comment from getAll in conversations');
   models.Conversations.fetchAll()
     .then(conversations => {
-      console.log('this is the message in the controller', conversation)
-      res.status(200).send(conversation);
+      // console.log('this is the message in the controller', conversations)
+      res.status(200).send(conversations);
     })
     .catch(err => {
       // This code indicates an outside service (the database) did not respond in time
