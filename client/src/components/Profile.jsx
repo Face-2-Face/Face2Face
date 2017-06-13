@@ -2,7 +2,6 @@ import React from 'react';
 import Header from './Header.jsx';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-
 class Profile extends React.Component {
   constructor(props) {
     super(props);
@@ -13,21 +12,17 @@ class Profile extends React.Component {
       charsLeft: 255,
       sendProfileToDB: false
     }
-
     this.handleBioChange = this.handleBioChange.bind(this);
     this.handleLocationChange = this.handleLocationChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-
   handleBioChange(event) {
     var newCharsLeft = 255 - event.target.value.length;
     this.setState({bioValue: event.target.value, charsLeft: newCharsLeft});
   }
-
   handleLocationChange(event) {
     this.setState({locationValue: event.target.value})
   }
-
   handleSubmit(event) {
     event.preventDefault();
     let profile = Object.assign({}, this.state.profile);
@@ -35,7 +30,6 @@ class Profile extends React.Component {
     profile.location = this.state.locationValue;
     this.setState({profile, sendProfileToDB: true})
   }
-
   componentDidUpdate(){
     if(this.state.sendProfileToDB) {
       this.setState({sendProfileToDB: false});
@@ -50,10 +44,8 @@ class Profile extends React.Component {
       });
     }
   }
-
   render() {
     let profile = this.state.profile;
-
     return (
       <div>
           {console.log('props in profile', this.state.profile)}
@@ -85,5 +77,4 @@ class Profile extends React.Component {
     )
   }
 }
-
 export default Profile

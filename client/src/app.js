@@ -31,11 +31,12 @@ ReactDOM.render(
       <Route path="/preferences" component={PreferencesForm} />
       <Route path="/lobby" component={Lobby} />
       <Route path="/chat" component={ChatRoom} />
+      <Route path="/matches" component={MatchList} />
       <Route path="/video" component={VideoChatRoom} />
       <Route path="/postchat" component={PostChat} />
       <Route path="/chat/:id" component={ChatRoom} />
-      <Route path="/matches" component={MatchList} />
       <Route path="/logout" component={Logout} />
       <Route path="/edit-preferences" component={EditPreferences} />
+
     </div>
   </Router>, document.getElementById('root'));

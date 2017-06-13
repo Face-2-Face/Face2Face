@@ -1,10 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-
 import ChatRoom from './ChatRoom.jsx'
 import PublicProfile from './PublicProfile.jsx'
-
 class Match extends React.Component {
   constructor(props){
     super(props)
@@ -45,7 +43,8 @@ class Match extends React.Component {
       <div className="match">
         <Link to={{pathname: '/public-profile', state: {profile: this.state.matchProfile}}}>
           <img className="img-circle center-block match-img"src={this.state.matchProfile.photo}
-            onClick={()=>console.log('HEY', this.state.matchProfile)}/>
+            onClick={()=>console.log('HEY', this.state.matchProfile)}
+            />
         </Link>
         <Link to={{pathname: path, state: {userProfile: this.props.userProfile, matchProfile: this.state.matchProfile}}}>
           <p>{this.state.matchProfile.first}</p>
