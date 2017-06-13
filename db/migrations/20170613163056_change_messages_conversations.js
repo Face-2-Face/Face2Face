@@ -5,12 +5,7 @@ exports.up = function(knex, Promise) {
       table.dropColumn('message_id');
     }),
     knex.schema.table('conversations', function(table) {
-<<<<<<< HEAD
       table.dropColumn('conversations_id');
-=======
-      table.dropColumn('conversation_id');
-      table.increments('id').unsigned().primary();
->>>>>>> master
     })
   ]);
 };
