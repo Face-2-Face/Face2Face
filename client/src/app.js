@@ -33,7 +33,8 @@ ReactDOM.render(
       <Route path="/video" component={VideoChatRoom} />
       <Route path="/postchat" component={PostChat} />
       <Route path="/chat/:id" component={ChatRoom} />
-      <Route path="/matches" component={MatchList} />
       <Route path="/logout" component={Logout} />
+
+
     </div>
   </Router>, document.getElementById('root'));
