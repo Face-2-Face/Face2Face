@@ -46,7 +46,7 @@ class ChatRoom extends React.Component {
     this.state.socket.emit('message', {messages: messageWithNameTag, path: this.props.location.pathname});
   
     let userPutRoute = '/api/messages/' + this.state.userProfile.id;
-    axios.put(userPutRoute, this.state.input)
+    axios.put(userPutRoute, messageWithNameTag)
       .then(function (response) {
         console.log(response);
       })
