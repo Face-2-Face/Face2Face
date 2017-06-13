@@ -13,25 +13,22 @@ module.exports.getAll = (req, res) => {
 };
 
 module.exports.addToMessages = (req, res) => {
-    // console.log('this is the user in the messages controller', req.user)
-    // models.Profile.where({ id: req.params.id }).fetch()
-    // .then(profile => {
-    //   if (!profile) {
-    //     throw profile;
-    //   }
-    //   return profile.save(req.body, { method: 'update' });
-    // })
-    // .then(() => {
-    //   res.sendStatus(201);
-    // })
-    // .error(err => {
-    //   res.status(500).send(err);
-    // })
-    // .catch(() => {
-    //   res.sendStatus(404);
-    // });
-    
     // console.log('this is the request body', req.body)
     // models.Messages.where({conversation: req.body}).fetch()
     //   .then()
 };
+
+
+// module.exports.getUserMatches = (req, res) => {
+//   models.Matches.where({ user_id: req.params.id })
+// //    .fetch({withRelated: ['profile']})
+//     .fetchAll()
+// //    knex.raw(`select * from profiles where id=${req.params.id}`)
+//     .then(matches => {
+//       console.log('hello from match fetch', matches)
+//       res.status(200).send(matches);
+//     })
+//     .catch(err => {
+//       res.status(503).send(err);
+//     });
+// }
