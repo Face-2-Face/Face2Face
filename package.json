@@ -42,6 +42,7 @@
     "passport-google-oauth": "^1.0.0",
     "passport-local": "^1.0.0",
     "passport-twitter": "^1.0.4",
+    "pegjs": "^0.10.0",
     "pg": "^6.1.5",
     "postgresql": "0.0.1",
     "react": "^15.4.2",
@@ -50,6 +51,8 @@
     "redis": "^2.7.1",
     "socket.io": "^2.0.2",
     "socket.io-client": "^2.0.2",
+    "twilio": "^3.3.0",
+    "twilio-video": "^1.0.0",
     "webpack": "^2.3.2",
     "webpack-dev-server": "^2.4.2",
     "yarn": "^0.24.5"

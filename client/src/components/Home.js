@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Header from './Header.jsx';
 import ChatRoom from './ChatRoom.jsx';
@@ -54,21 +55,19 @@ class Home extends React.Component {
       return (
         <div>
 
-          {this.state.showMatchList ?
-            <div>
-              <MatchList profile={this.state.profile} show={this.state.showMatchList}/>
-            </div>
-            :
+
+
             <div>
               <div className="row">
                 <Header profile={this.state.profile} show={this.handleMatchListClick}/>
               </div>
               <div className="row">
+                <Link to={{pathname: '/lobby', state: {profile: this.state.profile}}}><button type="button" className="btn btn-primary btn-lg btn-block">TO LOBBY</button></Link>
 
-                <Link to={{pathname: '/lobby', state: {profile: this.state.profile}}}><button type="button" className="btn btn-primary btn-lg btn-block">READY TO VIDEO CHAT</button></Link>
+                <Link to={{pathname: '/postchat', state: {profile: this.state.profile}}}><button type="button" className="btn btn-primary btn-lg btn-block">TO POSTCHAT</button></Link>
               </div>
             </div>
-          }  
+
         </div>
       )
     } else {

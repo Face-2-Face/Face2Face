@@ -1,137 +1,13 @@
-body { 
-  padding-top: 80px; 
-}
-
-h1 { 
-  text-align: center;
-}
-
-h4 { 
-  text-align: center; 
-  color: gray; 
-  font-weight: 300;
-}
-
-img { 
-  width: 100%; 
-  display: block; 
-  margin: 0 auto; 
-}
-
-p  { 
-  text-align: center;
-}
-
-img.profileIcon { 
-  width: 40px; 
-  display: inline-block; 
-  float: left;
-}
-
-img.matchesIcon { 
-  width: 40px; 
-  display: inline-block; 
-  float: right; 
-}
-
-img.logoutIcon { 
-  width: 40px; 
-  display: inline-block; 
-  float: right; 
-}
-
-img.frontLogo { 
-  width: 100%; 
-}
-
-h4.appName  { 
-  text-align: center; 
-  color: black; 
-  font-weight: 500; 
-  font-size: 36px;
-}
-
-.profile-img {
-  max-width: 20%;
-  height: auto;
-  margin-top: 2%;
-  margin-bottom: 5%;
-}
-
-.profile-name {
-  font-size: 50px;
-}
-
-.profile-form {
-  display: inline-block;
-}
-
-.bio {
-  padding-right: 20%;
-  padding-left: 20%;
-  font-size: 75%;
-
-}
-
-.sub-header {
-  font-size: 28px;
-}
-
-.inline-row {
-  display: inline-box;
-}
-
-.report {
-  font-size: 15px;
-  float: right;
-  color: red;
-  margin-top: 5%;
-  margin-right: 20%;
-}
-
-.settingsIcon {
-  max-width: 40px;
-  height: auto;
-}
-
-.heartIcon {
-  max-width: 80px;
-  height: auto;
-  float: right;
-  margin-right: 30%;
-}
-
-.xIcon {
-  max-width: 80px;
-  height: auto;
-  float: left;
-  margin-left: 30%;
-}
-
-.match{
-  width: 30vw;
-  height: 18vh;
-  margin: auto;
-  border-style: double;
-  border-color: blue;
-  border-radius: 5px;
-  margin-top: 2%;
-}
-
-.match-img {
-  width: 10%;
-  height:auto;
-  float: left;
-  margin-left: 2%;
-}
-
-
-/*Video Styles*/
+@import url(https://fonts.googleapis.com/css?family=Share+Tech+Mono);
 
 body,
 p {
   padding: 0;
   margin: 0;
+}
+
+body {
+  background: #272726;
 }
 
 div#remote-media {
@@ -266,4 +142,3 @@ div#controls div#log p {
   text-indent: -1.25em;
   width: 90%;
 }
-
