@@ -38,6 +38,8 @@ app.use('/api/profiles', routes.profiles);
 app.use('/api/lobby', routes.lobby);
 app.use('/api/matches', routes.matches);
 app.use('/api/messages', routes.messages);
+//added conversations route
+app.use('/api/conversations', routes.conversations);
 
 
 app.get('/token', function(request, response) {

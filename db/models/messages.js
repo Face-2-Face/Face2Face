@@ -2,10 +2,9 @@ const db = require('../');
 
 const Messages = db.Model.extend({
   tableName: 'messages',
-  // profile: function() {
-  //   return this.hasMany('Profile')
-  // }
-  
+  conversations: function() {
+    return this.belongsTo('Conversations');
+  }
 });
 
 module.exports = db.model('Messages', Messages);

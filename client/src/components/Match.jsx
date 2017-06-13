@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import ChatRoom from './ChatRoom.jsx'
-import PublicProfile from './PublicProfile.jsx'
+import ChatRoom from './ChatRoom.jsx';
+import PublicProfile from './PublicProfile.jsx';
+
 class Match extends React.Component {
   constructor(props){
     super(props)
@@ -11,16 +12,25 @@ class Match extends React.Component {
       matchProfile: {
         first: '',
         photo: ''
-      }
+      },
+      conversations: {}
     }
     this.makePath = this.makePath.bind(this);
   }
   componentDidMount() {
     let that = this;
     const id = this.props.matchID.match;
-    axios.get('/api/profiles/' + id )
+    axios.get('/api/profiles/' + id)
     .then(function(response) {
       that.setState({matchProfile: response.data});
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
+
+    axios.get('/api/conversations/')
+    .then(function(response) {
+      this.setState({conversations: response.data});
     })
     .catch(function(error) {
       console.log(error);
@@ -46,7 +56,7 @@ class Match extends React.Component {
             onClick={()=>console.log('HEY', this.state.matchProfile)}
             />
         </Link>
-        <Link to={{pathname: path, state: {userProfile: this.props.userProfile, matchProfile: this.state.matchProfile}}}>
+        <Link to={{pathname: path, state: {userProfile: this.props.userProfile, matchProfile: this.state.matchProfile, conversations: this.state.conversations}}}>
           <p>{this.state.matchProfile.first}</p>
           <p>click to enter chat...</p>
         </Link>
