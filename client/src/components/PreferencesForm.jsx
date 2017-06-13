@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import Header from './Header.jsx';
 import Home from './Home.js';
+import Profile from './Profile.jsx';
 
 class PreferencesForm extends React.Component {
   constructor(props) {
@@ -24,11 +25,11 @@ class PreferencesForm extends React.Component {
   handleChange(e) {
     this.setState({value: e.target.value});
   }
-  
+
   handleSubmit(e) {
     e.preventDefault();
     this.props.user.age_min = this.state.age;
-    this.props.user.age_max = this.state.age;    
+    this.props.user.age_max = this.state.age;
     this.props.user.gender = this.state.gender;
     this.props.user.prefGender = this.state.prefGender;
     this.props.user.prefAge_min = this.state.prefAge_min;
@@ -48,15 +49,12 @@ class PreferencesForm extends React.Component {
         prefGender: this.props.location.profile.prefGender,
         prefAge_min: this.props.location.profile.prefAge_min,
         prefAge_max: this.props.location.profile.prefAge_max,
-      }); 
+      });
     }
   }
 
 
   render() {
-
-
-
     return (
       <div>
         {this.state.goHome ?
@@ -65,8 +63,7 @@ class PreferencesForm extends React.Component {
           </div>
           :
           <div>
-            <p>{this.props.user.first}</p>
-            <p>Please input your preferences</p>
+            <h2>Please input your preferences</h2>
             <form onSubmit={this.handleSubmit}>
               <ul>
                 <li><label>
@@ -88,7 +85,6 @@ class PreferencesForm extends React.Component {
                     <option value="female">Woman</option>
                   </select>
                 </label></li>
-
                 <li><label>
                   From age:
                   <input name="prefAge_min" value={this.state.prefAge_min} onChange={(e) => this.setState({ prefAge_min: e.target.value})} />
@@ -104,9 +100,5 @@ class PreferencesForm extends React.Component {
     );
   }
 }
-
-const Warning = () => {
-  return <h1>Warning</h1>;
-};
 
 export default PreferencesForm;
