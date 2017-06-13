@@ -6,7 +6,7 @@ exports.up = function(knex, Promise) {
       table.increments('id').unsigned().primary();
     }),
     knex.schema.table('conversations', function(table) {
-      table.dropColumn('conversations_id');
+      table.dropColumn('conversation_id');
       table.increments('id').unsigned().primary();
     })
   ]);
