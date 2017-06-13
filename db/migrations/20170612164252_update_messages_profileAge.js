@@ -12,12 +12,6 @@ exports.up = function(knex, Promise) {
       table.dropColumn('age_max');
       table.dropColumn('prefAge_min');
       table.dropColumn('prefAge_max');
-    }),
-    knex.schema.table('profiles', function(table) {
-      table.integer('age_min');
-      table.integer('age_max');
-      table.integer('prefAge_min');
-      table.integer('prefAge_max');
     })
   ]);
 };
@@ -35,12 +29,6 @@ exports.down = function(knex, Promise) {
       table.string('age_max', 8).nullable();
       table.string('prefAge_min', 8).nullable();
       table.string('prefAge_max', 8).nullable();
-    }),
-    knex.schema.table('profiles', function(table) {
-      table.dropColumn('age_min');
-      table.dropColumn('age_max');
-      table.dropColumn('prefAge_min');
-      table.dropColumn('prefAge_max');
     })
   ]);
 };
