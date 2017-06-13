@@ -56,7 +56,7 @@ class Profile extends React.Component {
 
     return (
       <div>
-          {console.log('props', this.state.profile)}
+          {console.log('props in profile', this.state.profile)}
         <Header />
         <h4>This is the Profile Page</h4>
         <div className="row">
@@ -79,7 +79,7 @@ class Profile extends React.Component {
         <div><p>Chars left: {this.state.charsLeft}</p></div>
         </div>
         <div className="row">
-          <Link to='/settings' user={profile}><img className="settingsIcon" src="public/assets/settings.png"/></Link>
+          <Link to={{pathname: '/edit-preferences', state: {profile: this.state.profile}}}><img className="settingsIcon" src="public/assets/settings.png"/></Link>
         </div>
       </div>
     )
