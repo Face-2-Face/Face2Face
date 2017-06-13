@@ -29,10 +29,12 @@ ReactDOM.render(
       <Route path="/settings" component={Settings} />
       <Route path="/lobby" component={Lobby} />
       <Route path="/chat" component={ChatRoom} />
+      <Route path="/matches" component={MatchList} />
       <Route path="/video" component={VideoChatRoom} />
       <Route path="/postchat" component={PostChat} />
       <Route path="/chat/:id" component={ChatRoom} />
-      <Route path="/matches" component={MatchList} />
       <Route path="/logout" component={Logout} />
+
+
     </div>
   </Router>, document.getElementById('root'));
