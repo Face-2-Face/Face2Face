@@ -1,10 +1,10 @@
 const models = require('../../db/models');
 
 module.exports.getAll = (req, res) => {
-  models.Messages.fetchAll()
-    .then(messages => {
-      console.log('this is the message in the controller', messages)
-      res.status(200).send(messages);
+  models.Conversations.fetchAll()
+    .then(conversations => {
+      console.log('this is the message in the controller', conversation)
+      res.status(200).send(conversation);
     })
     .catch(err => {
       // This code indicates an outside service (the database) did not respond in time
@@ -12,10 +12,8 @@ module.exports.getAll = (req, res) => {
     });
 };
 
-module.exports.addToMessages = (req, res) => {
+module.exports.addToConversations = (req, res) => {
     console.log('this is the request body', req.body)
-    models.Messages.where({conversation: req.body}).fetch()
-      .then()
 };
 
 
