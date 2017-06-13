@@ -2,7 +2,7 @@ const models = require('../../db/models');
 
 
 module.exports.addToLobby = (req, res) => {
-    console.log('here in addToLoby', req.user)
+    console.log('here in addToLobby', req.user)
     models.Profile.where({ id: req.params.id }).fetch()
     .then(profile => {
       if (!profile) {
@@ -34,11 +34,14 @@ module.exports.getPersonToChat = (req, res) => {
         res.status(200).send(result);
       } else {
           models.Profile.query(function(qb) {
-            //  qb.where('gender', '=', req.user.prefGender)
               qb.where('room', '=', 'lobby')
               .andWhere('id', '<>', req.user.id)
               .andWhere('age_min', '>', req.user.prefAge_min)
              .andWhere('age_max', '<', req.user.prefAge_max)
+             .andWhere('prefAge_min', '<', req.user.age_min)
+             .andWhere('prefAge_max', '>', req.user.age_max)
+             .andWhere('gender', '=', req.user.prefGender)
+             .andWhere('prefGender', '=', req.user.gender)
               }).fetchAll()
               .then(function(model) {
                 // pick one matching model
