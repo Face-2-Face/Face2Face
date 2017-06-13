@@ -14,6 +14,9 @@ import Settings from './components/PreferencesForm';
 import Lobby from './components/Lobby';
 import ChatRoom from './components/ChatRoom';
 import MatchList from './components/MatchList';
+import VideoChatRoom from './components/VideoChatRoom';
+import Logout from './components/Logout';
+import PostChat from './components/PostChat';
 import PublicProfile from './components/PublicProfile';
 
 
@@ -26,6 +29,9 @@ ReactDOM.render(
       <Route path="/settings" component={Settings} />
       <Route path="/lobby" component={Lobby} />
       <Route path="/chat" component={ChatRoom} />
+      <Route path="/matches" component={MatchList} />
+      <Route path="/video" component={VideoChatRoom} />
+      <Route path="/postchat" component={PostChat} />
       <Route path="/chat/:id" component={ChatRoom} />
       <Route path="/matches" component={MatchList} />
       <Route path="/logout" component={Logout} />
