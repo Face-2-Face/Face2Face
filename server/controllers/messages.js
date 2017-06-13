@@ -13,8 +13,8 @@ module.exports.getAll = (req, res) => {
 };
 
 module.exports.addToMessages = (req, res) => {
-    console.log('this is the request body', req.body)
-    models.Messages.where({conversation: req.body}).fetch()
+    console.log('this is the request body in the messages', req.body)
+    models.Messages.where({messages: req.body}).fetch()
       .then()
 };
 
