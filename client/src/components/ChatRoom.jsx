@@ -1,9 +1,10 @@
 import React from 'react';
-import Header from './Header.jsx';
 import io from 'socket.io-client';
 import axios from 'axios';
-// let socket = io('http://localhost:8080')
 
+import Header from './Header.jsx';
+
+// let socket = io('http://localhost:8080')
 class ChatRoom extends React.Component {
   constructor(props) {
     super(props);
@@ -14,7 +15,8 @@ class ChatRoom extends React.Component {
       userProfile: this.props.location.state.userProfile,
       matchProfile: this.props.location.state.matchProfile,
       oldMessagesRetrieved: false,
-      oldMessages: []
+      oldMessages: [],
+      mount: true
       // matchRoom: io.of('/matchexample')
     }
     this.handleOnChange = this.handleOnChange.bind(this);
@@ -25,6 +27,8 @@ class ChatRoom extends React.Component {
   }
 
   componentDidMount(){
+    this.setState({mount: false})
+    console.log('MOUNTED')
     if(!this.state.oldMessagesRetrieved) {
       console.log('retrieving msg...');
       this.setState({oldMessagesRetrieved: true});
@@ -32,10 +36,6 @@ class ChatRoom extends React.Component {
     }
     this.handleIncomingMessages();
     this.state.socket.emit('join', {path: this.props.location.pathname});
-  }
-
-  retrieveOldMessages() {
-
   }
 
   handleIncomingMessages(msg) {
@@ -52,13 +52,11 @@ class ChatRoom extends React.Component {
 
   handleOnSubmit(e) {
     e.preventDefault();
-    console.log('props passed ==>', this.state.userProfile, 'and match: ', this.state.matchProfile)
     var messageWithNameTag = this.state.userProfile.first + ': ' + this.state.input;
     this.state.socket.emit('message', {messages: messageWithNameTag, path: this.props.location.pathname});
 
    let userPutRoute = '/api/messages/';
    var msg = this.messageBuilder(this.state.input);
-   console.log('this is the message on handleSubmit', msg)
    axios.put(userPutRoute, msg)
      .then(function (response) {
        console.log(response);
@@ -66,7 +64,6 @@ class ChatRoom extends React.Component {
      .catch(function (error) {
        console.log(error);
      });
-     
     this.setState({ input: '' });
   }
 
@@ -97,22 +94,27 @@ class ChatRoom extends React.Component {
     });
     var oldMessages = this.state.oldMessages.map((message) => {
       return (<li className="message">{message.content}</li>)
-    })
+   })
     return (
       <div>
-        {console.log('OLD MSG', this.state.oldMessages)}
-        <Header />
+        {this.state.mount ?
+          <div>{console.log('prevented mount')}</div>
+          :
+          <div>
+        {console.log('RENDERING CHAT')}
+        <Header profile={this.state.profile} show={this.handleMatchListClick} />
         <h4>{this.state.matchProfile.first}</h4>
-        <div>{allMessages}</div>
         <div>{oldMessages}</div>
+        <div>{allMessages}</div>
         <form onSubmit={this.handleOnSubmit}>
           <input className="text" type="text" value={this.state.input} onChange={(e) => this.setState({input: e.target.value})} />
           <input type="submit" value="Submit" />
         </form>
-
+        </div>
+        }
       </div>
     )
   }
 }
 
-export default ChatRoom
+export default ChatRoom;

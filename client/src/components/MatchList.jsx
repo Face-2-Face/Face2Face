@@ -13,7 +13,6 @@ class MatchList extends React.Component {
 
     this.state = {
       matchList: [],
-      showChat: false,
       matchProfile: {},
       userProfile: this.props.location.state.profile
     }
