@@ -52,8 +52,7 @@ class ChatRoom extends React.Component {
 
   handleOnSubmit(e) {
     e.preventDefault();
-    var messageWithNameTag = this.state.userProfile.first + ': ' + this.state.input;
-    this.state.socket.emit('message', {messages: messageWithNameTag, path: this.props.location.pathname});
+    this.state.socket.emit('message', {messages: this.state.input, path: this.props.location.pathname, senderID: this.state.userProfile.id});
 
    let userPutRoute = '/api/messages/';
    var msg = this.messageBuilder(this.state.input);
@@ -90,18 +89,22 @@ class ChatRoom extends React.Component {
   render() {
 
     var allMessages = this.state.messages.map((message) => {
+      if(message.senderID === this.state.userProfile.id) {
+        return (<li className="messageISent">{this.state.userProfile.first}: {message.messages}</li>)
+      }
       return (<li className="message"> {message.messages}</li>)
     });
     var oldMessages = this.state.oldMessages.map((message) => {
-      return (<li className="message">{message.content}</li>)
+      console.log('msg: ', message.sender, ' me: ', this.state.userProfile.id)
+      if(message.recipient === this.state.userProfile.id){
+
+        return (<li className="messageISent">{this.state.userProfile.first}: {message.content}</li>)
+      } else {
+        return (<li className="message">{message.content}</li>)
+      }
    })
     return (
       <div>
-        {this.state.mount ?
-          <div>{console.log('prevented mount')}</div>
-          :
-          <div>
-        {console.log('RENDERING CHAT')}
         <h4>{this.state.matchProfile.first}</h4>
         <div>{oldMessages}</div>
         <div>{allMessages}</div>
@@ -109,8 +112,6 @@ class ChatRoom extends React.Component {
           <input className="text" type="text" value={this.state.input} onChange={(e) => this.setState({input: e.target.value})} />
           <input type="submit" value="Submit" />
         </form>
-        </div>
-        }
       </div>
     )
   }
