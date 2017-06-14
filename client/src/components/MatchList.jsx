@@ -58,7 +58,6 @@ class MatchList extends React.Component {
           {this.state.matchList.map(item =>
             <Match matchID={item} enterChat={this.enterChat} userProfile={this.state.userProfile}/>)}
         </div>
-        <button onClick={this.enterChat}>Chat</button>
 
 
         </div>
