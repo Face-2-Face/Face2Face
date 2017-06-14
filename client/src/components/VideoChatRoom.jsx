@@ -6,7 +6,11 @@ class VideoChatRoom extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      room: this.props.location.state.room
+      qstring: this.props.location.search,
+      room: '',
+      userID: '',
+      otherID: ''
+      
     };
     this.roomJoined = this.roomJoined.bind(this);
     this.participantConnected = this.participantConnected.bind(this);
@@ -47,6 +51,8 @@ class VideoChatRoom extends React.Component {
     // participant.on('trackRemoved', trackRemoved); //
   }
   componentDidMount() {
+    console.log('VideoChatRoom.jsx Match object ---->', this.state.qstring);
+  
     var identity;
     let that = this;
     axios.get('/token')
