@@ -79,7 +79,7 @@ class Profile extends React.Component {
           Location:
           <input value={this.state.locationValue} onChange={this.handleLocationChange} />
         </label>
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Save" />
       </form>
         </div>
         <Link to={{pathname: '/edit-preferences', state: {profile: this.state.profile}}}><img className="settingsIcon" src="public/assets/settings.png"/></Link>

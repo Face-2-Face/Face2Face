@@ -102,7 +102,6 @@ class ChatRoom extends React.Component {
           :
           <div>
         {console.log('RENDERING CHAT')}
-        <Header profile={this.state.profile} show={this.handleMatchListClick} />
         <h4>{this.state.matchProfile.first}</h4>
         <div>{oldMessages}</div>
         <div>{allMessages}</div>
