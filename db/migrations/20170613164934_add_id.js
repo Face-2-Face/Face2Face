@@ -14,3 +14,4 @@ exports.down = function(knex, Promise) {
     })
   ]);
 };
+//this is a comment
