@@ -93,7 +93,7 @@ class EditPreferences extends React.Component {
                 <input name="prefAge_max" value={this.state.prefAge_max} onChange={(e) => this.setState({ prefAge_max: e.target.value})} />
               </label></li>
             </ul>
-          <input type="submit" value="Submit" />
+          <input type="submit" value="Save" />
         </form>
       </div>
 
