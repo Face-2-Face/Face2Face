@@ -64,7 +64,6 @@ class PostChat extends React.Component {
       <div>
           {console.log('props', profile)}
         <Header />
-        <h4>This is the Other Person's Profile Page</h4>
         <div className="row">
           <p className="text-center profile-name"><strong>{profile.first}</strong></p>
           <img className="img-circle center-block profile-img" src={profile.photo} />
