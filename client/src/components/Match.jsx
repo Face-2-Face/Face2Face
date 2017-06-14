@@ -61,7 +61,7 @@ class Match extends React.Component {
             onClick={()=>console.log('HEY', this.state.matchProfile)}
             />
         </Link>
-        <Link to={{pathname: "/chat/1z2", state: {userProfile: this.props.userProfile, matchProfile: this.state.matchProfile, conversations: this.state.conversations}}}>
+        <Link to={{pathname: path, state: {userProfile: this.props.userProfile, matchProfile: this.state.matchProfile, conversations: this.state.conversations}}}>
           <p>{this.state.matchProfile.first}</p>
           <p>click to enter chat...</p>
         </Link>
