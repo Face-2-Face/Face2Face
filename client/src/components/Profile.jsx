@@ -13,17 +13,21 @@ class Profile extends React.Component {
       charsLeft: 255,
       sendProfileToDB: false
     }
+
     this.handleBioChange = this.handleBioChange.bind(this);
     this.handleLocationChange = this.handleLocationChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
   handleBioChange(event) {
     var newCharsLeft = 255 - event.target.value.length;
     this.setState({bioValue: event.target.value, charsLeft: newCharsLeft});
   }
+
   handleLocationChange(event) {
     this.setState({locationValue: event.target.value})
   }
+
   handleSubmit(event) {
     event.preventDefault();
     let profile = Object.assign({}, this.state.profile);
@@ -31,7 +35,8 @@ class Profile extends React.Component {
     profile.location = this.state.locationValue;
     this.setState({profile, sendProfileToDB: true})
   }
-  componentDidUpdate(){
+
+  componentDidUpdate() {
     if(this.state.sendProfileToDB) {
       this.setState({sendProfileToDB: false});
       console.log('updating profile in database...');
@@ -45,6 +50,12 @@ class Profile extends React.Component {
       });
     }
   }
+
+  componentDidMount() {
+    var newCharsLeft = 255 - this.props.location.state.profile.bio.length;
+    this.setState({charsLeft: newCharsLeft})
+  }
+
   render() {
     let profile = this.state.profile;
     return (
@@ -64,14 +75,15 @@ class Profile extends React.Component {
         <label>
           About Me:
           <textarea value={this.state.bioValue} onChange={this.handleBioChange} />
+          <div><p>Chars left: {this.state.charsLeft}</p></div>
+          Location:
           <input value={this.state.locationValue} onChange={this.handleLocationChange} />
         </label>
         <input type="submit" value="Submit" />
       </form>
-        <div><p>Chars left: {this.state.charsLeft}</p></div>
         </div>
+        <Link to={{pathname: '/edit-preferences', state: {profile: this.state.profile}}}><img className="settingsIcon" src="public/assets/settings.png"/></Link>
         <div className="row">
-          <Link to={{pathname: '/edit-preferences', state: {profile: this.state.profile}}}><img className="settingsIcon" src="public/assets/settings.png"/></Link>
         </div>
       </div>
     )
