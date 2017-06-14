@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './Header.jsx';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+
 class Profile extends React.Component {
   constructor(props) {
     super(props);

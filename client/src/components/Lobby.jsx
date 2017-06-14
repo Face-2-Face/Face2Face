@@ -71,6 +71,18 @@ class Lobby extends React.Component {
       }
   }
 
+  componentWillUnmount() {
+    let userPutRoute = '/api/lobby/' + this.state.profile.id;
+    let that = this;
+    axios.put(userPutRoute, {room: 'false'})
+      .then(function(response) {
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+  }
+
   render() {
     return (
       <div>

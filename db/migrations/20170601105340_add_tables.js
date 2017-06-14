@@ -14,16 +14,16 @@ exports.up = function(knex, Promise) {
       table.integer('match').references('profiles.id').onDelete('CASCADE');
     }),
       knex.schema.createTableIfNotExists('conversations', function(table) {
-      table.increments('conversation_id').unsigned().primary();
+      table.increments('id').unsigned().primary();
       table.integer('user1_id').references('profiles.id').onDelete('CASCADE');
       table.integer('user2_id').references('profiles.id').onDelete('CASCADE');
       table.integer('message_count');
     }),
       knex.schema.createTableIfNotExists('messages', function(table) {
-      table.increments('message_id').unsigned().primary();
+      table.increments('id').unsigned().primary();
       table.integer('recipient').references('profiles.id').onDelete('CASCADE');
       table.integer('sender').references('profiles.id').onDelete('CASCADE');
-      table.integer('conversation').references('conversations.conversation_id').onDelete('CASCADE');
+      table.integer('conversation').references('conversations.id').onDelete('CASCADE');
       table.text('content').nullable();
       table.timestamps(true, true);
     })
