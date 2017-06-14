@@ -34,6 +34,7 @@
     "express": "^4.15.2",
     "express-session": "^1.15.1",
     "grunt-pg": "https://github.com/watsoncj/grunt-pg.git",
+    "heroku-ssl-redirect": "0.0.4",
     "knex": "^0.12.9",
     "morgan": "^1.8.1",
     "nodemon": "^1.11.0",

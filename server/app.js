@@ -1,5 +1,9 @@
 'use strict';
 require('dotenv').config();
+
+//adding ssl redirect 
+const sslRedirect = require('heroku-ssl-redirect');
+
 const express = require('express');
 const path = require('path');
 const middleware = require('./middleware');
@@ -17,6 +21,9 @@ const port = process.env.PORT || 3000;
 http.listen(port, function() {
   console.log('listening on port ' + port);
 });
+
+//enabling ssl redirect
+app.use(sslRedirect());
 
 app.use(middleware.morgan('dev'));
 app.use(middleware.cookieParser());
