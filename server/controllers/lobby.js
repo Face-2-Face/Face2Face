@@ -39,7 +39,7 @@ module.exports.getPersonToChat = (req, res) => {
           console.log('lobby.js other ID ----->', otherID);
           result = {room: room, otherID: otherID};
           res.status(200).send(result);
-      } else if (room === 'lobby') {
+      } else {
           models.Profile.query(function(qb) {
               qb.where('room', '=', 'lobby')
               .andWhere('id', '<>', req.user.id)

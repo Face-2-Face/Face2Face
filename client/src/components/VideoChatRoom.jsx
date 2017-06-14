@@ -2,15 +2,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import * as Video from 'twilio-video';
+import qs from 'qs';
+
 class VideoChatRoom extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      qstring: this.props.location.search,
-      room: '',
+      qstring: this.props.location.search.slice(1),
+      roomName: '',
       userID: '',
-      otherID: ''
-      
+      otherID: '',
+      room: null
     };
     this.roomJoined = this.roomJoined.bind(this);
     this.participantConnected = this.participantConnected.bind(this);
@@ -50,16 +52,17 @@ class VideoChatRoom extends React.Component {
     });
     // participant.on('trackRemoved', trackRemoved); //
   }
-  componentDidMount() {
-    console.log('VideoChatRoom.jsx Match object ---->', this.state.qstring);
-  
+  componentDidMount() {  
     var identity;
+    let info = qs.parse(this.state.qstring);
+    this.setState({roomName: info.room, userID: info.userID, otherID: info.otherID});
+
     let that = this;
     axios.get('/token')
       .then(function (response) {
         console.log('Response', response);
         identity = response.data.identity;
-        Video.connect(response.data.token, { name: that.state.room }).then(that.roomJoined, function (error) {
+        Video.connect(response.data.token, { name: that.state.roomName }).then(that.roomJoined, function (error) {
           console.log('Could not connect: ', error.message);
         });
       })
