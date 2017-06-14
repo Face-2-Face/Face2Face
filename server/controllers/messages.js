@@ -4,7 +4,6 @@ module.exports.getAll = (req, res) => {
   console.log('this is the getAll in messages');
   models.Messages.fetchAll()
     .then(messages => {
-      console.log('this is the message in the controller', messages)
       res.status(200).send(messages);
     })
     .catch(err => {
@@ -12,6 +11,25 @@ module.exports.getAll = (req, res) => {
       res.status(503).send(err);
     });
 };
+
+module.exports.getConversation = (req, res) => {
+  console.log('GET CONVO', req.params)
+  var convoID = Number(req.params.id);
+  models.Messages.where({ conversation: convoID}).fetchAll()
+    .then(conversation => {
+      if (!conversation) {
+        throw conversation;
+      }
+      res.status(200).send(conversation);
+    })
+    .error(err => {
+      res.status(500).send(err);
+    })
+    .catch(() => {
+      res.sendStatus(404);
+    });
+};
+
 
 module.exports.addToMessages = (req, res) => {
     console.log('this is the request body in the messages', req.body)

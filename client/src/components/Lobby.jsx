@@ -91,7 +91,7 @@ class Lobby extends React.Component {
         </div>
         {this.state.foundUserToChatWith ?
           <div>
-            <Redirect to={{pathname: '/video', state: {room: this.state.room}}} />;
+            <Redirect to={{pathname: '/video', state: {room: this.state.room, userProfile: this.state.profile, otherProfile: this.state.otherID }}} />;
           </div>
           :
           <h3>Connecting ... </h3>
@@ -102,5 +102,5 @@ class Lobby extends React.Component {
 }
 
 export default Lobby
-
+//NOTES: on line 82, matt added , userProfile: this.state.profile, otherProfile: this.state.otherID -- Remove if needed
 // <CountDownRoom profile={this.state.profile} match={this.state.userToChatWith}/>
