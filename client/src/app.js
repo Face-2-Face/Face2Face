@@ -30,7 +30,6 @@ ReactDOM.render(
       <Route path="/public-profile" component={PublicProfile} />
       <Route path="/preferences" component={PreferencesForm} />
       <Route path="/lobby" component={Lobby} />
-      <Route path="/chat" component={ChatRoom} />
       <Route path="/matches" component={MatchList} />
       <Route path="/video" component={VideoChatRoom} />
       <Route path="/postchat" component={PostChat} />
