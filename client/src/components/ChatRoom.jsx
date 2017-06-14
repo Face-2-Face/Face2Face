@@ -20,6 +20,7 @@ class ChatRoom extends React.Component {
     this.handleOnChange = this.handleOnChange.bind(this);
     this.handleOnSubmit = this.handleOnSubmit.bind(this);
     this.handleIncomingMessages = this.handleIncomingMessages.bind(this);
+    this.messageBuilder = this.messageBuilder.bind(this);
     this.retrieveOldMessages = this.retrieveOldMessages.bind(this);
   }
 
@@ -55,7 +56,24 @@ class ChatRoom extends React.Component {
     var messageWithNameTag = this.state.userProfile.first + ': ' + this.state.input;
     this.state.socket.emit('message', {messages: messageWithNameTag, path: this.props.location.pathname});
 
+   let userPutRoute = '/api/messages/';
+   var msg = this.messageBuilder(this.state.input);
+   console.log('this is the message on handleSubmit', msg)
+   axios.put(userPutRoute, msg)
+     .then(function (response) {
+       console.log(response);
+     })
+     .catch(function (error) {
+       console.log(error);
+     });
+     
     this.setState({ input: '' });
+  }
+
+  messageBuilder(text) {
+    //conversation id should get
+    var message = {conversation_id: 1, from: this.state.userProfile.id, to: this.state.matchProfile.id, message: text}
+    return message;
   }
 
   retrieveOldMessages() {
