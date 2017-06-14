@@ -23,8 +23,13 @@ module.exports.addToMessages = (req, res) => {
     //     res.status(503).send(err);
     //   });
     let msg = req.body;
-    console.log('here is a comment');
-    models.Messages.forge({message_id: 1, recipient: req.body.from, sender: req.body.to, conversation: req.body.conversation_id, content: req.body.message, created_at: req.body.time})
+    console.log('type of', typeof(msg.from));
+    models.Messages.forge({
+      recipient: msg.from,
+      sender: msg.to,
+      conversation: msg.conversation_id,
+      content: msg.message
+    })
     .save()
     .then(messages => {
       res.status(201).send(messages);

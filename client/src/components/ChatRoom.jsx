@@ -41,7 +41,8 @@ class ChatRoom extends React.Component {
   }
 
   messageBuilder(text) {
-    var message = {conversation_id: 1, from: 3, to: 4, time: 2, message: text}
+    //conversation id should get 
+    var message = {conversation_id: 1, from: this.state.userProfile.id, to: this.state.matchProfile.id, message: text}
     return message;
   }
 
