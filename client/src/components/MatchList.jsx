@@ -41,7 +41,7 @@ class MatchList extends React.Component {
             <Match matchID={item} userProfile={this.state.userProfile}/>)}
           </div>
         </div>
-    </div>
+      </div>
     )
   }
 }
