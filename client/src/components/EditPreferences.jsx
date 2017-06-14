@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-
+import Header from './Header';
 import Profile from './Profile';
 
 class EditPreferences extends React.Component {
@@ -61,6 +61,7 @@ class EditPreferences extends React.Component {
     let profile = this.state.profile;
     return (
       <div>
+        <Header />
         {console.log('props in edits', this.state.profile)}
         <h1>Edit Preferences</h1>
           <h2>{this.state.profile.first}</h2>

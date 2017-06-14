@@ -51,7 +51,6 @@ class Profile extends React.Component {
       <div>
           {console.log('props in profile', this.state.profile)}
         <Header />
-        <h4>This is the Profile Page</h4>
         <div className="row">
           <p className="text-center profile-name"><strong>Hello {profile.first}!</strong></p>
         </div>
