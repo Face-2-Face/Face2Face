@@ -76,10 +76,6 @@ class PostChat extends React.Component {
             <Link to={{ pathname: '/matches', state: { profile: this.props.profile } }}><img className="heartIcon" src="public/assets/heart.png" /></Link>
           </span>
         </div>
-        
-        <div className="row">
-          <Link to={{ pathname: '/settings', state: { profile: this.props.profile } }}><span className="report">Report</span></Link>
-        </div>
 
       </div>
     );
