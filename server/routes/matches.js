@@ -14,5 +14,12 @@ router.route('/:id')
   .get(MatchController.getUserMatches)
   ;
 
+router.route('/accept')
+  .put(MatchController.acceptOther)
+  ;
+
+router.route('/reject')
+  .put(MatchController.rejectOther)
+  ;
 
 module.exports = router;
