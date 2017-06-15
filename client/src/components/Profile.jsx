@@ -63,7 +63,7 @@ class Profile extends React.Component {
           {console.log('props in profile', this.state.profile)}
         <Header />
         <div className="row">
-          <p className="profileName"><strong>Hello {profile.first}!</strong></p>
+          <p className="profileName"><h1>Hello {profile.first}!</h1></p>
         </div>
         <div className="row">
           <img className="img-circle center-block profile-img"src={profile.photo}/>
@@ -74,10 +74,10 @@ class Profile extends React.Component {
           <form onSubmit={this.handleSubmit}>
         <label className="editPreferences">
           <div className="aboutMe">About Me:</div>
-          <textarea value={this.state.bioValue} onChange={this.handleBioChange} />
+          <div className="bioChange"><textarea value={this.state.bioValue} onChange={this.handleBioChange} /></div>
           <div className="charactersLeft"><p>Chars left: {this.state.charsLeft}</p></div>
           <div className="location">Location:</div>
-          <input className="locationInput" value={this.state.locationValue} onChange={this.handleLocationChange} />
+          <div className="locationChange"><input className="locationInput" value={this.state.locationValue} onChange={this.handleLocationChange} /></div>
         </label>
         <input className="submitButton" type="submit" value="Save" />
       </form>
