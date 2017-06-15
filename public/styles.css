@@ -108,18 +108,19 @@ h4.appName  {
   margin-left: 30%;
 }
 
+/********** MATCH LIST *************/
 .match{
-  width: 30vw;
-  height: 18vh;
+  width: 65vw;
+  height: 20vh;
   margin: auto;
   border-style: double;
-  border-color: blue;
+  border-color: #D02858;
   border-radius: 5px;
   margin-top: 2%;
 }
 
 .match-img {
-  width: 10%;
+  width: 15%;
   height:auto;
   float: left;
   margin-left: 2%;
@@ -144,7 +145,7 @@ li{
 .messageISent{
   float:right;
   height: 6vh;
-  background-color: #a5f7e2;
+  background-color: #E35976;
   display: inline-block;
   text-align: right;
   margin-right: 1%;
@@ -156,7 +157,7 @@ li{
 .messageTheySent{
   width: auto;
   height: 6vh;
-  background-color: #eaf2f0;
+  background-color: #E1D0D4;
   display: inline-block;
   text-align: left;
   margin-left: 1%;
