@@ -21,7 +21,7 @@ class Match extends React.Component {
 
   componentDidMount() {
     let that = this;
-    const id = this.props.matchID.match_id;
+    const id = this.props.matchID.other_id;
     var path = this.makePath(); //remove later if not needed
     axios.get('/api/profiles/' + id)
     .then(function(response) {
