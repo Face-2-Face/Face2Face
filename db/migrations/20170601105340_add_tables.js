@@ -9,9 +9,11 @@ exports.up = function(knex, Promise) {
       table.string('prefGender', 20).nullable();
     }),
     knex.schema.createTableIfNotExists('matches', function(table) {
-      table.increments('matches_id').unsigned().primary();
+      table.increments('id').unsigned().primary();
       table.integer('user_id').references('profiles.id').onDelete('CASCADE');
-      table.integer('match').references('profiles.id').onDelete('CASCADE');
+      table.integer('other_id').references('profiles.id').onDelete('CASCADE');
+      table.boolean('userResponse').nullable();
+      table.boolean('otherResponse').nullable();
     }),
       knex.schema.createTableIfNotExists('conversations', function(table) {
       table.increments('id').unsigned().primary();
