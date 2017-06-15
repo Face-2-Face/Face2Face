@@ -30,39 +30,53 @@ module.exports.getUserMatches = (req, res) => {
 module.exports.acceptOther = (req, res) => {
   var otherID = req.body.otherID;
   var userID = req.body.userID;
-
+  // res.status(200).send({yes: otherID, no: userID});
   // there is a record for me already (YES)
-  models.Matches.where( {user_id: otherID, match: userID} ).fetch()
-    .then(profile => {
-      console.log('matches.js profile ----->', profile );
-      // if match === undefined then update with new row user_id: userID and match: otherID temp: true
-      if (!profile) {
-        models.Matches.forge({ user_id: userID, match: otherID, temp: true})
-          .then(result => {
-            res.status(201).send('DONE MATCHES');
-          })
-          .catch(err => {
-            res.status(500).send(err);
-          });
-      } else {
-        return profile.save( { temp: false}, {method: 'update'});
-        .then(() => {
-          models.Matches.forge({ user_id: userID, match: otherID, temp: true})
-            .then(result => {
-              res.status(201).send('DONE MATCHES');
-            })
-            .catch(err => {
-              res.status(500).send(err);
-            });          
-        })
-        .catch(err => {
-          res.status(503).send(err);
-        });
-      }
+  console.log('BEFORE FORGE', otherID, userID);
+  models.Matches.forge( { user_id: 6, match: 7, temp: true} )
+    .save()
+    .then(result => {
+      console.log('IN FORGE');
+      res.status(201).send(result);
     })
     .catch(err => {
-      res.status(503).send(err);      
+      res.status(500).send('FORGE NOT WORKING');
     });
+
+  // models.Matches.where( {user_id: otherID, match: userID} ).fetch()
+  //   .then(profile => {
+  //     console.log('matches.js profile ----->', profile );
+  //     // if match === undefined then update with new row user_id: userID and match: otherID temp: true
+  //     if (profile === null) {
+  //       models.Matches.forge({ user_id: 6, match: 7, temp: true})
+  //         .save()
+  //         .then(result => {
+  //           res.status(201).send(result);
+  //         })
+  //         .catch(err => {
+  //           res.status(500).send(err);
+  //         });
+  //     }
+  //     // } else {
+  //     //   return profile.save( { temp: false}, {method: 'update'})
+  //     //   .then(() => {
+  //     //     models.Matches.forge({ user_id: userID, match: otherID, temp: true})
+  //     //       .save()
+  //     //       .then(result => {
+  //     //         res.status(201).send('DONE MATCHES');
+  //     //       })
+  //     //       .catch(err => {
+  //     //         res.status(500).send(err);
+  //     //       });          
+  //     //   })
+  //     //   .catch(err => {
+  //     //     res.status(503).send(err);
+  //     //   });
+  //     // }
+  //   })
+  //   .catch(err => {
+  //     res.status(503).send(err);      
+  //   });
 }
     
       // module.exports.create = (req, res) => {
