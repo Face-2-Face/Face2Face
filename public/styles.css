@@ -1,5 +1,5 @@
 body {
-
+  font-family: 'Cairo', sans-serif;
   margin: 0;
 }
 
@@ -143,11 +143,12 @@ h4.appName  {
   color:black;
   font-weight: bold;
   margin-top: 3%;
+  margin-right: 8%;
 }
 
 .enterChat{
   color:black;
-  margin-top: 1%;
+  margin-right: 6%;
 }
 
 .match{
