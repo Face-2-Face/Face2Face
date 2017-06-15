@@ -35,16 +35,30 @@ a {
   text-decoration: none;
 }
 
+input.submitButton {
+    display: block;
+    margin: 0 auto;
+}
+
+input.locationInput {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
 img.profileIcon {
   width: 40px;
   display: inline-block;
   float: left;
+  filter: invert(100%);
+  margin: 1vh;
 }
 
 img.matchesIcon {
   width: 40px;
   display: inline-block;
   float: right;
+  filter: invert(100%);
+  margin: 1vh;
 }
 
 img.logoutIcon {
@@ -122,6 +136,50 @@ h4.appName  {
   margin-left: 30%;
 }
 
+/********** Profile *************/
+
+.aboutMe {
+    text-align: center;
+    font-size: 24px;
+}
+
+.location {
+    text-align: center;
+    font-size: 24px;
+}
+
+.bioChange {
+    display: block;
+    margin: 0 auto;
+}
+
+.profile-img {
+  max-width: 20%;
+  height: auto;
+  margin-top: 2%;
+  border-radius: 100%;
+}
+
+.profile-name {
+  font-size: 50px;
+}
+
+.profile-form {
+  display: inline-block;
+}
+
+.bio {
+  padding-right: 20%;
+  padding-left: 20%;
+  font-size: 75%;
+
+}
+
+textarea {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
 /********** HOME SCREEN        ***************/
 
 .toVidChatLobbyButton {
@@ -137,7 +195,6 @@ border-color: #efc6cf;
 background-color: #D02858;
 font-family: 'Cairo', sans-serif;
 }
-
 
 
 /********** MATCH LIST AND MATCH *************/
@@ -182,6 +239,7 @@ font-family: 'Cairo', sans-serif;
   float: left;
   margin-left: 2%;
   margin-top: 2%;
+  border-radius: 100%;
 }
 
 .header {
