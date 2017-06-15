@@ -1,53 +1,53 @@
-body { 
-  padding-top: 80px; 
+body {
+  padding-top: 80px;
 }
 
-h1 { 
+h1 {
   text-align: center;
 }
 
-h4 { 
-  text-align: center; 
-  color: gray; 
+h4 {
+  text-align: center;
+  color: gray;
   font-weight: 300;
 }
 
-img { 
-  width: 100%; 
-  display: block; 
-  margin: 0 auto; 
+img {
+  width: 100%;
+  display: block;
+  margin: 0 auto;
 }
 
-p  { 
+p  {
   text-align: center;
 }
 
-img.profileIcon { 
-  width: 40px; 
-  display: inline-block; 
+img.profileIcon {
+  width: 40px;
+  display: inline-block;
   float: left;
 }
 
-img.matchesIcon { 
-  width: 40px; 
-  display: inline-block; 
-  float: right; 
+img.matchesIcon {
+  width: 40px;
+  display: inline-block;
+  float: right;
 }
 
-img.logoutIcon { 
-  width: 40px; 
-  display: inline-block; 
-  float: right; 
+img.logoutIcon {
+  width: 40px;
+  display: inline-block;
+  float: right;
 }
 
-img.frontLogo { 
-  width: 100%; 
+img.frontLogo {
+  width: 100%;
 }
 
-h4.appName  { 
-  text-align: center; 
-  color: black; 
-  font-weight: 500; 
+h4.appName  {
+  text-align: center;
+  color: black;
+  font-weight: 500;
   font-size: 36px;
 }
 
@@ -124,6 +124,54 @@ h4.appName  {
   float: left;
   margin-left: 2%;
 }
+
+/************* Chat Room *************/
+
+li{
+  list-style: none;
+}
+.chatRoomContainer{
+  width: auto;
+  height: auto;
+  overflow-y: auto;
+}
+
+.messageISent{
+  float:right;
+  height: 6vh;
+  background-color: #a5f7e2;
+  display: inline-block;
+  text-align: right;
+  margin-right: 1%;
+  margin-top: 1px;
+  border-radius: 5px;
+  padding: 0.5% 1% 3% 1%;
+}
+
+.messageTheySent{
+  width: auto;
+  height: 6vh;
+  background-color: #eaf2f0;
+  display: inline-block;
+  text-align: left;
+  margin-left: 1%;
+  margin-top: 1px;
+  border-radius: 5px;
+  padding: 0.5% 1% 3% 1%;
+}
+.oldMessageContainer{
+  margin: auto;
+  width:auto;
+  height: auto;
+}
+.singleLine{
+  width: auto;
+  height: auto;
+  margin: auto;
+  overflow: auto;
+
+}
+
 
 
 /*Video Styles*/
@@ -266,4 +314,3 @@ div#controls div#log p {
   text-indent: -1.25em;
   width: 90%;
 }
-

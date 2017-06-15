@@ -90,29 +90,33 @@ class ChatRoom extends React.Component {
 
     var allMessages = this.state.messages.map((message) => {
       if(message.senderID === this.state.userProfile.id) {
-        return (<li className="messageISent">{this.state.userProfile.first}: {message.messages}</li>)
+        return (<div className="singleLine"><p className="messageISent"> {message.messages}</p></div>)
       }
-      return (<li className="message"> {message.messages}</li>)
+      return (<div className="singleLine"><p className="messageTheySent"> {message.messages}</p></div>)
     });
     var oldMessages = this.state.oldMessages.map((message) => {
       console.log('msg: ', message.sender, ' me: ', this.state.userProfile.id)
       if(message.recipient === this.state.userProfile.id){
 
-        return (<li className="messageISent">{this.state.userProfile.first}: {message.content}</li>)
+        return (<div className="singleLine"> <p className="messageISent">{message.content} <br /></p></div>)
       } else {
-        return (<li className="message">{message.content}</li>)
+        return (<div className="singleLine"> <p className="messageTheySent">{message.content} <br /> </p></div>)
       }
    })
     return (
       <div>
-        <h4>{this.state.matchProfile.first}</h4>
-        <div>{oldMessages}</div>
-        <div>{allMessages}</div>
-        <form onSubmit={this.handleOnSubmit}>
-          <input className="text" type="text" value={this.state.input} onChange={(e) => this.setState({input: e.target.value})} />
-          <input type="submit" value="Submit" />
-        </form>
+      <h4>{this.state.matchProfile.first}</h4>
+      <div className="chatRoomContainer">
+        <div className="messageContainer">
+          <div className="oldMessageContainer">{oldMessages}</div>
+          <div>{allMessages}</div>
+        </div>
       </div>
+      <form onSubmit={this.handleOnSubmit}>
+        <input className="text" type="text" value={this.state.input} onChange={(e) => this.setState({input: e.target.value})} />
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
     )
   }
 }
