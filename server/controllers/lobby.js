@@ -29,9 +29,16 @@ module.exports.getPersonToChat = (req, res) => {
         throw profile;
       }
       console.log('lobby.js User1/2 Room -----> ', profile.get("room"));
-      if (profile.get("room") !== 'lobby') {
-        result = {room: profile.get("room"), otherID: null}
-        res.status(200).send(result);
+      var room = profile.get("room"); 
+      if (room !== 'lobby' && room !== 'false') {
+          var user1 = room.slice(0, room.indexOf('-'));
+          console.log('user1', user1);
+          var user2 = room.slice(room.indexOf('-')+1);
+          console.log('user2', user2);
+          var otherID = Number.parseInt(user1) === profile.get("id") ? user2 : user1;
+          console.log('lobby.js other ID ----->', otherID);
+          result = {room: room, otherID: otherID};
+          res.status(200).send(result);
       } else {
           models.Profile.query(function(qb) {
               qb.where('room', '=', 'lobby')
