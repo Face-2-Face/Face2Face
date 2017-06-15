@@ -32,7 +32,7 @@ class Header extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="header">
           <Link to={{pathname: '/profile', state: {profile: this.state.profile}}}><img className="profileIcon" src="public/assets/avatar.png" /></Link>
           <Link to={{pathname: '/logout'}}><img className="logoutIcon" src="public/assets/logout.png" /></Link>
           <Link to={{pathname: '/matches', state: {profile: this.state.profile}}}><img className="matchesIcon" src="public/assets/chat.png" /></Link>
