@@ -35,8 +35,8 @@ class MatchList extends React.Component {
       <div>
         <Header />
         <div>
-          <h1>Matches</h1>
-          <div>
+          <h1 className="matchHeader">Matches</h1>
+          <div className="matchContainer">
             {this.state.matchList.map(item =>
             <Match matchID={item} userProfile={this.state.userProfile}/>)}
           </div>
