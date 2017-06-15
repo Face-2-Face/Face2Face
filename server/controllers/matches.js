@@ -25,4 +25,64 @@ module.exports.getUserMatches = (req, res) => {
     .catch(err => {
       res.status(503).send(err);
     });
+};
+
+module.exports.acceptOther = (req, res) => {
+  var otherID = req.body.otherID;
+  var userID = req.body.userID;
+
+  // there is a record for me already (YES)
+  models.Matches.where( {user_id: otherID, match: userID} ).fetch()
+    .then(profile => {
+      console.log('matches.js profile ----->', profile );
+      // if match === undefined then update with new row user_id: userID and match: otherID temp: true
+      if (!profile) {
+        models.Matches.forge({ user_id: userID, match: otherID, temp: true})
+          .then(result => {
+            res.status(201).send('DONE MATCHES');
+          })
+          .catch(err => {
+            res.status(500).send(err);
+          });
+      } else {
+        return profile.save( { temp: false}, {method: 'update'});
+        .then(() => {
+          models.Matches.forge({ user_id: userID, match: otherID, temp: true})
+            .then(result => {
+              res.status(201).send('DONE MATCHES');
+            })
+            .catch(err => {
+              res.status(500).send(err);
+            });          
+        })
+        .catch(err => {
+          res.status(503).send(err);
+        });
+      }
+    })
+    .catch(err => {
+      res.status(503).send(err);      
+    });
+}
+    
+      // module.exports.create = (req, res) => {
+      //   models.Profile.forge({ username: req.body.username, password: req.body.password })
+      //     .save()
+      //     .then(result => {
+      //       res.status(201).send(result.omit('password'));
+      //     })
+      //     .catch(err => {
+      //       if (err.constraint === 'users_username_unique') {
+      //         return res.status(403);
+      //       }
+      //       res.status(500).send(err);
+      //     });
+      // };
+      // else 1. udpate that model with temp=false 2. new row user_id: userID match: otherID temp: true
+
+
+module.exports.rejectOther = (req, res) => {
+  let otherID = req.body.otherID;
+  let userID = req.body.userID;
+
 }
