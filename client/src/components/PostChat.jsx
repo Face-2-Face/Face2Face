@@ -18,20 +18,30 @@ class PostChat extends React.Component {
     this.checkLocation = this.checkLocation.bind(this);
     this.checkBio = this.checkBio.bind(this);
     this.addToMatches = this.addToMatches.bind(this);
+    this.rejectToMatches = this.rejectToMatches.bind(this);
   }
 
-  addToMatches(objValue) {
-    let dummy = this.state.dummyUser;
-    console.log(dummy, 'dummy');
-    this.setState({ profile: objValue });
-    // axios post request to update database
-    axios.put('/api/matches/', this.state.profile)
-      .then(function (response) {
+  addToMatches() {
+    // axios put request to update database
+    axios.put('/api/matches/accept', {userID: this.state.userID, otherID: this.state.otherID})
+      .then(function(response) {
         console.log(response);
       })
-      .catch(function (error) {
+      .catch(function(error) {
         console.log(error);
       });
+
+  }
+
+  rejectToMatches() {
+    axios.put('/api/matches/reject', {userID: this.state.userID, otherID: this.state.otherID})
+      .then(function(response) {
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+
   }
 
   checkLocation() {
@@ -87,7 +97,9 @@ class PostChat extends React.Component {
         </div>
    
         <div className="inline-row">
-          <Link to='/'><img className="xIcon" src="public/assets/x-icon.png"/></Link>
+          <span onClick={() => this.rejectToMatches()}>
+            <Link to={{ pathname: '/matches', state: { profile: this.props.profile } }}><img className="xIcon" src="public/assets/x-icon.png"/></Link>
+          </span>
           <span onClick={() => this.addToMatches()}>
             <Link to={{ pathname: '/matches', state: { profile: this.props.profile } }}><img className="heartIcon" src="public/assets/heart.png" /></Link>
           </span>
