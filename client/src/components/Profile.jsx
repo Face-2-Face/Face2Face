@@ -67,8 +67,8 @@ class Profile extends React.Component {
         </div>
         <div className="row">
           <img className="img-circle center-block profile-img"src={profile.photo}/>
-          <h2>Age: {profile.age_min}</h2>
-          <h2>Location: {profile.location}</h2>
+          <h2 className="profileAge">Age: {profile.age_min}</h2>
+          <h2 className="profileLocation">Location: {profile.location}</h2>
         </div>
         <div>
           <form onSubmit={this.handleSubmit}>
@@ -83,6 +83,7 @@ class Profile extends React.Component {
       </form>
         </div>
         <Link to={{pathname: '/edit-preferences', state: {profile: this.state.profile}}}><img className="settingsIcon" src="public/assets/settings.png"/></Link>
+        <Link to={{pathname: '/logout'}}><img className="logoutIcon" src="public/assets/logout.png" /></Link>
         <div className="row">
         </div>
       </div>
