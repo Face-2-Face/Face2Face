@@ -108,7 +108,7 @@ class ChatRoom extends React.Component {
       <div>
         <div className="chatHeader">
           <Link to={{pathname: '/matches', state: {profile: this.state.userProfile}}}><p className="backArrow">⇚</p></Link>
-          <h2>{this.state.matchProfile.first}</h2>
+          <h1>{this.state.matchProfile.first}</h1>
         </div>
 
       <div className="chatRoomContainer">
@@ -118,8 +118,8 @@ class ChatRoom extends React.Component {
         </div>
       </div>
       <form className="messageField" onSubmit={this.handleOnSubmit}>
-        <input className="text" type="text" value={this.state.input} onChange={(e) => this.setState({input: e.target.value})} />
-        <input type="submit" value="Send" />
+        <input className="messageInputField" className="text" type="text" value={this.state.input} onChange={(e) => this.setState({input: e.target.value})} />
+        <input className="sendMessageButton" type="submit" value="Send" />
       </form>
     </div>
     )
