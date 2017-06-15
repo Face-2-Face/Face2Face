@@ -22,6 +22,10 @@ p  {
   text-align: center;
 }
 
+a {
+  text-decoration: none;
+}
+
 img.profileIcon { 
   width: 40px; 
   display: inline-block; 
@@ -44,11 +48,12 @@ img.frontLogo {
   width: 100%; 
 }
 
-h4.appName  { 
-  text-align: center; 
-  color: black; 
-  font-weight: 500; 
+h4.appName  {
+  text-align: center;
+  color: white;
+  font-weight: 500;
   font-size: 36px;
+  margin: 0;
 }
 
 .profile-img {
@@ -123,6 +128,12 @@ h4.appName  {
   height:auto;
   float: left;
   margin-left: 2%;
+}
+
+.header {
+    background: #D02858;
+    padding: 2%;
+    text-decoration: none;
 }
 
 
