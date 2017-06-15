@@ -63,7 +63,7 @@ class Profile extends React.Component {
           {console.log('props in profile', this.state.profile)}
         <Header />
         <div className="row">
-          <p className="text-center profile-name"><strong>Hello {profile.first}!</strong></p>
+          <p className="profileName"><strong>Hello {profile.first}!</strong></p>
         </div>
         <div className="row">
           <img className="img-circle center-block profile-img"src={profile.photo}/>
@@ -72,14 +72,14 @@ class Profile extends React.Component {
         </div>
         <div>
           <form onSubmit={this.handleSubmit}>
-        <label>
-          About Me:
+        <label className="editPreferences">
+          <div className="aboutMe">About Me:</div>
           <textarea value={this.state.bioValue} onChange={this.handleBioChange} />
-          <div><p>Chars left: {this.state.charsLeft}</p></div>
-          Location:
-          <input value={this.state.locationValue} onChange={this.handleLocationChange} />
+          <div className="charactersLeft"><p>Chars left: {this.state.charsLeft}</p></div>
+          <div className="location">Location:</div>
+          <input className="locationInput" value={this.state.locationValue} onChange={this.handleLocationChange} />
         </label>
-        <input type="submit" value="Save" />
+        <input className="submitButton" type="submit" value="Save" />
       </form>
         </div>
         <Link to={{pathname: '/edit-preferences', state: {profile: this.state.profile}}}><img className="settingsIcon" src="public/assets/settings.png"/></Link>

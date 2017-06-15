@@ -9,14 +9,12 @@ h1 {
 }
 
 h2 {
-  font-family: 'Pacifico', cursive;
   text-align: center;
   color: gray;
   font-weight: 300;
 }
 
 h4 {
-  font-family: 'Pacifico', cursive;
   text-align: center;
   color: gray;
   font-weight: 300;
@@ -37,15 +35,19 @@ a {
 }
 
 img.profileIcon {
-  width: 40px;
+  width: 50px;
   display: inline-block;
   float: left;
+  filter: invert(100%);
+  margin: 1vh;
 }
 
 img.matchesIcon {
-  width: 40px;
+  width: 50px;
   display: inline-block;
   float: right;
+  filter: invert(100%);
+  margin: 1vh;
 }
 
 img.logoutIcon {
@@ -59,10 +61,11 @@ img.frontLogo {
 }
 
 h4.appName  {
+  font-family: 'Pacifico', cursive;
   text-align: center;
   color: white;
   font-weight: 500;
-  font-size: 36px;
+  font-size: 42px;
   margin: 0;
 }
 
@@ -70,7 +73,7 @@ h4.appName  {
   max-width: 20%;
   height: auto;
   margin-top: 2%;
-  margin-bottom: 5%;
+  border-radius: 100%;
 }
 
 .profile-name {
@@ -165,6 +168,7 @@ h4.appName  {
   float: left;
   margin-left: 2%;
   margin-top: 2%;
+  border-radius: 100%;
 }
 
 .header {
