@@ -49,12 +49,16 @@ img.profileIcon {
   width: 40px;
   display: inline-block;
   float: left;
+  filter: invert(100%);
+  margin: 1vh;
 }
 
 img.matchesIcon {
   width: 40px;
   display: inline-block;
   float: right;
+  filter: invert(100%);
+  margin: 1vh;
 }
 
 img.logoutIcon {
@@ -235,6 +239,7 @@ font-family: 'Cairo', sans-serif;
   float: left;
   margin-left: 2%;
   margin-top: 2%;
+  border-radius: 100%;
 }
 
 .header {
