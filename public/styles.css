@@ -26,7 +26,7 @@ a {
   text-decoration: none;
 }
 
-img.profileIcon { 
+img.profileIcon {
   width: 40px;
   display: inline-block;
   float: left;
@@ -113,21 +113,48 @@ h4.appName  {
   margin-left: 30%;
 }
 
+/********** MATCH LIST AND MATCH *************/
+
+.matchHeader{
+  width: auto;
+  height: 3vh;
+}
+
+.matchContainer{
+  width:auto;
+  height: 80vh;
+  overflow-y: auto;
+}
+
+.matchName{
+  color:black;
+  font-weight: bold;
+  margin-top: 3%;
+}
+
+.enterChat{
+  color:black;
+  margin-top: 1%;
+}
+
 .match{
-  width: 30vw;
-  height: 18vh;
+  width: 90vw;
+  height: 12vh;
   margin: auto;
-  border-style: double;
-  border-color: blue;
+  border-style: solid;
+  border-color: #d69cad;
   border-radius: 5px;
+  border-width: 1px;
   margin-top: 2%;
+  background-color: #e8dee1
 }
 
 .match-img {
-  width: 10%;
+  width: 15%;
   height:auto;
   float: left;
   margin-left: 2%;
+  margin-top: 2%;
 }
 
 .header {
@@ -157,7 +184,7 @@ li{
 .messageISent{
   float:right;
   height: 6vh;
-  background-color: #a5f7e2;
+  background-color: #E35976;
   display: inline-block;
   text-align: right;
   margin-right: 1%;
@@ -169,7 +196,7 @@ li{
 .messageTheySent{
   width: auto;
   height: 6vh;
-  background-color: #eaf2f0;
+  background-color: #E1D0D4;
   display: inline-block;
   text-align: left;
   margin-left: 1%;
@@ -196,22 +223,6 @@ li{
   position:absolute;
 }
 
-/********** MATCH LIST *************/
-.match{
-  width: 65vw;
-  height: 20vh;
-  margin: auto;
-  border-style: double;
-  border-color: #D02858;
-  border-radius: 5px;
-  margin-top: 2%;
-}
-.match-img {
-  width: 15%;
-  height:auto;
-  float: left;
-  margin-left: 2%;
-}
 
 /*Video Styles*/
 
