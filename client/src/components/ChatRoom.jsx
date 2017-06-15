@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import io from 'socket.io-client';
 import axios from 'axios';
 
@@ -52,8 +53,7 @@ class ChatRoom extends React.Component {
 
   handleOnSubmit(e) {
     e.preventDefault();
-    var messageWithNameTag = this.state.userProfile.first + ': ' + this.state.input;
-    this.state.socket.emit('message', {messages: messageWithNameTag, path: this.props.location.pathname});
+    this.state.socket.emit('message', {messages: this.state.input, path: this.props.location.pathname, senderID: this.state.userProfile.id});
 
    let userPutRoute = '/api/messages/';
    var msg = this.messageBuilder(this.state.input);
@@ -90,28 +90,38 @@ class ChatRoom extends React.Component {
   render() {
 
     var allMessages = this.state.messages.map((message) => {
-      return (<li className="message"> {message.messages}</li>)
+      if(message.senderID === this.state.userProfile.id) {
+        return (<div className="singleLine"><p className="messageISent"> {message.messages}</p></div>)
+      }
+      return (<div className="singleLine"><p className="messageTheySent"> {message.messages}</p></div>)
     });
     var oldMessages = this.state.oldMessages.map((message) => {
-      return (<li className="message">{message.content}</li>)
+      console.log('msg: ', message.sender, ' me: ', this.state.userProfile.id)
+      if(message.recipient === this.state.userProfile.id){
+
+        return (<div className="singleLine"> <p className="messageISent">{message.content} <br /></p></div>)
+      } else {
+        return (<div className="singleLine"> <p className="messageTheySent">{message.content} <br /> </p></div>)
+      }
    })
     return (
       <div>
-        {this.state.mount ?
-          <div>{console.log('prevented mount')}</div>
-          :
-          <div>
-        {console.log('RENDERING CHAT')}
-        <h4>{this.state.matchProfile.first}</h4>
-        <div>{oldMessages}</div>
-        <div>{allMessages}</div>
-        <form onSubmit={this.handleOnSubmit}>
-          <input className="text" type="text" value={this.state.input} onChange={(e) => this.setState({input: e.target.value})} />
-          <input type="submit" value="Submit" />
-        </form>
+        <div className="chatHeader">
+          <Link to={{pathname: '/matches', state: {profile: this.state.userProfile}}}><p className="backArrow">⇚</p></Link>
+          <h4>{this.state.matchProfile.first}</h4>
         </div>
-        }
+
+      <div className="chatRoomContainer">
+        <div className="messageContainer">
+          <div className="oldMessageContainer">{oldMessages}</div>
+          <div>{allMessages}</div>
+        </div>
       </div>
+      <form className="messageField" onSubmit={this.handleOnSubmit}>
+        <input className="text" type="text" value={this.state.input} onChange={(e) => this.setState({input: e.target.value})} />
+        <input type="submit" value="Send" />
+      </form>
+    </div>
     )
   }
 }
