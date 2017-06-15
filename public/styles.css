@@ -134,16 +134,20 @@ h4.appName  {
     background: #D02858;
     padding: 2%;
     text-decoration: none;
+}
+
 /************* Chat Room *************/
 
 li{
   list-style: none;
 }
+
 .backArrow{
   float:left;
   font-size: 250%;
   color: black;
 }
+
 .chatRoomContainer{
   width: auto;
   height: 80vh;
@@ -192,6 +196,22 @@ li{
   position:absolute;
 }
 
+/********** MATCH LIST *************/
+.match{
+  width: 65vw;
+  height: 20vh;
+  margin: auto;
+  border-style: double;
+  border-color: #D02858;
+  border-radius: 5px;
+  margin-top: 2%;
+}
+.match-img {
+  width: 15%;
+  height:auto;
+  float: left;
+  margin-left: 2%;
+}
 
 /*Video Styles*/
 
