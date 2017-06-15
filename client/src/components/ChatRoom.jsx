@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import io from 'socket.io-client';
 import axios from 'axios';
 
@@ -105,16 +106,20 @@ class ChatRoom extends React.Component {
    })
     return (
       <div>
-      <h4>{this.state.matchProfile.first}</h4>
+        <div className="chatHeader">
+          <Link to={{pathname: '/matches', state: {profile: this.state.userProfile}}}><p className="backArrow">⇚</p></Link>
+          <h4>{this.state.matchProfile.first}</h4>
+        </div>
+
       <div className="chatRoomContainer">
         <div className="messageContainer">
           <div className="oldMessageContainer">{oldMessages}</div>
           <div>{allMessages}</div>
         </div>
       </div>
-      <form onSubmit={this.handleOnSubmit}>
+      <form className="messageField" onSubmit={this.handleOnSubmit}>
         <input className="text" type="text" value={this.state.input} onChange={(e) => this.setState({input: e.target.value})} />
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Send" />
       </form>
     </div>
     )

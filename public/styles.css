@@ -130,9 +130,14 @@ h4.appName  {
 li{
   list-style: none;
 }
+.backArrow{
+  float:left;
+  font-size: 250%;
+  color: black;
+}
 .chatRoomContainer{
   width: auto;
-  height: auto;
+  height: 80vh;
   overflow-y: auto;
 }
 
@@ -145,7 +150,7 @@ li{
   margin-right: 1%;
   margin-top: 1px;
   border-radius: 5px;
-  padding: 0.5% 1% 3% 1%;
+  padding: 0.5% 1% 0.5% 1%;
 }
 
 .messageTheySent{
@@ -157,13 +162,15 @@ li{
   margin-left: 1%;
   margin-top: 1px;
   border-radius: 5px;
-  padding: 0.5% 1% 3% 1%;
+  padding: 0.5% 1% 0.5% 1%;
 }
+
 .oldMessageContainer{
   margin: auto;
   width:auto;
   height: auto;
 }
+
 .singleLine{
   width: auto;
   height: auto;
@@ -172,6 +179,9 @@ li{
 
 }
 
+.messageField{
+  position:absolute;
+}
 
 
 /*Video Styles*/
