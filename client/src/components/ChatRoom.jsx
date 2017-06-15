@@ -108,7 +108,7 @@ class ChatRoom extends React.Component {
       <div>
         <div className="chatHeader">
           <Link to={{pathname: '/matches', state: {profile: this.state.userProfile}}}><p className="backArrow">⇚</p></Link>
-          <h4>{this.state.matchProfile.first}</h4>
+          <h2>{this.state.matchProfile.first}</h2>
         </div>
 
       <div className="chatRoomContainer">

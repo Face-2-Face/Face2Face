@@ -1,12 +1,22 @@
 body {
+
   margin: 0;
 }
 
 h1 {
+  font-family: 'Pacifico', cursive;
   text-align: center;
 }
 
+h2 {
+  font-family: 'Pacifico', cursive;
+  text-align: center;
+  color: gray;
+  font-weight: 300;
+}
+
 h4 {
+  font-family: 'Pacifico', cursive;
   text-align: center;
   color: gray;
   font-weight: 300;
@@ -117,7 +127,7 @@ h4.appName  {
 
 .matchHeader{
   width: auto;
-  height: 3vh;
+  height: 4vh;
 }
 
 .matchContainer{
@@ -150,7 +160,7 @@ h4.appName  {
 }
 
 .match-img {
-  width: 15%;
+  width: auto;
   height:auto;
   float: left;
   margin-left: 2%;
@@ -182,27 +192,31 @@ li{
 }
 
 .messageISent{
+  font-family: helvetica;
+  font-weight: lighter;
+  color: white;
   float:right;
-  height: 6vh;
   background-color: #E35976;
   display: inline-block;
   text-align: right;
   margin-right: 1%;
   margin-top: 1px;
-  border-radius: 5px;
-  padding: 0.5% 1% 0.5% 1%;
+  border-radius: 7.5px;
+  padding: 1.1%;
 }
 
 .messageTheySent{
+  font-family: helvetica;
+  font-weight: lighter;
+  color: white;
   width: auto;
-  height: 6vh;
   background-color: #E1D0D4;
   display: inline-block;
   text-align: left;
   margin-left: 1%;
   margin-top: 1px;
-  border-radius: 5px;
-  padding: 0.5% 1% 0.5% 1%;
+  border-radius: 7.5px;
+  padding: 1.1%;
 }
 
 .oldMessageContainer{
