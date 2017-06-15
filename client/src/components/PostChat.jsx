@@ -35,16 +35,16 @@ class PostChat extends React.Component {
   }
 
   checkLocation() {
-    let profile = this.state.profile;
-    if (profile.location) {
-      return <div> Location: {profile.location}</div>;
+    let otherProfile = this.state.otherProfile;
+    if (otherProfile.location) {
+      return <div> Location: {otherProfile.location}</div>;
     }
   }
 
   checkBio() {
-    let profile = this.state.profile;
-    if (profile.bio) {
-      return <div className="bio"> Bio: {profile.bio}</div>;
+    let otherProfile = this.state.otherProfile;
+    if (otherProfile.bio) {
+      return <div className="bio"> Bio: {otherProfile.bio}</div>;
     }
   }
 
@@ -75,17 +75,15 @@ class PostChat extends React.Component {
   }
 
   render() {
-    console.log('PostChat.jsx ------>', this.state.userProfile);
+    let otherProfile = this.state.otherProfile;
 
     return (
-
       <div>
-          {console.log('In RENDER')}
-        {/*<Header />
+        <Header />
         <div className="row">
-          <p className="text-center profile-name"><strong>{profile.first}</strong></p>
-          <img className="img-circle center-block profile-img" src={profile.photo} />
-          <p className="sub-header">Age: {profile.age_max} {this.checkLocation()} {this.checkBio()} </p>
+          <p className="text-center profile-name"><strong>{otherProfile.first}</strong></p>
+          <img className="img-circle center-block profile-img" src={otherProfile.photo} />
+          <p className="sub-header">Age: {otherProfile.age_max} {this.checkLocation()} {this.checkBio()} </p>
         </div>
    
         <div className="inline-row">
@@ -93,7 +91,7 @@ class PostChat extends React.Component {
           <span onClick={() => this.addToMatches()}>
             <Link to={{ pathname: '/matches', state: { profile: this.props.profile } }}><img className="heartIcon" src="public/assets/heart.png" /></Link>
           </span>
-        </div>*/}
+        </div>
 
       </div>
     );
