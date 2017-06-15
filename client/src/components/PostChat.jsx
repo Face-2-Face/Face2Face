@@ -2,22 +2,17 @@ import React from 'react';
 import Header from './Header.jsx';
 import { Link } from 'react-router-dom';
 import Profile from './Profile.jsx';
-
-
+import axios from 'axios';
+import qs from 'qs';
 
 class PostChat extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      profile: this.props.location.state.profile,
-      dummyUser: {
-        id: 17,
-        first: 'Sam',
-        location: 'San Francisco',
-        bio: 'Hi my name is what, my name is who, my name is...',
-        age_max: '27',
-        photo: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/16684098_10209773354423131_8111954378602662091_n.jpg?oh=22c5e51a7eb3d2f28c2ae3eb677fb7c3&oe=59A6C096'
-      }
+      userID: '',
+      otherID: '',
+      userProfile: {},
+      otherProfile: {}
     };
 
     this.checkLocation = this.checkLocation.bind(this);
@@ -39,35 +34,56 @@ class PostChat extends React.Component {
       });
   }
 
-
   checkLocation() {
-    let profile = this.state.profile;
-    if (profile.location) {
-      return <div> Location: {profile.location}</div>;
+    let otherProfile = this.state.otherProfile;
+    if (otherProfile.location) {
+      return <div> Location: {otherProfile.location}</div>;
     }
   }
 
   checkBio() {
-    let profile = this.state.profile;
-    if (profile.bio) {
-      return <div className="bio"> Bio: {profile.bio}</div>;
+    let otherProfile = this.state.otherProfile;
+    if (otherProfile.bio) {
+      return <div className="bio"> Bio: {otherProfile.bio}</div>;
     }
   }
 
+  componentWillMount() {
+    let qstring = this.props.location.search.slice(1);
+    let info = qs.parse(qstring);
+    this.setState({userID: info.userID, otherID: info.otherID});
+  }
+
+  componentDidMount() {
+    let that = this;
+    // get user profile
+    axios.get('/api/profiles/'+this.state.userID)
+      .then(function(response) {
+        that.setState({userProfile: response.data});
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+    // get other profile
+    axios.get('/api/profiles/'+this.state.otherID)
+      .then(function(response) {
+        that.setState({otherProfile: response.data});
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+  }
+
   render() {
-    let profile = this.state.profile;
-    let dummy = this.state.dummyUser;
-    console.log(profile, 'profile');
+    let otherProfile = this.state.otherProfile;
 
     return (
-
       <div>
-          {console.log('props', profile)}
         <Header />
         <div className="row">
-          <p className="text-center profile-name"><strong>{profile.first}</strong></p>
-          <img className="img-circle center-block profile-img" src={profile.photo} />
-          <p className="sub-header">Age: {profile.age_max} {this.checkLocation()} {this.checkBio()} </p>
+          <p className="text-center profile-name"><strong>{otherProfile.first}</strong></p>
+          <img className="img-circle center-block profile-img" src={otherProfile.photo} />
+          <p className="sub-header">Age: {otherProfile.age_max} {this.checkLocation()} {this.checkBio()} </p>
         </div>
    
         <div className="inline-row">
@@ -83,3 +99,12 @@ class PostChat extends React.Component {
 }
 
 export default PostChat;
+
+      // dummyUser: {
+      //   id: 17,
+      //   first: 'Sam',
+      //   location: 'San Francisco',
+      //   bio: 'Hi my name is what, my name is who, my name is...',
+      //   age_max: '27',
+      //   photo: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/16684098_10209773354423131_8111954378602662091_n.jpg?oh=22c5e51a7eb3d2f28c2ae3eb677fb7c3&oe=59A6C096'
+      // }

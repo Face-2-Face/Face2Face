@@ -1,18 +1,27 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios';
 import * as Video from 'twilio-video';
+import qs from 'qs';
+
 class VideoChatRoom extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      room: this.props.location.state.room
+      qstring: this.props.location.search.slice(1),
+      roomName: '',
+      userID: '',
+      otherID: '',
+      room: null,
+      videoChatComplete: false
     };
     this.roomJoined = this.roomJoined.bind(this);
     this.participantConnected = this.participantConnected.bind(this);
     this.toDisconnect = this.toDisconnect.bind(this);
   }
+
   roomJoined(room) {
+    let that = this;
     this.setState({ room: room });
     var localContainer = document.getElementById('local-media');
     console.log('Room', room);
@@ -24,19 +33,17 @@ class VideoChatRoom extends React.Component {
           detachedElement.remove();
         });
       });
+      that.toDisconnect();
     });
-    // attach local participant's tracks
     if (!localContainer.querySelector('video')) {
       room.localParticipant.tracks.forEach(track => {
         localContainer.appendChild(track.attach());
       });
     }
   }
+
   participantConnected(participant) {
     console.log('Participant "%s" connected', participant.identity);
-    // const div = document.createElement('div');
-    // div.id = participant.sid;
-    // div.innerText = participant.identity;
     var previewContainer = document.getElementById('remote-media');
     participant.on('trackAdded', track => {
       previewContainer.appendChild(track.attach());
@@ -44,16 +51,19 @@ class VideoChatRoom extends React.Component {
     participant.tracks.forEach(track => {
       previewContainer.appendChild(track.attach());
     });
-    // participant.on('trackRemoved', trackRemoved); //
   }
-  componentDidMount() {
+
+  componentDidMount() {  
     var identity;
+    let info = qs.parse(this.state.qstring);
+    this.setState({roomName: info.room, userID: info.userID, otherID: info.otherID});
+
     let that = this;
     axios.get('/token')
       .then(function (response) {
         console.log('Response', response);
         identity = response.data.identity;
-        Video.connect(response.data.token, { name: that.state.room }).then(that.roomJoined, function (error) {
+        Video.connect(response.data.token, { name: that.state.roomName }).then(that.roomJoined, function (error) {
           console.log('Could not connect: ', error.message);
         });
       })
@@ -63,14 +73,23 @@ class VideoChatRoom extends React.Component {
   }
   toDisconnect() {
     this.state.room.disconnect();
-    // set state: complete to exit the room
+    this.setState({videoChatComplete: true});
   }
+
   render() {
+    let next;
+    if (this.state.videoChatComplete) {
+        var queryString = '?userID=' + this.state.userID + '&otherID=' + this.state.otherID;
+        next = <div><Redirect to={{pathname: '/postchat', search: queryString}} /></div>;
+    } else {
+        next = <div></div>;
+    }
     return (
       <div>
         <div id="local-media"></div>
         <div id="remote-media"></div>
         <button onClick={this.toDisconnect}>End Video Chat</button>
+        {next}
       </div>
     );
   }

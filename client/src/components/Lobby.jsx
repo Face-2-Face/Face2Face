@@ -43,7 +43,7 @@ class Lobby extends React.Component {
         } else {
           // send to the chat room with the profile (which contains room assignment)
           that.setState({room: response.data.room, otherID: response.data.otherID, foundUserToChatWith: true});
-          console.log('Lobby.jsx Got room Assignment -----> ', response.data);
+          console.log('Lobby.jsx Room Assignment Info -----> ', response.data);
         }
       })
       .catch(function(error) {
@@ -84,6 +84,10 @@ class Lobby extends React.Component {
   }
 
   render() {
+    if (this.state.foundUserToChatWith) {
+
+      var queryString = '?room=' + this.state.room + '&userID=' + this.state.profile.id + '&otherID=' + this.state.otherID;
+    }
     return (
       <div>
         <div className="row">
@@ -91,7 +95,7 @@ class Lobby extends React.Component {
         </div>
         {this.state.foundUserToChatWith ?
           <div>
-            <Redirect to={{pathname: '/video', state: {room: this.state.room, userProfile: this.state.profile, otherProfile: this.state.otherID }}} />;
+            <Redirect to={{pathname: '/video', search: queryString}} />;
           </div>
           :
           <h3>Connecting ... </h3>
