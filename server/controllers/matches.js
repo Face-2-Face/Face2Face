@@ -106,9 +106,35 @@ module.exports.rejectOther = (req, res) => {
           .catch(err => {
             res.status(500).send(err);
           });
+      } else {
+        profile.destroy();
+        res.sendStatus(200);
       }
     })
     .catch(err => {
       res.status(503).send(err);      
     });
 }
+
+
+/*
+
+// module.exports.deleteOne = (req, res) => {
+//   models.Profile.where({ id: req.params.id }).fetch()
+//     .then(profile => {
+//       if (!profile) {
+//         throw profile;
+//       }
+//       return profile.destroy();
+//     })
+//     .then(() => {
+//       res.sendStatus(200);
+//     })
+//     .error(err => {
+//       res.status(503).send(err);
+//     })
+//     .catch(() => {
+//       res.sendStatus(404);
+//     });
+// };
+*/
