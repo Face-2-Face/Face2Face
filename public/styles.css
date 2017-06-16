@@ -40,6 +40,10 @@ input.submitButton {
     margin: 0 auto;
     font-size: 24px;
     font-family: 'Cairo', sans-serif;
+    background: #D02858;
+    border-radius: 100px;
+    border: none;
+    width: 25%;
 }
 
 input.locationInput {
@@ -47,6 +51,8 @@ input.locationInput {
     margin: 0 auto;
     text-align: center;
     border: 1px solid #B1B1B1;
+    font-size: 24px;
+    color: #444444;
 }
 img.profileIcon {
   width: 40px;
@@ -187,6 +193,10 @@ p.profileName {
     text-align: center;
     font-size: 24px;
     color: black;
+    background: #B1B1B1;
+    border-radius: 100px;
+    width: 25%;
+    margin: 0 auto;
 }
 
 input.saveButton {
@@ -203,12 +213,18 @@ input.bioInput {
     display: block;
     text-align: center;
     border: 1px solid #B1B1B1;
+    font-size: 24px;
+    color: #444444;
 }
 
 .editPref {
     text-align: center;
     font-size: 24px;
     color: black;
+    background: #E35976;
+    border-radius: 100px;
+    width: 25%;
+    margin: 0 auto;
 }
 /********** HOME SCREEN        ***************/
 
