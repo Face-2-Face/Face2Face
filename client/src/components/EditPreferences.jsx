@@ -65,32 +65,32 @@ class EditPreferences extends React.Component {
         {console.log('props in edits', this.state.profile)}
         <h1>Edit Preferences</h1>
           <form onSubmit={this.handleSubmit}>
-            <ul>
-              <label>Name: {this.state.profile.first}</label>
-              <li><label>
+            <ul className="editPrefForm">
+              <label className="editText">Name: {this.state.profile.first}</label>
+              <li><label className="editText">
                 Age:
-                <input name="age" value={this.state.age_min} onChange={(e) => this.setState({ age_min: e.target.value, axe_max: e.target.value})} />
+                <input className="ageInput" name="age" value={this.state.age_min} onChange={(e) => this.setState({ age_min: e.target.value, axe_max: e.target.value})} />
               </label></li>
-              <li><label>
+              <li><label className="editText">
                 I am a:
-                <select name="gender" value={this.state.gender} onChange={(e) => this.setState({ gender: e.target.value})}>
+                <select className="prefGenderSelect" name="gender" value={this.state.gender} onChange={(e) => this.setState({ gender: e.target.value})}>
                   <option value="">Select</option>
                   <option value="male">Man</option>
                   <option value="female">Woman</option>
                 </select>
 
                 Looking for a:
-                <select name="prefGender" value={this.state.prefGender} onChange={(e) => this.setState({ prefGender: e.target.value})}>
+                <select className="prefGenderSelect" name="prefGender" value={this.state.prefGender} onChange={(e) => this.setState({ prefGender: e.target.value})}>
                   <option value="">Select</option>
                   <option value="male">Man</option>
                   <option value="female">Woman</option>
                 </select>
               </label></li>
-              <li><label>
+              <li><label className="editText">
                 From age:
-                <input name="prefAge_min" value={this.state.prefAge_min} onChange={(e) => this.setState({ prefAge_min: e.target.value})} />
+                <input className="prefAgeInput" name="prefAge_min" value={this.state.prefAge_min} onChange={(e) => this.setState({ prefAge_min: e.target.value})} />
                 To age:
-                <input name="prefAge_max" value={this.state.prefAge_max} onChange={(e) => this.setState({ prefAge_max: e.target.value})} />
+                <input className="prefAgeInput" name="prefAge_max" value={this.state.prefAge_max} onChange={(e) => this.setState({ prefAge_max: e.target.value})} />
               </label></li>
             </ul>
           <input className="saveButton" type="submit" value="Save" />
