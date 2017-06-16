@@ -19,13 +19,32 @@ class PostChat extends React.Component {
     this.checkBio = this.checkBio.bind(this);
     this.addToMatches = this.addToMatches.bind(this);
     this.rejectToMatches = this.rejectToMatches.bind(this);
+    this.addToConversations = this.addToConversations.bind(this);
+  }
+
+  addToConversations() {
+    let user1_id = Math.min(this.state.userID, this.state.otherID);
+    let user2_id = Math.max(this.state.userID, this.state.otherID);
+
+    axios.put('/api/conversations/', { user1_id: user1_id, user2_id: user2_id })
+      .then(function(response) {
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
   }
 
   addToMatches() {
-    // axios put request to update database
+    // axios put request to update database that user accepts
+    let that = this;
     axios.put('/api/matches/accept', {userID: this.state.userID, otherID: this.state.otherID})
       .then(function(response) {
-        console.log(response);
+        console.log('PostChat.jsx Response', response.data);
+        if (response.data === 'matched') {
+          console.log('PostChat.jsx Matches response -----> ', response.data);
+          that.addToConversations();
+        }
       })
       .catch(function(error) {
         console.log(error);

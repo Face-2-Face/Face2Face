@@ -5,10 +5,10 @@ const ConversationsController = require('../controllers').Conversations;
 
 router.route('/')
   .get(ConversationsController.getAll)
+  .put(ConversationsController.addToConversations)
   ;
 
 router.route('/:id')
-  .put(ConversationsController.addToConversations)
   .get(ConversationsController.getConvo)
   // .delete(ProfileController.deleteOne)
   ;

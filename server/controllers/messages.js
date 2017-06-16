@@ -41,7 +41,7 @@ module.exports.addToMessages = (req, res) => {
     //     res.status(503).send(err);
     //   });
     let msg = req.body;
-    console.log('type of', typeof(msg.from));
+    console.log('message convo id, ', msg.conversation_id);
     models.Messages.forge({
       recipient: msg.from,
       sender: msg.to,
