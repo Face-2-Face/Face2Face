@@ -53,7 +53,7 @@ module.exports.acceptOther = (req, res) => {
         models.Matches.forge({ user_id: userIDclone, other_id: otherIDclone, userResponse: true, otherResponse: true})
           .save()
           .then(result => {
-            res.status(201).send(result);
+            res.status(201).send('matched');
           })
           .catch(err => {
             res.status(500).send(err);
