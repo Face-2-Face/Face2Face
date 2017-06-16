@@ -14,10 +14,8 @@ module.exports.getAll = (req, res) => {
 };
 
 module.exports.getUserMatches = (req, res) => {
-  models.Matches.where({ user_id: req.params.id })
-//    .fetch({withRelated: ['profile']})
+  models.Matches.where({ user_id: req.params.id, userResponse: true, otherResponse: true })
     .fetchAll()
-//    knex.raw(`select * from profiles where id=${req.params.id}`)
     .then(matches => {
       console.log('hello from match fetch', matches)
       res.status(200).send(matches);
@@ -55,7 +53,7 @@ module.exports.acceptOther = (req, res) => {
         models.Matches.forge({ user_id: userIDclone, other_id: otherIDclone, userResponse: true, otherResponse: true})
           .save()
           .then(result => {
-            res.status(201).send(result);
+            res.status(201).send('matched');
           })
           .catch(err => {
             res.status(500).send(err);
