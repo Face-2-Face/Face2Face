@@ -340,6 +340,8 @@ h3.connecting {
   color:black;
   font-weight: bold;
   margin-right: 8%;
+  font-size: 24px;
+  margin-top: 3%;
 }
 
 .enterChat{
@@ -349,22 +351,22 @@ h3.connecting {
 
 .match{
   width: 90vw;
-  height: 12vh;
+  height: 10%;
   margin: auto;
   border-style: solid;
   border-color: #d69cad;
   border-radius: 5px;
   border-width: 1px;
   margin-top: 2%;
-  background-color: #e8dee1
+  background-color: #e8dee1;
 }
 
 .match-img {
   width: auto;
   height:auto;
   float: left;
-  margin-left: 2%;
-  margin-top: 2%;
+  margin-left: 5%;
+  margin-top: 5%;
   border-radius: 100%;
 }
 
