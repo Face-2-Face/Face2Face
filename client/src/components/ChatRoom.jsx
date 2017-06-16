@@ -107,7 +107,7 @@ class ChatRoom extends React.Component {
     return (
       <div>
         <div className="chatHeader">
-          <Link to={{pathname: '/matches', state: {profile: this.state.userProfile}}}><p className="backArrow"> ⮂</p></Link>
+          <Link to={{pathname: '/matches', state: {profile: this.state.userProfile}}}><img className="backArrow" src="../public/assets/backArrow.png" /></Link>
           <h1>{this.state.matchProfile.first}</h1>
         </div>
 

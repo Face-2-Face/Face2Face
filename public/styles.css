@@ -341,7 +341,6 @@ h3.connecting {
   font-weight: bold;
   margin-right: 8%;
   font-size: 24px;
-  margin-top: 3%;
 }
 
 .enterChat{
@@ -351,22 +350,22 @@ h3.connecting {
 
 .match{
   width: 90vw;
-  height: 10%;
+  height: 12vh;
   margin: auto;
   border-style: solid;
   border-color: #d69cad;
   border-radius: 5px;
   border-width: 1px;
   margin-top: 2%;
-  background-color: #e8dee1;
+  background-color: #e8dee1
 }
 
 .match-img {
   width: auto;
   height:auto;
   float: left;
-  margin-left: 5%;
-  margin-top: 5%;
+  margin-left: 2%;
+  margin-top: 2%;
   border-radius: 100%;
 }
 
@@ -402,10 +401,10 @@ li{
 }
 
 .backArrow{
-  float:left;
-  font-size: 250%;
-  color: black;
-  margin-left: 0.6%;
+  width: 40px;
+  display: inline-block;
+  float: left;
+  margin: 4%;
 }
 
 .chatRoomContainer{
@@ -466,6 +465,9 @@ li{
   width: 40%;
   height: 25px;
   margin-right: 0.5%;
+  margin: 0 auto;
+  border: 1px solid #B1B1B1;
+  color: #444444;
 }
 
 .sendMessageButton{
