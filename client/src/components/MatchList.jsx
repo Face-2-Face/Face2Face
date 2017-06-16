@@ -19,6 +19,7 @@ class MatchList extends React.Component {
   }
 
   componentDidMount() {
+    console.log('PROPS', this.props)
     const id = this.state.userProfile.id;
     let that = this;
     axios.get('/api/matches/' + id)

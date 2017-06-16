@@ -15,6 +15,7 @@ h2 {
 }
 
 h4 {
+  font-family: 'Pacifico', cursive;
   text-align: center;
   color: gray;
   font-weight: 300;
@@ -34,8 +35,31 @@ a {
   text-decoration: none;
 }
 
+input.submitButton {
+    display: block;
+    margin: 0 auto;
+    font-size: 24px;
+    font-family: 'Cairo', sans-serif;
+    background: #D02858;
+    border-radius: 100px;
+    border: none;
+    width: 25%;
+    color: white;
+    margin-top: 25px;
+}
+
+input.locationInput {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    border: 1px solid #B1B1B1;
+    font-size: 24px;
+    color: #444444;
+    width: 50%;
+    margin-bottom: 50px;
+}
 img.profileIcon {
-  width: 50px;
+  width: 40px;
   display: inline-block;
   float: left;
   filter: invert(100%);
@@ -43,7 +67,7 @@ img.profileIcon {
 }
 
 img.matchesIcon {
-  width: 50px;
+  width: 40px;
   display: inline-block;
   float: right;
   filter: invert(100%);
@@ -61,11 +85,10 @@ img.frontLogo {
 }
 
 h4.appName  {
-  font-family: 'Pacifico', cursive;
   text-align: center;
   color: white;
   font-weight: 500;
-  font-size: 42px;
+  font-size: 36px;
   margin: 0;
 }
 
@@ -73,12 +96,13 @@ h4.appName  {
   max-width: 20%;
   height: auto;
   margin-top: 2%;
-  border-radius: 100%;
+  margin-bottom: 5%;
 }
 
 .profile-name {
   font-size: 50px;
 }
+
 
 .profile-form {
   display: inline-block;
@@ -128,6 +152,179 @@ h4.appName  {
 }
 
 
+/********** Profile *************/
+
+p.profileName {
+    margin: 5%;
+}
+
+.aboutMe {
+    text-align: center;
+    font-size: 24px;
+    margin-top: -35px;
+}
+
+.location {
+    text-align: center;
+    font-size: 24px;
+    margin-top: -25px;
+}
+
+.bioChange {
+    display: block;
+    margin: 0 auto;
+}
+
+.profile-img {
+  max-width: 20%;
+  height: auto;
+  margin-top: 2%;
+  border-radius: 100%;
+}
+
+.profile-name {
+  font-size: 50px;
+}
+
+.profile-form {
+  display: inline-block;
+}
+
+.bio {
+  padding-right: 20%;
+  padding-left: 20%;
+  font-size: 75%;
+  display: inline;
+}
+
+.Logout {
+    text-align: center;
+    font-size: 24px;
+    color: black;
+    background: #B1B1B1;
+    border-radius: 100px;
+    width: 25%;
+    margin: 0 auto;
+    color: white;
+    margin-top: 25px;
+}
+
+input.saveButton {
+    display: block;
+    margin: 0 auto;
+    font-size: 24px;
+    font-family: 'Cairo', sans-serif;
+    background: #D02858;
+    border-radius: 100px;
+    border: none;
+    width: 25%;
+    color: white;
+    margin-top: 25px;
+}
+
+.charactersLeft {
+    font-size: 12px;
+}
+
+input.bioInput {
+    margin: 0 auto;
+    display: block;
+    border: 1px solid #B1B1B1;
+    font-size: 24px;
+    color: #444444;
+    width: 50%;
+    height: 20vw;
+    text-align: center;
+}
+
+.editPref {
+    text-align: center;
+    font-size: 24px;
+    color: black;
+    background: #E35976;
+    border-radius: 100px;
+    width: 25%;
+    margin: 0 auto;
+    color: white;
+    margin-top: 25px;
+}
+.profileInfo {
+    margin-top: -20px;
+    margin-bottom: 50px;
+}
+
+h2.profileAge {
+    margin-bottom: -25px;
+}
+
+/********** Edit Preferences ***************/
+
+select.prefGenderSelect {
+    text-align: center;
+    border: 1px solid #B1B1B1;
+    font-size: 20px;
+    color: #444444;
+    width: 20%;
+    background: white;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+input.prefAgeInput {
+    text-align: center;
+    border: 1px solid #B1B1B1;
+    font-size: 20px;
+    color: #444444;
+    width: 10%;
+    margin-bottom: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+label.editText {
+    font-size: 24px;
+}
+
+input.ageInput {
+    text-align: center;
+    border: 1px solid #B1B1B1;
+    font-size: 20px;
+    color: #444444;
+    width: 10%;
+    background: white;
+    margin-left: 10px;
+}
+
+ul.editPrefForm {
+    margin-left: 5%;
+}
+
+/********** HOME SCREEN        ***************/
+
+.toVidChatLobbyButton {
+  margin: 20%;
+  width: 60vw;
+  height: 40vh;
+  color: white;
+  font-size: 250%;
+  border-radius: 10px;
+  border-style: double;
+  border-width: 3px;
+  border-color: #efc6cf;
+  background-color: #D02858;
+  font-family: 'Cairo', sans-serif;
+}
+
+/********** Lobby ***************/
+
+h3.connecting {
+    font-size: 36px;
+    font-family: 'Pacifico', cursive;
+    text-align: center;
+    padding: 10%;
+}
+
+
 
 /********** MATCH LIST AND MATCH *************/
 
@@ -145,8 +342,8 @@ h4.appName  {
 .matchName{
   color:black;
   font-weight: bold;
-  margin-top: 3%;
   margin-right: 8%;
+  font-size: 24px;
 }
 
 .enterChat{
@@ -181,6 +378,25 @@ h4.appName  {
     text-decoration: none;
 }
 
+/************* PUBLIC PROFILE ********/
+
+.publicProfileContainer{
+  width: 80vw;
+  height: 40vh;
+  margin: auto;
+}
+
+.publicProfilePhoto{
+  margin: auto;
+  width: 20vw;
+  height: 20vh;
+  border-radius: 100%;
+}
+
+.publicBio{
+  float: left;
+}
+
 /************* Chat Room *************/
 
 li{
@@ -188,9 +404,10 @@ li{
 }
 
 .backArrow{
-  float:left;
-  font-size: 250%;
-  color: black;
+  width: 40px;
+  display: inline-block;
+  float: left;
+  margin: 4%;
 }
 
 .chatRoomContainer{
@@ -218,7 +435,7 @@ li{
   font-weight: lighter;
   color: white;
   width: auto;
-  background-color: #E1D0D4;
+  background-color: #B1B1B1;
   display: inline-block;
   text-align: left;
   margin-left: 1%;
@@ -242,9 +459,29 @@ li{
 }
 
 .messageField{
-  position:absolute;
+  position: absolute;
+  width: 70vw;
+  margin-left: 50%
 }
 
+.messageInputField{
+  width: 40%;
+  height: 25px;
+  margin-right: 0.5%;
+  margin: 0 auto;
+  border: 1px solid #B1B1B1;
+  color: #444444;
+}
+
+.sendMessageButton{
+  width: 80px;
+  border-radius: 5px;
+  border: none;
+  background-color: #D02858;
+  color: white;
+  height: 30px;
+  margin-bottom: 2%
+}
 
 /*Video Styles*/
 

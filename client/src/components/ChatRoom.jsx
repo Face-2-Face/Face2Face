@@ -107,7 +107,7 @@ class ChatRoom extends React.Component {
     return (
       <div>
         <div className="chatHeader">
-          <Link to={{pathname: '/matches', state: {profile: this.state.userProfile}}}><p className="backArrow">⇚</p></Link>
+          <Link to={{pathname: '/matches', state: {profile: this.state.userProfile}}}><img className="backArrow" src="../public/assets/backArrow.png" /></Link>
           <h1>{this.state.matchProfile.first}</h1>
         </div>
 
@@ -118,7 +118,7 @@ class ChatRoom extends React.Component {
         </div>
       </div>
       <form className="messageField" onSubmit={this.handleOnSubmit}>
-        <input className="messageInputField" className="text" type="text" value={this.state.input} onChange={(e) => this.setState({input: e.target.value})} />
+        <input className="messageInputField" type="text" value={this.state.input} onChange={(e) => this.setState({input: e.target.value})} />
         <input className="sendMessageButton" type="submit" value="Send" />
       </form>
     </div>
