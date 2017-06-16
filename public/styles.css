@@ -24,7 +24,6 @@ h4 {
 img {
   display: block;
   margin: 0 auto;
-  width: 500px;
 }
 
 p  {
@@ -39,12 +38,22 @@ a {
 
 h4.slogan {
     font-family: 'Cairo';
-    font-size: 20px;
+    font-size: 24px;
+    margin-bottom: 5%;
 }
 
 h1.appName {
-    font-size: 36px;
+    font-size: 63px;
+    margin-top: 20%;
+    color: #D02858;
+    margin-bottom: -50px;
 }
+
+img.fbBanner {
+    width: 500px;
+}
+
+/**********/
 
 input.submitButton {
     display: block;
