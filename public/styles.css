@@ -247,7 +247,24 @@ font-family: 'Cairo', sans-serif;
     padding: 2%;
     text-decoration: none;
 }
+/************* PUBLIC PROFILE ********/
 
+.publicProfileContainer{
+  width: 80vw;
+  height: 40vh;
+  margin: auto;
+}
+
+.publicProfilePhoto{
+  margin: auto;
+  width: 10vw;
+  height: 10vh;
+
+}
+
+.publicBio{
+  float: left;
+}
 /************* Chat Room *************/
 
 li{
@@ -258,6 +275,7 @@ li{
   float:left;
   font-size: 250%;
   color: black;
+  margin-left: 0.6%;
 }
 
 .chatRoomContainer{
@@ -309,11 +327,15 @@ li{
 }
 
 .messageField{
-  position:absolute;
+  position: absolute;
+  width: 70vw;
+  margin-left: 50%
 }
 
 .messageInputField{
-
+  width: 40%;
+  height: 25px;
+  margin-right: 0.5%;
 }
 
 .sendMessageButton{
@@ -322,6 +344,8 @@ li{
   border: none;
   background-color: #D02858;
   color: white;
+  height: 30px;
+  margin-bottom: 2%
 }
 
 /*Video Styles*/
