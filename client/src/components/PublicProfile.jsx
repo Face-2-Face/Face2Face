@@ -17,15 +17,17 @@ class PublicProfile extends React.Component {
     return (
       <div>
         <div className="chatHeader">
-          <Link to={{pathname: '/matches', state: {profile: this.state.userProfile}}}><p className="backArrow"> ⮂</p></Link>
+          <Link to={{pathname: '/matches', state: {profile: this.state.userProfile}}}><img className="backArrow" src="../public/assets/backArrow.png" /></Link>
           <h1>{this.state.profile.first}</h1>
         </div>
         <img className="publicProfilePhoto" src={this.state.profile.photo}/>
         <div className="publicProfileContainer">
-          <h3>About {this.state.profile.first}: </h3>
-          <p className="publicBio">{this.state.profile.bio}</p>
-          <h3>Age: {this.state.profile.age_min}</h3>
-          <h3>Location: {this.state.profile.location}</h3>
+          <div className="aboutMe">
+          <div className="aboutPublic">About {this.state.profile.first}: </div>
+          <div className="bioPublic">{this.state.profile.bio}</div>
+          <div className="agePublic">Age: {this.state.profile.age_min}</div>
+          <div className="locationPublic">Location: {this.state.profile.location}</div>
+        </div>
 
         </div>
       </div>

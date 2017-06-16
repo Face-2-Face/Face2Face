@@ -24,7 +24,7 @@ h4 {
 img {
   display: block;
   margin: 0 auto;
-  width: 70%;
+  width: 500px;
 }
 
 p  {
@@ -33,6 +33,17 @@ p  {
 
 a {
   text-decoration: none;
+}
+
+/********** Login *************/
+
+h4.slogan {
+    font-family: 'Cairo';
+    font-size: 20px;
+}
+
+h1.appName {
+    font-size: 36px;
 }
 
 input.submitButton {
@@ -161,7 +172,9 @@ p.profileName {
 .aboutMe {
     text-align: center;
     font-size: 24px;
+    color: #444444;
     margin-top: -35px;
+    margin: auto;
 }
 
 .location {
@@ -207,6 +220,7 @@ p.profileName {
     margin: 0 auto;
     color: white;
     margin-top: 25px;
+    margin-bottom: 15%;
 }
 
 input.saveButton {
@@ -302,7 +316,10 @@ ul.editPrefForm {
 /********** HOME SCREEN        ***************/
 
 .toVidChatLobbyButton {
-  margin: 20%;
+  margin: 0 auto;
+  display: block;
+  margin-top: 15%;
+  margin-bottom: 15%;
   width: 60vw;
   height: 40vh;
   color: white;
@@ -340,27 +357,28 @@ h3.connecting {
 }
 
 .matchName{
-  color:black;
+  color: #444444;
   font-weight: bold;
-  margin-right: 8%;
+  margin-right: 5%;
   font-size: 24px;
 }
 
 .enterChat{
-  color:black;
-  margin-right: 6%;
+  color: #444444;
+  margin-right: 4%;
+  display: block;
 }
 
 .match{
   width: 90vw;
-  height: 12vh;
+  /* height: 12vh; */
   margin: auto;
   border-style: solid;
   border-color: #d69cad;
   border-radius: 5px;
   border-width: 1px;
   margin-top: 2%;
-  background-color: #e8dee1
+  background-color: #e8dee1;
 }
 
 .match-img {
@@ -378,6 +396,12 @@ h3.connecting {
     text-decoration: none;
 }
 
+.matchComponent {
+  /* margin: 1vh; */
+  /* display: inline-block; */
+  margin: 1vw;
+}
+
 /************* PUBLIC PROFILE ********/
 
 .publicProfileContainer{
@@ -387,14 +411,19 @@ h3.connecting {
 }
 
 .publicProfilePhoto{
-  margin: auto;
-  width: 20vw;
-  height: 20vh;
+  max-width: 20%;
+  height: auto;
+  margin-top: 2%;
   border-radius: 100%;
+  margin: 0 auto;
 }
 
 .publicBio{
   float: left;
+}
+
+.aboutPublic {
+    margin-top: 5%;
 }
 
 /************* Chat Room *************/
@@ -406,7 +435,6 @@ li{
 .backArrow{
   width: 40px;
   display: inline-block;
-  float: left;
   margin: 4%;
 }
 
@@ -458,29 +486,25 @@ li{
 
 }
 
-.messageField{
-  position: absolute;
-  width: 70vw;
-  margin-left: 50%
-}
+.messageField{position: absolute;margin-left: 35%;margin-bottom: 5vw;}
 
 .messageInputField{
-  width: 40%;
   height: 25px;
   margin-right: 0.5%;
   margin: 0 auto;
   border: 1px solid #B1B1B1;
   color: #444444;
+  width: 400px;
 }
 
 .sendMessageButton{
-  width: 80px;
   border-radius: 5px;
   border: none;
   background-color: #D02858;
   color: white;
   height: 30px;
-  margin-bottom: 2%
+  font-size: 18px;
+  width: 100px;
 }
 
 /*Video Styles*/
