@@ -44,6 +44,8 @@ input.submitButton {
     border-radius: 100px;
     border: none;
     width: 25%;
+    color: white;
+    margin-top: 25px;
 }
 
 input.locationInput {
@@ -53,6 +55,8 @@ input.locationInput {
     border: 1px solid #B1B1B1;
     font-size: 24px;
     color: #444444;
+    width: 50%;
+    margin-bottom: 50px;
 }
 img.profileIcon {
   width: 40px;
@@ -155,11 +159,13 @@ p.profileName {
 .aboutMe {
     text-align: center;
     font-size: 24px;
+    margin-top: -35px;
 }
 
 .location {
     text-align: center;
     font-size: 24px;
+    margin-top: -25px;
 }
 
 .bioChange {
@@ -197,11 +203,21 @@ p.profileName {
     border-radius: 100px;
     width: 25%;
     margin: 0 auto;
+    color: white;
+    margin-top: 25px;
 }
 
 input.saveButton {
-    margin: 0 auto;
     display: block;
+    margin: 0 auto;
+    font-size: 24px;
+    font-family: 'Cairo', sans-serif;
+    background: #D02858;
+    border-radius: 100px;
+    border: none;
+    width: 25%;
+    color: white;
+    margin-top: 25px;
 }
 
 .charactersLeft {
@@ -211,10 +227,12 @@ input.saveButton {
 input.bioInput {
     margin: 0 auto;
     display: block;
-    text-align: center;
     border: 1px solid #B1B1B1;
     font-size: 24px;
     color: #444444;
+    width: 50%;
+    height: 20vw;
+    text-align: center;
 }
 
 .editPref {
@@ -225,22 +243,63 @@ input.bioInput {
     border-radius: 100px;
     width: 25%;
     margin: 0 auto;
+    color: white;
+    margin-top: 25px;
 }
+.profileInfo {
+    margin-top: -20px;
+    margin-bottom: 50px;
+}
+
+h2.profileAge {
+    margin-bottom: -25px;
+}
+
+/********** Edit Preferences ***************/
+
+select.prefGenderSelect {
+    text-align: center;
+    border: 1px solid #B1B1B1;
+    font-size: 20px;
+    color: #444444;
+    width: 20%;
+    background: white;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+input.prefAgeInput {
+    text-align: center;
+    border: 1px solid #B1B1B1;
+    font-size: 20px;
+    color: #444444;
+    width: 10%;
+    margin-bottom: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+label.editText {
+    font-size: 24px;
+}
+
+input.ageInput {
+    text-align: center;
+    border: 1px solid #B1B1B1;
+    font-size: 20px;
+    color: #444444;
+    width: 10%;
+    background: white;
+    margin-left: 10px;
+}
+
+ul.editPrefForm {
+    margin-left: 5%;
+}
+
 /********** HOME SCREEN        ***************/
 
-.toVidChatLobbyButton {
-margin: 20%;
-width: 60vw;
-height: 40vh;
-color: white;
-font-size: 300%;
-border-radius: 10px;
-border-style: double;
-border-width: 3px;
-border-color: #efc6cf;
-background-color: #D02858;
-font-family: 'Cairo', sans-serif;
-}
+.toVidChatLobbyButton {margin: 20%;width: 60vw;height: 40vh;color: white;font-size: 250%;border-radius: 10px;border-style: double;border-width: 3px;border-color: #efc6cf;background-color: #D02858;font-family: 'Cairo', sans-serif;}
 
 
 /********** MATCH LIST AND MATCH *************/
@@ -293,6 +352,7 @@ font-family: 'Cairo', sans-serif;
     padding: 2%;
     text-decoration: none;
 }
+
 /************* PUBLIC PROFILE ********/
 
 .publicProfileContainer{
@@ -311,6 +371,7 @@ font-family: 'Cairo', sans-serif;
 .publicBio{
   float: left;
 }
+
 /************* Chat Room *************/
 
 li{

@@ -67,8 +67,10 @@ class Profile extends React.Component {
         </div>
         <div className="row">
           <img className="img-circle center-block profile-img"src={profile.photo}/>
+          <div className="profileInfo">
           <h2 className="profileAge">Age: {profile.age_min}</h2>
           <h2 className="profileLocation">Location: {profile.location}</h2>
+          </div>
         </div>
         <div>
           <form onSubmit={this.handleSubmit}>
