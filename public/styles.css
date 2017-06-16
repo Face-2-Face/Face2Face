@@ -340,27 +340,28 @@ h3.connecting {
 }
 
 .matchName{
-  color:black;
+  color: #444444;
   font-weight: bold;
-  margin-right: 8%;
+  margin-right: 5%;
   font-size: 24px;
 }
 
 .enterChat{
-  color:black;
-  margin-right: 6%;
+  color: #444444;
+  margin-right: 4%;
+  display: block;
 }
 
 .match{
   width: 90vw;
-  height: 12vh;
+  /* height: 12vh; */
   margin: auto;
   border-style: solid;
   border-color: #d69cad;
   border-radius: 5px;
   border-width: 1px;
   margin-top: 2%;
-  background-color: #e8dee1
+  background-color: #e8dee1;
 }
 
 .match-img {
@@ -376,6 +377,12 @@ h3.connecting {
     background: #D02858;
     padding: 2%;
     text-decoration: none;
+}
+
+.matchComponent {
+  /* margin: 1vh; */
+  /* display: inline-block; */
+  margin: 1vw;
 }
 
 /************* PUBLIC PROFILE ********/
