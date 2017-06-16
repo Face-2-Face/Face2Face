@@ -299,7 +299,28 @@ ul.editPrefForm {
 
 /********** HOME SCREEN        ***************/
 
-.toVidChatLobbyButton {margin: 20%;width: 60vw;height: 40vh;color: white;font-size: 250%;border-radius: 10px;border-style: double;border-width: 3px;border-color: #efc6cf;background-color: #D02858;font-family: 'Cairo', sans-serif;}
+.toVidChatLobbyButton {
+  margin: 20%;
+  width: 60vw;
+  height: 40vh;
+  color: white;
+  font-size: 250%;
+  border-radius: 10px;
+  border-style: double;
+  border-width: 3px;
+  border-color: #efc6cf;
+  background-color: #D02858;
+  font-family: 'Cairo', sans-serif;
+}
+
+/********** Lobby ***************/
+
+h3.connecting {
+    font-size: 36px;
+    font-family: 'Pacifico', cursive;
+    text-align: center;
+    padding: 10%;
+}
 
 
 /********** MATCH LIST AND MATCH *************/

@@ -98,7 +98,7 @@ class Lobby extends React.Component {
             <Redirect to={{pathname: '/video', search: queryString}} />;
           </div>
           :
-          <h3>Connecting ... </h3>
+          <h3 className="connecting">Connecting ... </h3>
         }
       </div>
     )
