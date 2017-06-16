@@ -65,7 +65,7 @@ class PreferencesForm extends React.Component {
           <div>
             <h2>Please input your preferences</h2>
             <form onSubmit={this.handleSubmit}>
-              <ul>
+              <ul className="editPrefForm">
                 <li><label className="editText">
                   My age:
                   <input className="ageInput" name="age" value={this.state.age} onChange={(e) => this.setState({ age: e.target.value})} />

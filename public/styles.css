@@ -24,7 +24,7 @@ h4 {
 img {
   display: block;
   margin: 0 auto;
-  width: 70%;
+  width: 500px;
 }
 
 p  {
@@ -33,6 +33,17 @@ p  {
 
 a {
   text-decoration: none;
+}
+
+/********** Login *************/
+
+h4.slogan {
+    font-family: 'Cairo';
+    font-size: 20px;
+}
+
+h1.appName {
+    font-size: 36px;
 }
 
 input.submitButton {
@@ -207,7 +218,7 @@ p.profileName {
     margin: 0 auto;
     color: white;
     margin-top: 25px;
-    margin-bottom: 25px;
+    margin-bottom: 15%;
 }
 
 input.saveButton {
@@ -306,6 +317,7 @@ ul.editPrefForm {
   margin: 0 auto;
   display: block;
   margin-top: 15%;
+  margin-bottom: 15%;
   width: 60vw;
   height: 40vh;
   color: white;
