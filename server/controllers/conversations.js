@@ -17,6 +17,9 @@ module.exports.addToConversations = (req, res) => {
     console.log('this is the request body in the conversations', req.body)
 };
 
+module.exports.getConvo = (req, res) => {
+  console.log('made it to get convo ', req.params)
+}
 
 // module.exports.getUserMatches = (req, res) => {
 //   models.Matches.where({ user_id: req.params.id })

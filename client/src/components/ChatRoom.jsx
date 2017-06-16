@@ -15,6 +15,8 @@ class ChatRoom extends React.Component {
       messages: [],
       userProfile: this.props.location.state.userProfile,
       matchProfile: this.props.location.state.matchProfile,
+      matchPath: this.props.location.pathname,
+      conversationID: 0,
       oldMessagesRetrieved: false,
       oldMessages: [],
       mount: true
@@ -25,6 +27,8 @@ class ChatRoom extends React.Component {
     this.handleIncomingMessages = this.handleIncomingMessages.bind(this);
     this.messageBuilder = this.messageBuilder.bind(this);
     this.retrieveOldMessages = this.retrieveOldMessages.bind(this);
+    this.getConversationID = this.getConversationID.bind(this);
+    this.getEndofPath = this.getEndofPath.bind(this);
   }
 
   componentDidMount(){
@@ -33,6 +37,7 @@ class ChatRoom extends React.Component {
     if(!this.state.oldMessagesRetrieved) {
       console.log('retrieving msg...');
       this.setState({oldMessagesRetrieved: true});
+      this.getConversationID();
       this.retrieveOldMessages();
     }
     this.handleIncomingMessages();
@@ -71,6 +76,26 @@ class ChatRoom extends React.Component {
     //conversation id should get
     var message = {conversation_id: 1, from: this.state.userProfile.id, to: this.state.matchProfile.id, message: text}
     return message;
+  }
+
+  getConversationID() {
+    let that = this;
+    var id = this.getEndofPath(this.state.matchPath);
+    console.log('getting convo: ', id)
+    const conversationPath = '/api/conversations/' + id;
+    axios.get(conversationPath)
+      .then(function(response) {
+        console.log('GOT CONVO ==> ', response.data);
+        that.setState({conversationID: response.data});
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+  }
+
+  getEndofPath(path) {
+    var arr = path.split('/');
+    return arr[2];
   }
 
   retrieveOldMessages() {
