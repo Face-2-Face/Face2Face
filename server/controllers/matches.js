@@ -17,7 +17,7 @@ module.exports.getUserMatches = (req, res) => {
   models.Matches.where({ user_id: req.params.id, userResponse: true, otherResponse: true })
     .fetchAll()
     .then(matches => {
-      console.log('hello from match fetch', matches)
+      //console.log('hello from match fetch', matches)
       res.status(200).send(matches);
     })
     .catch(err => {
@@ -63,10 +63,10 @@ module.exports.acceptOther = (req, res) => {
       }
     })
     .catch(err => {
-      res.status(503).send(err);      
+      res.status(503).send(err);
     });
 };
-    
+
 module.exports.rejectOther = (req, res) => {
   let otherID = req.body.otherID;
   let userID = req.body.userID;
@@ -90,7 +90,7 @@ module.exports.rejectOther = (req, res) => {
       }
     })
     .catch(err => {
-      res.status(503).send(err);      
+      res.status(503).send(err);
     });
 };
 

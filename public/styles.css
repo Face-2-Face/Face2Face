@@ -348,6 +348,7 @@ h3.connecting {
     font-family: 'Pacifico', cursive;
     text-align: center;
     padding: 10%;
+    color: #444444
 }
 
 
@@ -445,6 +446,7 @@ li{
   width: 40px;
   display: inline-block;
   margin: 4%;
+  margin-bottom: -7%;
 }
 
 .chatRoomContainer{
@@ -461,7 +463,7 @@ li{
   background-color: #E35976;
   display: inline-block;
   text-align: right;
-  margin-right: 1%;
+  margin-right: 2%;
   margin-top: 1px;
   border-radius: 7.5px;
   padding: 1.1%;
@@ -475,7 +477,7 @@ li{
   background-color: #B1B1B1;
   display: inline-block;
   text-align: left;
-  margin-left: 1%;
+  margin-left: 2%;
   margin-top: 1px;
   border-radius: 7.5px;
   padding: 1.1%;
@@ -500,6 +502,7 @@ li{
 .messageInputField{
   height: 25px;
   margin-right: 0.5%;
+  margin-top: 0.5%;
   margin: 0 auto;
   border: 1px solid #B1B1B1;
   color: #444444;
