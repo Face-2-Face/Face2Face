@@ -28,55 +28,49 @@ module.exports.getUserMatches = (req, res) => {
 };
 
 module.exports.acceptOther = (req, res) => {
-  var otherID = req.body.otherID;
   var userID = req.body.userID;
+  var otherID = req.body.otherID;
+  var userIDclone = req.body.userID;
+  var otherIDclone = req.body.otherID;
   // res.status(200).send({yes: otherID, no: userID});
   // there is a record for me already (YES)
-  console.log('BEFORE FORGE', otherID, userID);
-  models.Matches.forge( { user_id: 6, match: 7, temp: true} )
-    .save()
-    .then(result => {
-      console.log('IN FORGE');
-      res.status(201).send(result);
+  console.log('userID', userID, userIDclone);
+  console.log('otherID', otherID, otherIDclone);
+
+  models.Matches.where( {user_id: otherID, other_id: userID} ).fetch()
+    .then(profile => {
+      console.log('matches.js profile ----->', profile );
+      // if match === undefined then update with new row user_id: userID and match: otherID temp: true
+      if (profile === null) {
+        models.Matches.forge({ user_id: userIDclone, other_id: otherIDclone, userResponse: true})
+          .save()
+          .then(result => {
+            res.status(201).send(result);
+          })
+          .catch(err => {
+            res.status(500).send(err);
+          });
+      }
+      // } else {
+      //   return profile.save( { temp: false}, {method: 'update'})
+      //   .then(() => {
+      //     models.Matches.forge({ user_id: userID, match: otherID, temp: true})
+      //       .save()
+      //       .then(result => {
+      //         res.status(201).send('DONE MATCHES');
+      //       })
+      //       .catch(err => {
+      //         res.status(500).send(err);
+      //       });          
+      //   })
+      //   .catch(err => {
+      //     res.status(503).send(err);
+      //   });
+      // }
     })
     .catch(err => {
-      res.status(500).send('FORGE NOT WORKING');
+      res.status(503).send(err);      
     });
-
-  // models.Matches.where( {user_id: otherID, match: userID} ).fetch()
-  //   .then(profile => {
-  //     console.log('matches.js profile ----->', profile );
-  //     // if match === undefined then update with new row user_id: userID and match: otherID temp: true
-  //     if (profile === null) {
-  //       models.Matches.forge({ user_id: 6, match: 7, temp: true})
-  //         .save()
-  //         .then(result => {
-  //           res.status(201).send(result);
-  //         })
-  //         .catch(err => {
-  //           res.status(500).send(err);
-  //         });
-  //     }
-  //     // } else {
-  //     //   return profile.save( { temp: false}, {method: 'update'})
-  //     //   .then(() => {
-  //     //     models.Matches.forge({ user_id: userID, match: otherID, temp: true})
-  //     //       .save()
-  //     //       .then(result => {
-  //     //         res.status(201).send('DONE MATCHES');
-  //     //       })
-  //     //       .catch(err => {
-  //     //         res.status(500).send(err);
-  //     //       });          
-  //     //   })
-  //     //   .catch(err => {
-  //     //     res.status(503).send(err);
-  //     //   });
-  //     // }
-  //   })
-  //   .catch(err => {
-  //     res.status(503).send(err);      
-  //   });
 }
     
       // module.exports.create = (req, res) => {
@@ -99,4 +93,22 @@ module.exports.rejectOther = (req, res) => {
   let otherID = req.body.otherID;
   let userID = req.body.userID;
 
+  models.Matches.where( {user_id: otherID, other_id: userID} ).fetch()
+    .then(profile => {
+      console.log('matches.js profile ----->', profile );
+      // if match === undefined then update with new row user_id: userID and match: otherID temp: true
+      if (profile === null) {
+        models.Matches.forge({ user_id: userID, other_id: otherID, userResponse: false})
+          .save()
+          .then(result => {
+            res.status(201).send(result);
+          })
+          .catch(err => {
+            res.status(500).send(err);
+          });
+      }
+    })
+    .catch(err => {
+      res.status(503).send(err);      
+    });
 }
