@@ -159,7 +159,9 @@ p.profileName {
 .aboutMe {
     text-align: center;
     font-size: 24px;
+    color: #444444;
     margin-top: -35px;
+    margin: auto;
 }
 
 .location {
@@ -205,6 +207,7 @@ p.profileName {
     margin: 0 auto;
     color: white;
     margin-top: 25px;
+    margin-bottom: 25px;
 }
 
 input.saveButton {
@@ -384,14 +387,19 @@ h3.connecting {
 }
 
 .publicProfilePhoto{
-  margin: auto;
-  width: 20vw;
-  height: 20vh;
+  max-width: 20%;
+  height: auto;
+  margin-top: 2%;
   border-radius: 100%;
+  margin: 0 auto;
 }
 
 .publicBio{
   float: left;
+}
+
+.aboutPublic {
+    margin-top: 5%;
 }
 
 /************* Chat Room *************/
@@ -403,7 +411,6 @@ li{
 .backArrow{
   width: 40px;
   display: inline-block;
-  float: left;
   margin: 4%;
 }
 
@@ -455,29 +462,25 @@ li{
 
 }
 
-.messageField{
-  position: absolute;
-  width: 70vw;
-  margin-left: 50%
-}
+.messageField{position: absolute;margin-left: 35%;margin-bottom: 5vw;}
 
 .messageInputField{
-  width: 40%;
   height: 25px;
   margin-right: 0.5%;
   margin: 0 auto;
   border: 1px solid #B1B1B1;
   color: #444444;
+  width: 400px;
 }
 
 .sendMessageButton{
-  width: 80px;
   border-radius: 5px;
   border: none;
   background-color: #D02858;
   color: white;
   height: 30px;
-  margin-bottom: 2%
+  font-size: 18px;
+  width: 100px;
 }
 
 /*Video Styles*/
