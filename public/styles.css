@@ -303,7 +303,9 @@ ul.editPrefForm {
 /********** HOME SCREEN        ***************/
 
 .toVidChatLobbyButton {
-  margin: 20%;
+  margin: 0 auto;
+  display: block;
+  margin-top: 15%;
   width: 60vw;
   height: 40vh;
   color: white;
