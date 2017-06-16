@@ -340,6 +340,7 @@ h3.connecting {
   color:black;
   font-weight: bold;
   margin-right: 8%;
+  font-size: 24px;
 }
 
 .enterChat{
@@ -400,10 +401,10 @@ li{
 }
 
 .backArrow{
-  float:left;
-  font-size: 250%;
-  color: black;
-  margin-left: 0.6%;
+  width: 40px;
+  display: inline-block;
+  float: left;
+  margin: 4%;
 }
 
 .chatRoomContainer{
@@ -464,6 +465,9 @@ li{
   width: 40%;
   height: 25px;
   margin-right: 0.5%;
+  margin: 0 auto;
+  border: 1px solid #B1B1B1;
+  color: #444444;
 }
 
 .sendMessageButton{
