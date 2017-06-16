@@ -56,7 +56,7 @@ class Match extends React.Component {
     }
     return (
       <div className="match">
-        <Link to={{pathname: '/public-profile', state: {profile: this.state.matchProfile}}}>
+        <Link to={{pathname: '/public-profile', state: {profile: this.state.matchProfile, userProfile: this.props.userProfile}}}>
           <img className="img-circle center-block match-img"src={this.state.matchProfile.photo}
             onClick={()=>console.log('HEY', this.state.matchProfile)}
             />
