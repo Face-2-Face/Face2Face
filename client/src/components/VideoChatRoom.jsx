@@ -72,6 +72,7 @@ class VideoChatRoom extends React.Component {
       });
   }
   toDisconnect() {
+    console.log('got into toDisconnect');
     this.state.room.disconnect();
     this.setState({videoChatComplete: true});
   }
@@ -79,19 +80,28 @@ class VideoChatRoom extends React.Component {
   render() {
     let next;
     if (this.state.videoChatComplete) {
-        var queryString = '?userID=' + this.state.userID + '&otherID=' + this.state.otherID;
-        next = <div><Redirect to={{pathname: '/postchat', search: queryString}} /></div>;
+      var queryString = '?userID=' + this.state.userID + '&otherID=' + this.state.otherID;
+      next = <div><Redirect to={{pathname: '/postchat', search: queryString}} /></div>;
     } else {
-        next = <div></div>;
+      next = <div></div>;
     }
     return (
       <div>
-        <div id="local-media"></div>
-        <div id="remote-media"></div>
-        <button onClick={this.toDisconnect}>End Video Chat</button>
-        {next}
+        <div className="main-video">
+        <div id="remote-media">
+          <div id="local-media"></div>
+            <img className="xIconRed" src="public/assets/x-icon-red.png" onClick={() => this.toDisconnect()}/>
+          {next}
+          </div>
+        
+        </div>
+        
       </div>
     );
   }
 }
 export default VideoChatRoom;
+
+ 
+
+
