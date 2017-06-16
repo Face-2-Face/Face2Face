@@ -63,7 +63,7 @@ class Profile extends React.Component {
           {console.log('props in profile', this.state.profile)}
         <Header />
         <div className="row">
-          <p className="profileName"><h1>Hello {profile.first}!</h1></p>
+          <p className="profileName"><h1>{profile.first}</h1></p>
         </div>
         <div className="row">
           <img className="img-circle center-block profile-img"src={profile.photo}/>
@@ -73,17 +73,21 @@ class Profile extends React.Component {
         <div>
           <form onSubmit={this.handleSubmit}>
         <label className="editPreferences">
-          <div className="aboutMe">About Me:</div>
-          <div className="bioChange"><textarea value={this.state.bioValue} onChange={this.handleBioChange} /></div>
+          <div className="bio">
+          <div className="aboutMe">Bio:</div>
+          <div className="bioChange"><input className="bioInput" value={this.state.bioValue} onChange={this.handleBioChange} /></div>
           <div className="charactersLeft"><p>Chars left: {this.state.charsLeft}</p></div>
+          </div>
+          <div>
           <div className="location">Location:</div>
           <div className="locationChange"><input className="locationInput" value={this.state.locationValue} onChange={this.handleLocationChange} /></div>
+          </div>
         </label>
         <input className="submitButton" type="submit" value="Save" />
       </form>
         </div>
-        <Link to={{pathname: '/edit-preferences', state: {profile: this.state.profile}}}><img className="settingsIcon" src="public/assets/settings.png"/></Link>
-        <Link to={{pathname: '/logout'}}><img className="logoutIcon" src="public/assets/logout.png" /></Link>
+        <Link to={{pathname: '/edit-preferences', state: {profile: this.state.profile}}}><div className="editPref">Edit Preferences</div></Link>
+        <Link to={{pathname: '/logout'}}><div className="Logout">Logout</div></Link>
         <div className="row">
         </div>
       </div>
