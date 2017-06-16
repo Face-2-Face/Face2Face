@@ -7,7 +7,7 @@ router.route('/')
   .get(ConversationsController.getAll)
   ;
 
-router.route('/:id')
+router.route('/')
   .put(ConversationsController.addToConversations)
   .get(ConversationsController.getConvo)
   // .delete(ProfileController.deleteOne)
