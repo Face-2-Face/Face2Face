@@ -38,10 +38,10 @@ module.exports.acceptOther = (req, res) => {
   console.log('otherID', otherID, otherIDclone);
 
   models.Matches.where( {user_id: otherID, other_id: userID} ).fetch()
-    .then(profile => {
-      console.log('matches.js profile ----->', profile );
+    .then(matchResponse => {
+      console.log('matches.js profile ----->', matchResponse );
       // if match === undefined then update with new row user_id: userID and match: otherID temp: true
-      if (profile === null) {
+      if (matchResponse === null) {
         models.Matches.forge({ user_id: userIDclone, other_id: otherIDclone, userResponse: true})
           .save()
           .then(result => {
@@ -50,45 +50,25 @@ module.exports.acceptOther = (req, res) => {
           .catch(err => {
             res.status(500).send(err);
           });
+      } else if (matchResponse.get("userResponse") === true) {
+        matchResponse.save({otherResponse: true}, {method: 'update'});
+        models.Matches.forge({ user_id: userIDclone, other_id: otherIDclone, userResponse: true, otherResponse: true})
+          .save()
+          .then(result => {
+            res.status(201).send(result);
+          })
+          .catch(err => {
+            res.status(500).send(err);
+          });
+      } else {
+        matchResponse.destroy();
       }
-      // } else {
-      //   return profile.save( { temp: false}, {method: 'update'})
-      //   .then(() => {
-      //     models.Matches.forge({ user_id: userID, match: otherID, temp: true})
-      //       .save()
-      //       .then(result => {
-      //         res.status(201).send('DONE MATCHES');
-      //       })
-      //       .catch(err => {
-      //         res.status(500).send(err);
-      //       });          
-      //   })
-      //   .catch(err => {
-      //     res.status(503).send(err);
-      //   });
-      // }
     })
     .catch(err => {
       res.status(503).send(err);      
     });
-}
+};
     
-      // module.exports.create = (req, res) => {
-      //   models.Profile.forge({ username: req.body.username, password: req.body.password })
-      //     .save()
-      //     .then(result => {
-      //       res.status(201).send(result.omit('password'));
-      //     })
-      //     .catch(err => {
-      //       if (err.constraint === 'users_username_unique') {
-      //         return res.status(403);
-      //       }
-      //       res.status(500).send(err);
-      //     });
-      // };
-      // else 1. udpate that model with temp=false 2. new row user_id: userID match: otherID temp: true
-
-
 module.exports.rejectOther = (req, res) => {
   let otherID = req.body.otherID;
   let userID = req.body.userID;
@@ -114,7 +94,7 @@ module.exports.rejectOther = (req, res) => {
     .catch(err => {
       res.status(503).send(err);      
     });
-}
+};
 
 
 /*
