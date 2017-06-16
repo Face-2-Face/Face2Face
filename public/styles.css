@@ -38,12 +38,15 @@ a {
 input.submitButton {
     display: block;
     margin: 0 auto;
+    font-size: 24px;
+    font-family: 'Cairo', sans-serif;
 }
 
 input.locationInput {
     display: block;
     margin: 0 auto;
     text-align: center;
+    border: 1px solid #B1B1B1;
 }
 img.profileIcon {
   width: 40px;
@@ -89,6 +92,7 @@ h4.appName  {
 .profile-name {
   font-size: 50px;
 }
+
 
 .profile-form {
   display: inline-block;
@@ -138,6 +142,10 @@ h4.appName  {
 
 /********** Profile *************/
 
+p.profileName {
+    margin: 5%;
+}
+
 .aboutMe {
     text-align: center;
     font-size: 24px;
@@ -172,13 +180,35 @@ h4.appName  {
   padding-right: 20%;
   padding-left: 20%;
   font-size: 75%;
-
+  display: inline;
 }
 
-textarea {
-    display: block;
-    margin: 0 auto;
+.Logout {
     text-align: center;
+    font-size: 24px;
+    color: black;
+}
+
+input.saveButton {
+    margin: 0 auto;
+    display: block;
+}
+
+.charactersLeft {
+    font-size: 12px;
+}
+
+input.bioInput {
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+    border: 1px solid #B1B1B1;
+}
+
+.editPref {
+    text-align: center;
+    font-size: 24px;
+    color: black;
 }
 /********** HOME SCREEN        ***************/
 

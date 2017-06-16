@@ -64,11 +64,11 @@ class EditPreferences extends React.Component {
         <Header />
         {console.log('props in edits', this.state.profile)}
         <h1>Edit Preferences</h1>
-          <h2>{this.state.profile.first}</h2>
           <form onSubmit={this.handleSubmit}>
             <ul>
+              <label>Name: {this.state.profile.first}</label>
               <li><label>
-                My age:
+                Age:
                 <input name="age" value={this.state.age_min} onChange={(e) => this.setState({ age_min: e.target.value, axe_max: e.target.value})} />
               </label></li>
               <li><label>
