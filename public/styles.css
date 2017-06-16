@@ -183,7 +183,6 @@ p.profileName {
     font-size: 24px;
     color: #444444;
     margin-top: -35px;
-    margin: auto;
 }
 
 .location {
@@ -348,7 +347,7 @@ h3.connecting {
     font-family: 'Pacifico', cursive;
     text-align: center;
     padding: 10%;
-    color: #444444
+    color: #444444;
 }
 
 
@@ -506,7 +505,7 @@ li{
   margin: 0 auto;
   border: 1px solid #B1B1B1;
   color: #444444;
-  width: 400px;
+  width: 500px;
 }
 
 .sendMessageButton{

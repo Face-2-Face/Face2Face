@@ -62,7 +62,7 @@ class Home extends React.Component {
                 <Header profile={this.state.profile} show={this.handleMatchListClick}/>
               </div>
               <div className="row">
-                <Link to={{pathname: '/lobby', state: {profile: this.state.profile}}}><button className="toVidChatLobbyButton" type="button" >Click Here to Meet Your Match</button></Link>
+                <Link to={{pathname: '/lobby', state: {profile: this.state.profile}}}><button className="toVidChatLobbyButton" type="button" >Make A Connection</button></Link>
               </div>
             </div>
 
