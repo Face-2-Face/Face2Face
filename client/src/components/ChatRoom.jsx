@@ -33,12 +33,9 @@ class ChatRoom extends React.Component {
 
   componentDidMount(){
     this.setState({mount: false})
-    console.log('MOUNTED')
     if(!this.state.oldMessagesRetrieved) {
-      console.log('retrieving msg...');
       this.setState({oldMessagesRetrieved: true});
       this.getConversationID();
-    //  this.retrieveOldMessages();
     }
     this.handleIncomingMessages();
     this.state.socket.emit('join', {path: this.props.location.pathname});
@@ -47,7 +44,6 @@ class ChatRoom extends React.Component {
   handleIncomingMessages(msg) {
     this.state.socket.on('message', (msg) => {
       this.state.messages.push(msg);
-      console.log('this is the messages arr from handleIncomingMessages', this.state.messages);
       this.setState({messages: this.state.messages});
     });
   }
@@ -74,7 +70,7 @@ class ChatRoom extends React.Component {
 
   messageBuilder(text) {
     //conversation id should get
-    var message = {conversation_id: 1, from: this.state.userProfile.id, to: this.state.matchProfile.id, message: text}
+    var message = {conversation_id: this.state.conversationID, from: this.state.userProfile.id, to: this.state.matchProfile.id, message: text}
     return message;
   }
 
@@ -109,7 +105,6 @@ class ChatRoom extends React.Component {
       });
   }
 
-
   render() {
 
     var allMessages = this.state.messages.map((message) => {
@@ -119,9 +114,7 @@ class ChatRoom extends React.Component {
       return (<div className="singleLine"><p className="messageTheySent"> {message.messages}</p></div>)
     });
     var oldMessages = this.state.oldMessages.map((message) => {
-      console.log('msg: ', message.sender, ' me: ', this.state.userProfile.id)
       if(message.recipient === this.state.userProfile.id){
-
         return (<div className="singleLine"> <p className="messageISent">{message.content} <br /></p></div>)
       } else {
         return (<div className="singleLine"> <p className="messageTheySent">{message.content} <br /> </p></div>)
