@@ -38,7 +38,7 @@ class ChatRoom extends React.Component {
       console.log('retrieving msg...');
       this.setState({oldMessagesRetrieved: true});
       this.getConversationID();
-      this.retrieveOldMessages();
+    //  this.retrieveOldMessages();
     }
     this.handleIncomingMessages();
     this.state.socket.emit('join', {path: this.props.location.pathname});
@@ -81,12 +81,11 @@ class ChatRoom extends React.Component {
   getConversationID() {
     let that = this;
     var id = this.getEndofPath(this.state.matchPath);
-    console.log('getting convo: ', id)
     const conversationPath = '/api/conversations/' + id;
     axios.get(conversationPath)
       .then(function(response) {
-        console.log('GOT CONVO ==> ', response.data);
-        that.setState({conversationID: response.data});
+        that.setState({conversationID: response.data[0].id});
+        that.retrieveOldMessages(response.data[0].id);
       })
       .catch(function(error) {
         console.log(error);
@@ -98,12 +97,11 @@ class ChatRoom extends React.Component {
     return arr[2];
   }
 
-  retrieveOldMessages() {
+  retrieveOldMessages(id) {
     let that = this;
-    const messagePath = '/api/messages/' + '1'; //change to convoID later
+    const messagePath = '/api/messages/' + id;
     axios.get(messagePath)
       .then(function(response) {
-        console.log('RESPONSE ==>', response.data)
         that.setState({oldMessages: response.data});
       })
       .catch(function(error) {
