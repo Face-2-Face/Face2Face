@@ -257,9 +257,9 @@ font-family: 'Cairo', sans-serif;
 
 .publicProfilePhoto{
   margin: auto;
-  width: 10vw;
-  height: 10vh;
-
+  width: 20vw;
+  height: 20vh;
+  border-radius: 100%;
 }
 
 .publicBio{
