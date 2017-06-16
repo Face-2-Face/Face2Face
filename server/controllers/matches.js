@@ -14,10 +14,8 @@ module.exports.getAll = (req, res) => {
 };
 
 module.exports.getUserMatches = (req, res) => {
-  models.Matches.where({ user_id: req.params.id })
-//    .fetch({withRelated: ['profile']})
+  models.Matches.where({ user_id: req.params.id, userResponse: true, otherResponse: true })
     .fetchAll()
-//    knex.raw(`select * from profiles where id=${req.params.id}`)
     .then(matches => {
       console.log('hello from match fetch', matches)
       res.status(200).send(matches);
